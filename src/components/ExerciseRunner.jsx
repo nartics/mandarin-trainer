@@ -1,0 +1,173 @@
+import { useState, useEffect, useRef, useCallback } from 'react'
+import { useSpeech } from '../hooks/useSpeech'
+import { useSounds } from '../hooks/useSounds'
+import { QUALITY } from '../lib/sm2'
+import { Annotated, SpeakerButton, Choice, PrimaryButton } from './ui/common'
+import BuildSentence from './exercises/BuildSentence'
+import CharWriter from './exercises/CharWriter'
+
+export default function ExerciseRunner({ queue, title, onReview, onWrite, onClose, onComplete }) {
+  const { speak, speaking } = useSpeech()
+  const sounds = useSounds()
+  const [idx, setIdx] = useState(0)
+  const [picked, setPicked] = useState(null)   // index of chosen option
+  const [revealed, setRevealed] = useState(false)
+  const [correctCount, setCorrectCount] = useState(0)
+  const [reAsk, setReAsk] = useState([])        // wrong items to repeat at the end
+  const autoplayed = useRef(-1)
+
+  const ex = queue[idx]
+  const total = queue.length
+
+  // Auto-play audio for listening exercises.
+  useEffect(() => {
+    if (!ex) return
+    if ((ex.type === 'listen-meaning' || ex.type === 'listen-hanzi') && autoplayed.current !== idx) {
+      autoplayed.current = idx
+      const t = setTimeout(() => speak(ex.audio, { rate: 0.8 }), 350)
+      return () => clearTimeout(t)
+    }
+  }, [idx, ex, speak])
+
+  const advance = useCallback((wasCorrect) => {
+    if (wasCorrect) setCorrectCount((c) => c + 1)
+    if (idx + 1 < queue.length) {
+      setIdx(idx + 1)
+      setPicked(null); setRevealed(false)
+    } else if (reAsk.length) {
+      // Re-ask missed items once.
+      const next = reAsk
+      setReAsk([])
+      queue.push(...next)
+      setIdx(idx + 1)
+      setPicked(null); setRevealed(false)
+    } else {
+      onComplete?.({ correct: wasCorrect ? correctCount + 1 : correctCount, total })
+    }
+  }, [idx, queue, reAsk, correctCount, total, onComplete])
+
+  if (!ex) return null
+
+  const handleChoice = (i) => {
+    if (revealed) return
+    setPicked(i)
+    setRevealed(true)
+    const ok = ex.options[i].correct
+    if (ok) { sounds.correct(); onReview?.(ex.word.id, QUALITY.GOOD) }
+    else {
+      sounds.wrong(); onReview?.(ex.word.id, QUALITY.AGAIN)
+      setReAsk((r) => [...r, { ...ex }])
+    }
+    // speak the word after answering reading/meaning exercises for reinforcement
+    if (ex.type !== 'listen-meaning' && ex.type !== 'listen-hanzi') {
+      setTimeout(() => speak(ex.word.hanzi, { rate: 0.8 }), 250)
+    }
+  }
+
+  const sentenceResult = (ok) => {
+    if (ok) { sounds.correct(); onReview?.(ex.word.id, QUALITY.GOOD); advance(true) }
+    else { sounds.wrong(); onReview?.(ex.word.id, QUALITY.AGAIN); setReAsk((r) => [...r, { ...ex }]); advance(false) }
+  }
+
+  const writeResult = (mistakes) => {
+    sounds.complete()
+    onWrite?.(ex.word.hanzi[0], mistakes)
+    onReview?.(ex.word.id, mistakes === 0 ? QUALITY.GOOD : QUALITY.HARD)
+    setTimeout(() => advance(mistakes === 0), 600)
+  }
+
+  const isChoice = ['listen-meaning', 'listen-hanzi', 'read-meaning', 'meaning-hanzi', 'pinyin-choose'].includes(ex.type)
+  const wasCorrect = revealed && picked != null && ex.options?.[picked]?.correct
+
+  return (
+    <div className="fixed inset-0 z-40 bg-ink-900 flex flex-col safe-top">
+      {/* Header */}
+      <div className="flex items-center gap-3 px-4 pt-3 pb-2">
+        <button onClick={onClose} className="text-slate-400 text-2xl leading-none px-2">✕</button>
+        <div className="flex-1 h-3 rounded-full bg-ink-700 overflow-hidden">
+          <div className="h-full bg-jade-500 transition-all" style={{ width: `${(idx / total) * 100}%` }} />
+        </div>
+        <span className="text-xs text-slate-400 w-12 text-right">{idx + 1}/{total}</span>
+      </div>
+
+      {/* Body */}
+      <div className="flex-1 overflow-y-auto no-scrollbar px-5 pt-4 pb-40">
+        <div className="max-w-md mx-auto">
+          <h2 className="text-sm uppercase tracking-wide text-slate-400 mb-5">{ex.prompt}</h2>
+
+          {ex.type === 'build-sentence' ? (
+            <BuildSentence key={idx} word={ex.word} speak={speak} speaking={speaking} onResult={sentenceResult} />
+          ) : ex.type === 'write' ? (
+            <div className="flex flex-col items-center gap-4">
+              <div className="text-center text-slate-300">
+                <span className="text-lg">{ex.word.en}</span>
+                <span className="mx-2 text-slate-500">·</span>
+                <span className="tone1">{ex.word.pinyin}</span>
+              </div>
+              <CharWriter key={idx} char={ex.word.hanzi[0]} onComplete={writeResult} />
+            </div>
+          ) : (
+            <>
+              {/* Stimulus */}
+              {(ex.type === 'listen-meaning' || ex.type === 'listen-hanzi') ? (
+                <div className="flex justify-center mb-8">
+                  <SpeakerButton onClick={() => speak(ex.audio, { rate: 0.8 })} speaking={speaking} size="w-24 h-24" big />
+                </div>
+              ) : (
+                <div className="mb-8 flex flex-col items-center gap-3">
+                  {ex.type === 'pinyin-choose'
+                    ? <div className="han text-6xl">{ex.word.hanzi}</div>
+                    : <Annotated text={ex.word.hanzi} size="text-6xl" pinyinSize="text-base" showPinyin={ex.type === 'meaning-hanzi' ? false : false} />}
+                  {ex.type !== 'meaning-hanzi' && (
+                    <SpeakerButton onClick={() => speak(ex.word.hanzi, { rate: 0.8 })} speaking={speaking} />
+                  )}
+                </div>
+              )}
+
+              {/* Options */}
+              <div className="flex flex-col gap-3">
+                {ex.options.map((o, i) => {
+                  let state = 'idle'
+                  if (revealed) {
+                    if (o.correct) state = 'correct'
+                    else if (i === picked) state = 'wrong'
+                    else state = 'muted'
+                  }
+                  return (
+                    <Choice key={i} state={state} disabled={revealed} onClick={() => handleChoice(i)}>
+                      <span className={o.han ? 'han text-2xl' : ''}>{o.label}</span>
+                    </Choice>
+                  )
+                })}
+              </div>
+            </>
+          )}
+        </div>
+      </div>
+
+      {/* Feedback footer for choice exercises */}
+      {isChoice && revealed && (
+        <div className={`fixed bottom-0 inset-x-0 safe-bottom animate-slideup ${wasCorrect ? 'bg-jade-600/20' : 'bg-cinnabar-600/20'} border-t ${wasCorrect ? 'border-jade-500/40' : 'border-cinnabar-500/40'}`}>
+          <div className="max-w-md mx-auto px-5 py-4">
+            <div className="flex items-center justify-between mb-3">
+              <div>
+                <p className={`font-bold text-lg ${wasCorrect ? 'text-jade-400' : 'text-cinnabar-400'}`}>
+                  {wasCorrect ? '正确 · Correct!' : '再试一次 · Not quite'}
+                </p>
+                <p className="text-sm text-slate-300 mt-0.5">
+                  <span className="han text-base">{ex.word.hanzi}</span>
+                  <span className="mx-1.5 tone1">{ex.word.pinyin}</span>
+                  <span className="text-slate-400">— {ex.word.en}</span>
+                </p>
+              </div>
+              <SpeakerButton onClick={() => speak(ex.word.hanzi, { rate: 0.8 })} speaking={speaking} />
+            </div>
+            <PrimaryButton color={wasCorrect ? 'jade' : 'cinnabar'} onClick={() => advance(wasCorrect)}>
+              Continue
+            </PrimaryButton>
+          </div>
+        </div>
+      )}
+    </div>
+  )
+}
