@@ -20,6 +20,7 @@ function freshState() {
   return {
     cards: {},        // wordId -> sm2 card
     write: {},        // char -> { reps, lastReviewed }
+    grammar: {},      // grammarId -> { correct, seen }
     xp: 0,
     streak: 0,
     lastActive: null, // yyyy-mm-dd
@@ -29,7 +30,8 @@ function freshState() {
 }
 
 export function useProgress() {
-  const [state, setState] = useState(() => load() || freshState())
+  // Merge persisted state over defaults so older saves gain any new keys.
+  const [state, setState] = useState(() => ({ ...freshState(), ...(load() || {}) }))
 
   useEffect(() => {
     try { localStorage.setItem(KEY, JSON.stringify(state)) } catch {}
@@ -87,6 +89,25 @@ export function useProgress() {
     })
   }, [])
 
+  const recordGrammar = useCallback((grammarId, correct) => {
+    setState((s) => {
+      const prev = s.grammar[grammarId] || { correct: 0, seen: 0 }
+      const gain = correct ? 8 : 2
+      const today = todayStr()
+      const yesterday = new Date(Date.now() - 86_400_000).toISOString().slice(0, 10)
+      let streak = s.streak
+      if (s.lastActive !== today) streak = (s.lastActive === yesterday ? streak : 0) + 1
+      return {
+        ...s,
+        grammar: { ...s.grammar, [grammarId]: { correct: prev.correct + (correct ? 1 : 0), seen: prev.seen + 1 } },
+        xp: s.xp + gain,
+        streak,
+        lastActive: today,
+        daily: { ...s.daily, [today]: (s.daily[today] || 0) + gain },
+      }
+    })
+  }, [])
+
   const completeLesson = useCallback((lessonId, level) => {
     setState((s) => ({
       ...s,
@@ -120,5 +141,5 @@ export function useProgress() {
     })
   }, [state])
 
-  return { state, stats, reviewWord, recordWrite, completeLesson, resetAll, dueWords, cardFor: (id) => state.cards[id] }
+  return { state, stats, reviewWord, recordWrite, recordGrammar, completeLesson, resetAll, dueWords, cardFor: (id) => state.cards[id], grammarFor: (id) => state.grammar[id] }
 }

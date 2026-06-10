@@ -1,12 +1,12 @@
 import { useState, useMemo, useEffect, useRef } from 'react'
-import { WORDS } from '../data/vocab'
+import { ALL_SENTENCES } from '../data/chapters'
 import { useSpeech } from '../hooks/useSpeech'
 import { useSounds } from '../hooks/useSounds'
 import { shuffle } from '../lib/queue'
 import { annotate } from '../lib/pinyin'
 import { SpeakerButton, Choice, PrimaryButton } from './ui/common'
 
-const SENTENCES = WORDS.filter((w) => w.ex).map((w) => ({ id: w.id, zh: w.ex[0], en: w.ex[1], word: w }))
+const SENTENCES = ALL_SENTENCES.map((s, i) => ({ id: 'sent' + i, zh: s.hanzi, en: s.en }))
 
 export default function ListenLab({ onReview }) {
   const { speak, speaking, supported, hasZhVoice } = useSpeech()
@@ -46,8 +46,7 @@ export default function ListenLab({ onReview }) {
   const choose = (i) => {
     if (revealed) return
     setPicked(i); setRevealed(true)
-    if (options[i].correct) { sounds.correct(); onReview?.(cur.id, 2) }
-    else { sounds.wrong(); onReview?.(cur.id, 0) }
+    if (options[i].correct) sounds.correct(); else sounds.wrong()
   }
 
   const next = () => {

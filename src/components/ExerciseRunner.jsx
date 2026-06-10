@@ -4,9 +4,10 @@ import { useSounds } from '../hooks/useSounds'
 import { QUALITY } from '../lib/sm2'
 import { Annotated, SpeakerButton, Choice, PrimaryButton } from './ui/common'
 import BuildSentence from './exercises/BuildSentence'
+import FillBlank from './exercises/FillBlank'
 import CharWriter from './exercises/CharWriter'
 
-export default function ExerciseRunner({ queue, title, onReview, onWrite, onClose, onComplete }) {
+export default function ExerciseRunner({ queue, title, onReview, onWrite, onGrammar, onClose, onComplete }) {
   const { speak, speaking } = useSpeech()
   const sounds = useSounds()
   const [idx, setIdx] = useState(0)
@@ -64,9 +65,13 @@ export default function ExerciseRunner({ queue, title, onReview, onWrite, onClos
     }
   }
 
-  const sentenceResult = (ok) => {
-    if (ok) { sounds.correct(); onReview?.(ex.word.id, QUALITY.GOOD); advance(true) }
-    else { sounds.wrong(); onReview?.(ex.word.id, QUALITY.AGAIN); setReAsk((r) => [...r, { ...ex }]); advance(false) }
+  // Attribute a free-form (sentence/grammar) result to SRS and/or grammar progress.
+  const freeResult = (ok) => {
+    if (ok) sounds.correct(); else sounds.wrong()
+    if (ex.word) onReview?.(ex.word.id, ok ? QUALITY.GOOD : QUALITY.AGAIN)
+    if (ex.grammarId) onGrammar?.(ex.grammarId, ok)
+    if (!ok) setReAsk((r) => [...r, { ...ex }])
+    advance(ok)
   }
 
   const writeResult = (mistakes) => {
@@ -96,7 +101,9 @@ export default function ExerciseRunner({ queue, title, onReview, onWrite, onClos
           <h2 className="text-sm uppercase tracking-wide text-slate-400 mb-5">{ex.prompt}</h2>
 
           {ex.type === 'build-sentence' ? (
-            <BuildSentence key={idx} word={ex.word} speak={speak} speaking={speaking} onResult={sentenceResult} />
+            <BuildSentence key={idx} sentence={ex.sentence} word={ex.word} speak={speak} speaking={speaking} onResult={freeResult} />
+          ) : ex.type === 'fill-blank' ? (
+            <FillBlank key={idx} exercise={ex} speak={speak} speaking={speaking} onResult={freeResult} />
           ) : ex.type === 'write' ? (
             <div className="flex flex-col items-center gap-4">
               <div className="text-center text-slate-300">

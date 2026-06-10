@@ -1,0 +1,4875 @@
+[
+  {
+    "week": 1,
+    "date": "Jan 13, 2026",
+    "chapterRefs": [
+      1
+    ],
+    "sections": [
+      {
+        "title": "饮料",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "咖啡",
+            "pinyin": "kā fēi",
+            "en": "coffee",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "茶",
+            "pinyin": "chá",
+            "en": "tea",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "可乐",
+            "pinyin": "kě lè",
+            "en": "cola",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "水",
+            "pinyin": "shuǐ",
+            "en": "water",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "啤酒",
+            "pinyin": "pí jiǔ",
+            "en": "beer",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "红酒",
+            "pinyin": "hóng jiǔ",
+            "en": "red wine",
+            "type": "vocab"
+          }
+        ]
+      },
+      {
+        "title": "句子（喝）",
+        "kind": "grammar",
+        "items": [
+          {
+            "hanzi": "我想喝咖啡。",
+            "pinyin": "wǒ xiǎng hē kā fēi.",
+            "en": "I want to drink coffee.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我不想喝咖啡。",
+            "pinyin": "wǒ bù xiǎng hē kā fēi.",
+            "en": "I don’t want to drink coffee.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我想喝茶。",
+            "pinyin": "wǒ xiǎng hē chá.",
+            "en": "I want to drink tea.",
+            "type": "sentence"
+          }
+        ]
+      },
+      {
+        "title": "食物",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "北京烤鸭",
+            "pinyin": "běi jīng kǎo yā",
+            "en": "Beijing roast duck",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "火锅",
+            "pinyin": "huǒ guō",
+            "en": "hot pot",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "蔬菜",
+            "pinyin": "shū cài",
+            "en": "vegetables",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "饺子",
+            "pinyin": "jiǎo zi",
+            "en": "dumplings",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "面条",
+            "pinyin": "miàn tiáo",
+            "en": "noodles",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "米饭",
+            "pinyin": "mǐ fàn",
+            "en": "rice",
+            "type": "vocab"
+          }
+        ]
+      },
+      {
+        "title": "句子（吃）",
+        "kind": "grammar",
+        "items": [
+          {
+            "hanzi": "我想吃北京烤鸭。",
+            "pinyin": "wǒ xiǎng chī běi jīng kǎo yā.",
+            "en": "I want to eat Beijing roast duck.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我不想吃北京烤鸭。",
+            "pinyin": "wǒ bù xiǎng chī běi jīng kǎo yā.",
+            "en": "I don’t want to eat Beijing roast duck.",
+            "type": "sentence"
+          }
+        ]
+      },
+      {
+        "title": "可以（can / may）",
+        "kind": "grammar",
+        "items": [
+          {
+            "hanzi": "可以",
+            "pinyin": "kě yǐ",
+            "en": "can / may",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "我可以喝咖啡。",
+            "pinyin": "wǒ kě yǐ hē kā fēi.",
+            "en": "I can drink coffee.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我可以吃火锅。",
+            "pinyin": "wǒ kě yǐ chī huǒ guō.",
+            "en": "I can eat hot pot.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我们现在不可以休息。",
+            "pinyin": "wǒ men xiàn zài bù kě yǐ xiū xí.",
+            "en": "We can’t rest right now.",
+            "type": "sentence"
+          }
+        ]
+      },
+      {
+        "title": "休息",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "休息",
+            "pinyin": "xiū xí",
+            "en": "to rest",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "我想休息。",
+            "pinyin": "wǒ xiǎng xiū xí.",
+            "en": "I want to rest.",
+            "type": "sentence"
+          }
+        ]
+      },
+      {
+        "title": "数字",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "一",
+            "pinyin": "yī",
+            "en": "one",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "二",
+            "pinyin": "èr",
+            "en": "two",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "三",
+            "pinyin": "sān",
+            "en": "three",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "四",
+            "pinyin": "sì",
+            "en": "four",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "五",
+            "pinyin": "wǔ",
+            "en": "five",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "六",
+            "pinyin": "liù",
+            "en": "six",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "七",
+            "pinyin": "qī",
+            "en": "seven",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "八",
+            "pinyin": "bā",
+            "en": "eight",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "九",
+            "pinyin": "jiǔ",
+            "en": "nine",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "十",
+            "pinyin": "shí",
+            "en": "ten",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "十一",
+            "pinyin": "shí yī",
+            "en": "eleven",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "十二",
+            "pinyin": "shí èr",
+            "en": "twelve",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "十三",
+            "pinyin": "shí sān",
+            "en": "thirteen",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "十四",
+            "pinyin": "shí sì",
+            "en": "fourteen",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "十五",
+            "pinyin": "shí wǔ",
+            "en": "fifteen",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "十六",
+            "pinyin": "shí liù",
+            "en": "sixteen",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "十七",
+            "pinyin": "shí qī",
+            "en": "seventeen",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "十八",
+            "pinyin": "shí bā",
+            "en": "eighteen",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "十九",
+            "pinyin": "shí jiǔ",
+            "en": "nineteen",
+            "type": "vocab"
+          }
+        ]
+      },
+      {
+        "title": "在 + V（正在做）",
+        "kind": "grammar",
+        "items": [
+          {
+            "hanzi": "在",
+            "pinyin": "zài",
+            "en": "be (doing something)",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "我们在上课。",
+            "pinyin": "wǒ men zài shàng kè.",
+            "en": "We are having class.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我们在吃火锅。",
+            "pinyin": "wǒ men zài chī huǒ guō.",
+            "en": "We are eating hot pot.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "现在",
+            "pinyin": "xiàn zài",
+            "en": "now",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "我们现在在上课。",
+            "pinyin": "wǒ men xiàn zài zài shàng kè.",
+            "en": "We are having class now.",
+            "type": "sentence"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "week": 2,
+    "date": "Jan 20, 2026",
+    "chapterRefs": [
+      2
+    ],
+    "sections": [
+      {
+        "title": "Notes",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "零到一百",
+            "pinyin": "líng dào yì bǎi",
+            "en": "Zero to one hundred",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "零",
+            "pinyin": "líng",
+            "en": "zero",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "二十",
+            "pinyin": "èr shí",
+            "en": "twenty",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "五十",
+            "pinyin": "wǔ shí",
+            "en": "fifty",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "七十",
+            "pinyin": "qī shí",
+            "en": "seventy",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "九十",
+            "pinyin": "jiǔ shí",
+            "en": "ninety",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "七十二",
+            "pinyin": "qī shí èr",
+            "en": "seventy-two",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "六十三",
+            "pinyin": "liù shí sān",
+            "en": "sixty-three",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "五十七",
+            "pinyin": "wǔ shí qī",
+            "en": "fifty-seven",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "九十三",
+            "pinyin": "jiǔ shí sān",
+            "en": "ninety-three",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "一百",
+            "pinyin": "yì bǎi",
+            "en": "one hundred",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "自我介绍",
+            "pinyin": "zìwǒ jièshào",
+            "en": "Self-introduction",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "大家好",
+            "pinyin": "dàjiā hǎo",
+            "en": "Hello everyone",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "我是美国人",
+            "pinyin": "wǒ shì Měiguó rén",
+            "en": "I am American",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我不是英国人",
+            "pinyin": "wǒ bú shì Yīngguó rén",
+            "en": "I am not British",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我是学生",
+            "pinyin": "wǒ shì xuéshēng",
+            "en": "I am a student",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "我会说英语、瑞士语、法语和一点点中文。",
+            "pinyin": "wǒ huì shuō Yīngyǔ, Ruìshìyǔ, Fǎyǔ hé yìdiǎndiǎn Zhōngwén.",
+            "en": "I can speak English, Swiss German, French, and a little Chinese.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "国籍和语言",
+            "pinyin": "guójí hé yǔyán",
+            "en": "Nationalities and languages",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "新西兰人",
+            "pinyin": "Xīnxīlán rén",
+            "en": "New Zealander",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "法国",
+            "pinyin": "Fǎguó",
+            "en": "France",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "法语",
+            "pinyin": "Fǎyǔ",
+            "en": "French",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "日本",
+            "pinyin": "Rìběn",
+            "en": "Japan",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "日语",
+            "pinyin": "Rìyǔ",
+            "en": "Japanese",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "瑞士",
+            "pinyin": "Ruìshì",
+            "en": "Switzerland",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "瑞士人",
+            "pinyin": "Ruìshì rén",
+            "en": "Swiss",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "瑞士语",
+            "pinyin": "Ruìshìyǔ",
+            "en": "Swiss German",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "礼貌用语",
+            "pinyin": "lǐmào yòngyǔ",
+            "en": "Polite expressions",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "谢谢 / 谢谢你",
+            "pinyin": "xièxie / xièxie nǐ",
+            "en": "thank you",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "不谢 / 不客气",
+            "pinyin": "bú xiè / bú kèqi",
+            "en": "you’re welcome",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "对不起 / 没关系",
+            "pinyin": "duìbuqǐ / méi guānxi",
+            "en": "sorry / it’s okay",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "字、词、句",
+            "pinyin": "zì, cí, jù",
+            "en": "Characters, words, sentences",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "你 / 好 —— 字",
+            "pinyin": "nǐ / hǎo",
+            "en": "characters",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "你好 —— 词",
+            "pinyin": "nǐhǎo",
+            "en": "word",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "你好，我叫杰克。—— 句",
+            "pinyin": "nǐ hǎo, wǒ jiào Jiékè.",
+            "en": "Hello, my name is Jack.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "喜欢",
+            "pinyin": "xǐhuan",
+            "en": "To like",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "鸡蛋",
+            "pinyin": "jīdàn",
+            "en": "egg",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "我喜欢吃鸡蛋。",
+            "pinyin": "wǒ xǐhuan chī jīdàn.",
+            "en": "I like eating eggs.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我不喜欢吃鸡蛋。",
+            "pinyin": "wǒ bù xǐhuan chī jīdàn.",
+            "en": "I don’t like eating eggs.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我喜欢足球。",
+            "pinyin": "wǒ xǐhuan zúqiú.",
+            "en": "I like football.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我喜欢爬山。",
+            "pinyin": "wǒ xǐhuan páshān.",
+            "en": "I like hiking.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "要 / 想 / 想要",
+            "pinyin": "yào / xiǎng / xiǎngyào",
+            "en": "Want / would like / want to",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "妈妈 / 爸爸",
+            "pinyin": "māma / bàba",
+            "en": "mom / dad",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "奶奶 / 爷爷",
+            "pinyin": "nǎinai / yéye",
+            "en": "grandma / grandpa",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "哥哥 / 弟弟",
+            "pinyin": "gēge / dìdi",
+            "en": "older brother / younger brother",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "姐姐 / 妹妹",
+            "pinyin": "jiějie / mèimei",
+            "en": "older sister / younger sister",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "表哥 / 表姐",
+            "pinyin": "biǎogē / biǎojiě",
+            "en": "cousin",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "兄弟 / 姐妹",
+            "pinyin": "xiōngdì / jiěmèi",
+            "en": "brothers / sisters",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "我家有妈妈、爸爸和两个弟弟。",
+            "pinyin": "wǒ jiā yǒu māma, bàba hé liǎng gè dìdi.",
+            "en": "My family has my mom, dad, and two younger brothers.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我没有兄弟姐妹。",
+            "pinyin": "wǒ méiyǒu xiōngdì jiěmèi.",
+            "en": "I don’t have any siblings.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "他是我的兄弟。",
+            "pinyin": "tā shì wǒ de xiōngdì.",
+            "en": "He is my brother.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "她是我的姐妹。",
+            "pinyin": "tā shì wǒ de jiěmèi.",
+            "en": "She is my sister.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "课堂用语",
+            "pinyin": "kètáng yòngyǔ",
+            "en": "Classroom expressions",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "打开书",
+            "pinyin": "dǎkāi shū",
+            "en": "open the book",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "请大声读",
+            "pinyin": "qǐng dàshēng dú",
+            "en": "please read aloud",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "再读一遍",
+            "pinyin": "zài dú yí biàn",
+            "en": "read it again",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "一起读",
+            "pinyin": "yìqǐ dú",
+            "en": "read together",
+            "type": "vocab"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "week": 3,
+    "date": "Jan 27, 2026",
+    "chapterRefs": [
+      3
+    ],
+    "sections": [
+      {
+        "title": "Notes",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "问候",
+            "pinyin": "wènhòu",
+            "en": "Greetings",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "我叫 Brian。",
+            "pinyin": "wǒ jiào Brian.",
+            "en": "My name is Brian.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我叫 Dani。",
+            "pinyin": "wǒ jiào Dani.",
+            "en": "My name is Dani.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "来自哪里 / 哪里人",
+            "pinyin": "láizì nǎlǐ / nǎlǐ rén",
+            "en": "Where are you from / nationality",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我来自比利时。",
+            "pinyin": "wǒ láizì Bǐlìshí.",
+            "en": "I’m from Belgium.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我不是美国人，我是瑞士人。",
+            "pinyin": "wǒ bú shì Měiguó rén, wǒ shì Ruìshì rén.",
+            "en": "I’m not American, I’m Swiss.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我是新西兰人。",
+            "pinyin": "wǒ shì Xīnxīlán rén.",
+            "en": "I’m a New Zealander.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "语言",
+            "pinyin": "yǔyán",
+            "en": "Languages",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "我会说英语，一点西班牙语和一点点中文。",
+            "pinyin": "wǒ huì shuō Yīngyǔ, yìdiǎn Xībānyáyǔ hé yìdiǎndiǎn Zhōngwén.",
+            "en": "I can speak English, a little Spanish, and a little Chinese.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我会说英语，一点点中文和一点点法语。",
+            "pinyin": "wǒ huì shuō Yīngyǔ, yìdiǎndiǎn Zhōngwén hé yìdiǎndiǎn Fǎyǔ.",
+            "en": "I can speak English, a little Chinese, and a little French.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "国家",
+            "pinyin": "guójiā",
+            "en": "Countries",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "法国",
+            "pinyin": "Fǎguó",
+            "en": "France",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "中国",
+            "pinyin": "Zhōngguó",
+            "en": "China",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "美国",
+            "pinyin": "Měiguó",
+            "en": "USA",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "意大利",
+            "pinyin": "Yìdàlì",
+            "en": "Italy",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "德国",
+            "pinyin": "Déguó",
+            "en": "Germany",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "新西兰",
+            "pinyin": "Xīnxīlán",
+            "en": "New Zealand",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "英国",
+            "pinyin": "Yīngguó",
+            "en": "UK",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "西班牙",
+            "pinyin": "Xībānyá",
+            "en": "Spain",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "日本",
+            "pinyin": "Rìběn",
+            "en": "Japan",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "瑞士",
+            "pinyin": "Ruìshì",
+            "en": "Switzerland",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "比利时",
+            "pinyin": "Bǐlìshí",
+            "en": "Belgium",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "巴西",
+            "pinyin": "Bāxī",
+            "en": "Brazil",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "加拿大",
+            "pinyin": "Jiānádà",
+            "en": "Canada",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "印尼",
+            "pinyin": "Yìnní",
+            "en": "Indonesia",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "萝卜蹲（游戏）",
+            "pinyin": "luóbo dūn",
+            "en": "“Carrot Squat” game",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "妹妹蹲，妹妹蹲，妹妹蹲完，爸爸蹲。",
+            "pinyin": "mèimei dūn, mèimei dūn, mèimei dūn wán, bàba dūn.",
+            "en": "Sister squats, sister squats, sister finishes squatting, dad squats.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "对话一：",
+            "pinyin": "duìhuà yī",
+            "en": "Conversation 1",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "我不是老师，我是学生。",
+            "pinyin": "wǒ bú shì lǎoshī, wǒ shì xuéshēng.",
+            "en": "I’m not a teacher, I’m a student.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "是的，我是公司员工。我是工程师。",
+            "pinyin": "shì de, wǒ shì gōngsī yuángōng. wǒ shì gōngchéngshī.",
+            "en": "Yes, I’m a company employee. I’m an engineer.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我是在音乐行业工作的。",
+            "pinyin": "wǒ shì zài yīnyuè hángyè gōngzuò de.",
+            "en": "I work in the music industry.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我是在银行工作的。",
+            "pinyin": "wǒ shì zài yínháng gōngzuò de.",
+            "en": "I work at a bank.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "是的，我在公关公司工作的。",
+            "pinyin": "shì de, wǒ zài gōngguān gōngsī gōngzuò de.",
+            "en": "Yes, I work at a PR company.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我是在做数字营销的。",
+            "pinyin": "wǒ shì zài zuò shùzì yíngxiāo de.",
+            "en": "I work in digital marketing.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "什么（提问）",
+            "pinyin": "shénme",
+            "en": "What",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "我喜欢吃火锅。",
+            "pinyin": "wǒ xǐhuan chī huǒguō.",
+            "en": "I like hot pot.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "这是水。",
+            "pinyin": "zhè shì shuǐ.",
+            "en": "This is water.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我要喝啤酒。",
+            "pinyin": "wǒ yào hē píjiǔ.",
+            "en": "I want to drink beer.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我在读 Claire Keegan 写的 Foster。",
+            "pinyin": "wǒ zài dú Claire Keegan xiě de Foster.",
+            "en": "I’m reading Foster by Claire Keegan.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我想学中文 / 汉语 / 普通话。",
+            "pinyin": "wǒ xiǎng xué Zhōngwén / Hànyǔ / Pǔtōnghuà.",
+            "en": "I want to learn Chinese / Mandarin.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "你要去哪里（Chinesepod）",
+            "pinyin": "nǐ yào qù nǎlǐ",
+            "en": "Where are you going?",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我要去中国。",
+            "pinyin": "wǒ yào qù Zhōngguó.",
+            "en": "I’m going to China.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我要去北京、上海、广州，还有香港。",
+            "pinyin": "wǒ yào qù Běijīng, Shànghǎi, Guǎngzhōu, hái yǒu Xiānggǎng.",
+            "en": "I’m going to Beijing, Shanghai, Guangzhou, and Hong Kong.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我要去吃饺子和米饭。",
+            "pinyin": "wǒ yào qù chī jiǎozi hé mǐfàn.",
+            "en": "I’m going to eat dumplings and rice.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我要喝可乐。",
+            "pinyin": "wǒ yào hē kělè.",
+            "en": "I want to drink cola.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我要去法国、意大利，还要去瑞士。",
+            "pinyin": "wǒ yào qù Fǎguó, Yìdàlì, hái yào qù Ruìshì.",
+            "en": "I’m going to France, Italy, and Switzerland.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我要买可乐、水，还有咖啡。",
+            "pinyin": "wǒ yào mǎi kělè, shuǐ, hái yǒu kāfēi.",
+            "en": "I want to buy cola, water, and coffee.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我要去见学生和老师。",
+            "pinyin": "wǒ yào qù jiàn xuéshēng hé lǎoshī.",
+            "en": "I’m going to see students and teachers.",
+            "type": "sentence"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "week": 4,
+    "date": "Feb 3, 2026",
+    "chapterRefs": [
+      3,
+      4
+    ],
+    "sections": [
+      {
+        "title": "Introductions",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "学生",
+            "pinyin": "xuéshēng",
+            "en": "student",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "于老师",
+            "pinyin": "Yú lǎoshī",
+            "en": "Teacher Yu",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "认识一下。",
+            "pinyin": "rènshi yíxià",
+            "en": "Nice to meet you",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "很高兴认识你。",
+            "pinyin": "hěn gāoxìng rènshi nǐ",
+            "en": "Nice to meet you / Pleased to meet you",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "很高兴又见到你们。",
+            "pinyin": "Hěn gāoxìng yòu jiàn dào nǐmen.",
+            "en": "I’m very happy to see you again.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "你呢？",
+            "pinyin": "nǐ ne",
+            "en": "And you?",
+            "type": "sentence"
+          }
+        ]
+      },
+      {
+        "title": "Languages",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "普通话",
+            "pinyin": "pǔtōnghuà",
+            "en": "Mandarin",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "汉语 / 中文",
+            "pinyin": "Hànyǔ / Zhōngwén",
+            "en": "Chinese",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "我在学中文 / 汉语。",
+            "pinyin": "wǒ zài xué Zhōngwén / Hànyǔ",
+            "en": "I’m learning Chinese",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我会说法语 / 意大利语 / 日语。",
+            "pinyin": "wǒ huì shuō Fǎyǔ / Yìdàlìyǔ / Rìyǔ",
+            "en": "I can speak French / Italian / Japanese",
+            "type": "sentence"
+          }
+        ]
+      },
+      {
+        "title": "Countries & Places",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "新西兰的哪里？",
+            "pinyin": "Xīnxīlán de nǎlǐ",
+            "en": "Where in New Zealand?",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "新西兰的基督城（Christchurch）。",
+            "pinyin": "Xīnxīlán de Jīdūchéng",
+            "en": "Christchurch, New Zealand",
+            "type": "sentence"
+          }
+        ]
+      },
+      {
+        "title": "Jobs",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "工程师",
+            "pinyin": "gōngchéngshī",
+            "en": "engineer",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "我做电子营销",
+            "pinyin": "Wǒ zuò diànzǐ yíngxiāo",
+            "en": "I am doing digital marketing.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我在银行工作。",
+            "pinyin": "wǒ zài yínháng gōngzuò",
+            "en": "I work at a bank。",
+            "type": "sentence"
+          }
+        ]
+      },
+      {
+        "title": "Pronouns",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "我 / 你",
+            "pinyin": "wǒ / nǐ",
+            "en": "I / you",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "我们 / 你们 / 他们",
+            "pinyin": "wǒmen / nǐmen / tāmen",
+            "en": "we / you (plural) / they",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "他 / 她 / 它",
+            "pinyin": "tā / tā / tā",
+            "en": "he / she / it",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "先生",
+            "pinyin": "xiānsheng",
+            "en": "Mr. / husband",
+            "type": "vocab"
+          }
+        ]
+      },
+      {
+        "title": "Food & Cuisine",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "意大利菜",
+            "pinyin": "Yìdàlì cài",
+            "en": "Italian food",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "中国菜",
+            "pinyin": "Zhōngguó cài",
+            "en": "Chinese food",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "西班牙菜",
+            "pinyin": "Xībānyá cài",
+            "en": "Spanish food",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "炸鱼薯条",
+            "pinyin": "zhá yú shǔtiáo",
+            "en": "fish and chips",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "薯片",
+            "pinyin": "shǔpiàn",
+            "en": "crisps / chips",
+            "type": "vocab"
+          }
+        ]
+      },
+      {
+        "title": "Likes & Preferences",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "喜欢音乐",
+            "pinyin": "xǐhuan yīnyuè",
+            "en": "to like music",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "喜欢米饭",
+            "pinyin": "xǐhuan mǐfàn",
+            "en": "to like rice",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "喜欢意大利菜",
+            "pinyin": "xǐhuan Yìdàlì cài",
+            "en": "to like Italian food",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我们都喜欢咖啡。",
+            "pinyin": "wǒmen dōu xǐhuan kāfēi",
+            "en": "We all like coffee",
+            "type": "sentence"
+          }
+        ]
+      },
+      {
+        "title": "Degree & Amount",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "一点儿 / 一点点儿",
+            "pinyin": "yìdiǎnr / yìdiǎndiǎnr",
+            "en": "a little",
+            "type": "sentence"
+          }
+        ]
+      },
+      {
+        "title": "Negatives",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "不",
+            "pinyin": "bù",
+            "en": "not (habitual / future)",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "没 / 没有",
+            "pinyin": "méi / méiyǒu",
+            "en": "not / don’t have / didn’t",
+            "type": "vocab"
+          }
+        ]
+      },
+      {
+        "title": "“太……了”way too..",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "太贵了      不太贵      不贵",
+            "pinyin": "tài guì le",
+            "en": "Too expensive",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "太忙了      不太忙     不忙",
+            "pinyin": "tài máng le",
+            "en": "Too busy",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "太累了    不太累    不累",
+            "pinyin": "tài lèi le",
+            "en": "Too tired",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "太好了",
+            "pinyin": "tài hǎo le",
+            "en": "That’s great",
+            "type": "vocab"
+          }
+        ]
+      },
+      {
+        "title": "Responses",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "很好",
+            "pinyin": "hěn hǎo",
+            "en": "very good",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "好的 / 好吧 / 好啊",
+            "pinyin": "hǎo de / hǎo ba / hǎo a",
+            "en": "OK / alright / sounds good",
+            "type": "sentence"
+          }
+        ]
+      },
+      {
+        "title": "Intentions",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "我想去中国。",
+            "pinyin": "wǒ xiǎng qù Zhōngguó",
+            "en": "I want to go to China (wish / plan)",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我要去中国。",
+            "pinyin": "wǒ yào qù Zhōngguó",
+            "en": "I’m going to China (decision)",
+            "type": "sentence"
+          }
+        ]
+      },
+      {
+        "title": "Ordering Food & Drinks",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "你想吃什么？",
+            "pinyin": "nǐ xiǎng chī shénme",
+            "en": "What would you like to eat?",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我要一碗面条。",
+            "pinyin": "wǒ yào yì wǎn miàntiáo",
+            "en": "I’d like a bowl of noodles",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "你想喝什么？",
+            "pinyin": "nǐ xiǎng hē shénme",
+            "en": "What would you like to drink?",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我要一杯咖啡 / 一杯茶。",
+            "pinyin": "wǒ yào yì bēi kāfēi / chá",
+            "en": "I’d like a coffee / a tea",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "还要什么？",
+            "pinyin": "hái yào shénme",
+            "en": "Anything else?",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "不要了。",
+            "pinyin": "bú yào le",
+            "en": "No, that’s all",
+            "type": "sentence"
+          }
+        ]
+      },
+      {
+        "title": "Prices & Money",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "一共多少钱？",
+            "pinyin": "yígòng duōshao qián",
+            "en": "How much is it in total?",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "三十元 / 块",
+            "pinyin": "sānshí yuán / kuài",
+            "en": "30 yuan",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "美元 / 英镑",
+            "pinyin": "Měiyuán / Yīngbàng",
+            "en": "US dollars / pounds",
+            "type": "vocab"
+          }
+        ]
+      },
+      {
+        "title": "Greetings",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "你好吗？",
+            "pinyin": "nǐ hǎo ma",
+            "en": "How are you?",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "你怎么样？",
+            "pinyin": "nǐ zěnmeyàng",
+            "en": "How are you doing?",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "你最近怎么样？",
+            "pinyin": "nǐ zuìjìn zěnmeyàng",
+            "en": "How have you been lately?",
+            "type": "sentence"
+          }
+        ]
+      },
+      {
+        "title": "Household Items",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "冰箱",
+            "pinyin": "bīngxiāng",
+            "en": "refrigerator",
+            "type": "vocab"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "week": 5,
+    "date": "Feb 10, 2026",
+    "chapterRefs": [
+      4,
+      5
+    ],
+    "sections": [
+      {
+        "title": "Question Word: Who",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "谁是英国人？",
+            "pinyin": "shéi shì Yīngguó rén",
+            "en": "Who is British?",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "谁说英语？",
+            "pinyin": "shéi shuō Yīngyǔ",
+            "en": "Who speaks English?",
+            "type": "sentence"
+          }
+        ]
+      },
+      {
+        "title": "1 这个 / 那个 this / that",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "这个杯子是我的。",
+            "pinyin": "zhè gè bēizi shì wǒ de",
+            "en": "This cup is mine",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "那本书是我的。",
+            "pinyin": "nà běn shū shì wǒ de",
+            "en": "That book is mine",
+            "type": "sentence"
+          }
+        ]
+      },
+      {
+        "title": "2 哪个 which",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "哪个杯子是我的？",
+            "pinyin": "nǎ gè bēizi shì wǒ de",
+            "en": "Which cup is mine?",
+            "type": "sentence"
+          }
+        ]
+      },
+      {
+        "title": "“谁的” Possession: Whose",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "这本书是谁的？",
+            "pinyin": "zhè běn shū shì shéi de",
+            "en": "Whose book is this?",
+            "type": "sentence"
+          }
+        ]
+      },
+      {
+        "title": "爱好 Hobbies",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "喜欢织东西。",
+            "pinyin": "xǐhuan zhī dōngxi",
+            "en": "to like knitting",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "喜欢养狗。",
+            "pinyin": "xǐhuan yǎng gǒu",
+            "en": "to like keeping dogs",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "喜欢养猫。",
+            "pinyin": "xǐhuan yǎng māo",
+            "en": "to like keeping cats",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "喜欢养宠物。",
+            "pinyin": "xǐhuan yǎng chǒngwù",
+            "en": "to like keeping pets",
+            "type": "sentence"
+          }
+        ]
+      },
+      {
+        "title": "Introducing Someone",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "他在银行工作。",
+            "pinyin": "tā zài yínháng gōngzuò",
+            "en": "He works at a bank",
+            "type": "sentence"
+          }
+        ]
+      },
+      {
+        "title": "Workplace",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "我在 Universal Music 公司工作。",
+            "pinyin": "wǒ zài Universal Music gōngsī gōngzuò",
+            "en": "I work at Universal Music",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我今天在 WeWork 学中文。",
+            "pinyin": "wǒ jīntiān zài WeWork xué Zhōngwén",
+            "en": "I’m studying Chinese at WeWork today",
+            "type": "sentence"
+          }
+        ]
+      },
+      {
+        "title": "Sentence Structure",
+        "kind": "grammar",
+        "items": [
+          {
+            "hanzi": "我今天在 WeWork 学中文。",
+            "pinyin": "wǒ jīntiān zài WeWork xué Zhōngwén",
+            "en": "I am studying Chinese at WeWork today",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我",
+            "pinyin": "S",
+            "en": "+ 今天 (time) + 在 WeWork (place) + 学 (verb) + 中文 (object)",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "很高兴又见到你们。",
+            "pinyin": "Hěn gāoxìng yòu jiàn dào nǐmen.",
+            "en": "I’m very happy to see you again.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "工程师",
+            "pinyin": "gōngchéngshī",
+            "en": "engineer",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "我在银行工作。",
+            "pinyin": "wǒ zài yínháng gōngzuò",
+            "en": "I work at a bank。",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "弹钢琴",
+            "pinyin": "tán gāngqín",
+            "en": "to play the piano",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "钢琴",
+            "pinyin": "gāngqín",
+            "en": "piano",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "运动",
+            "pinyin": "yùndòng",
+            "en": "to exercise / sports",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "看电影",
+            "pinyin": "kàn diànyǐng",
+            "en": "to watch a movie",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "旅游",
+            "pinyin": "lǚyóu",
+            "en": "to travel",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "太贵了",
+            "pinyin": "tài guì le",
+            "en": "too expensive",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "不太贵",
+            "pinyin": "bú tài guì",
+            "en": "not too expensive",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "不贵",
+            "pinyin": "bú guì",
+            "en": "not expensive",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "太忙了",
+            "pinyin": "tài máng le",
+            "en": "too busy",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "不太忙",
+            "pinyin": "bú tài máng",
+            "en": "not too busy",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "不忙",
+            "pinyin": "bú máng",
+            "en": "not busy",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "太累了",
+            "pinyin": "tài lèi le",
+            "en": "too tired",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "不太累",
+            "pinyin": "bú tài lèi",
+            "en": "not too tired",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "不累",
+            "pinyin": "bú lèi",
+            "en": "not tired",
+            "type": "vocab"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "week": 6,
+    "date": "Feb 17, 2026",
+    "chapterRefs": [
+      5,
+      6
+    ],
+    "sections": [
+      {
+        "title": "Chinese New Year & Zodiac",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "新年快乐！",
+            "pinyin": "xīnnián kuàilè",
+            "en": "Happy New Year!",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "2026年是马年。",
+            "pinyin": "èr líng èr liù nián shì mǎ nián",
+            "en": "The year 2026 is the Year of the Horse",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "你属什么？",
+            "pinyin": "nǐ shǔ shénme",
+            "en": "What is your Chinese zodiac sign?",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我属马。",
+            "pinyin": "wǒ shǔ mǎ",
+            "en": "I was born in the Year of the Horse",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我属羊。",
+            "pinyin": "wǒ shǔ yáng",
+            "en": "I was born in the Year of the Goat",
+            "type": "sentence"
+          }
+        ]
+      },
+      {
+        "title": "Measure Words",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "一只羊",
+            "pinyin": "yì zhī yáng",
+            "en": "one sheep",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "两只羊",
+            "pinyin": "liǎng zhī yáng",
+            "en": "two sheep",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "一匹马",
+            "pinyin": "yì pǐ mǎ",
+            "en": "one horse",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "两个人",
+            "pinyin": "liǎng gè rén",
+            "en": "two people",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "只",
+            "pinyin": "zhī",
+            "en": "animals",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "匹",
+            "pinyin": "pǐ",
+            "en": "horses",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "个",
+            "pinyin": "gè",
+            "en": "general measure word",
+            "type": "vocab"
+          }
+        ]
+      },
+      {
+        "title": "Asking About Age",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "你多大了？",
+            "pinyin": "nǐ duō dà le",
+            "en": "How old are you?",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "你多少岁？",
+            "pinyin": "nǐ duōshao suì",
+            "en": "How old are you?",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "您今年多大了？",
+            "pinyin": "nín jīnnián duō dà le",
+            "en": "How old are you this year? (polite)",
+            "type": "sentence"
+          }
+        ]
+      },
+      {
+        "title": "Useful Words",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "手机",
+            "pinyin": "shǒujī",
+            "en": "mobile phone",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "经理",
+            "pinyin": "jīnglǐ",
+            "en": "manager",
+            "type": "vocab"
+          }
+        ]
+      },
+      {
+        "title": "几 vs 多少",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "几",
+            "pinyin": "jǐ",
+            "en": "Used for small numbers (usually under 10).",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "你们班有几个学生？",
+            "pinyin": "nǐmen bān yǒu jǐ gè xuéshēng",
+            "en": "How many students are in your class?",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "你的公司有多少人？",
+            "pinyin": "nǐ de gōngsī yǒu duōshao rén",
+            "en": "How many people are in your company?",
+            "type": "sentence"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "week": 7,
+    "date": "Feb 24, 2026",
+    "chapterRefs": [
+      6
+    ],
+    "sections": [
+      {
+        "title": "Notes",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "同学",
+            "pinyin": "tóng xué",
+            "en": "classmate",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "六个",
+            "pinyin": "liù gè",
+            "en": "Six",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "再说一遍",
+            "pinyin": "zài shuō yí biàn",
+            "en": "Say it again",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "问",
+            "pinyin": "wèn",
+            "en": "to ask",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "办公室",
+            "pinyin": "bàn gōng shì",
+            "en": "office",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "公司",
+            "pinyin": "gōng sī",
+            "en": "company",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "介绍",
+            "pinyin": "jiè shào",
+            "en": "to introduce",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "我来介绍一下",
+            "pinyin": "wǒ lái jiè shào yí xià",
+            "en": "Let me introduce",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "兄弟姐妹",
+            "pinyin": "xiōng dì jiě mèi",
+            "en": "siblings",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "和",
+            "pinyin": "hé",
+            "en": "and",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "我哥哥有一个女儿",
+            "pinyin": "wǒ gē ge yǒu yí gè nǚ ér",
+            "en": "My older brother has a daughter",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "哥哥喜欢吃饺子",
+            "pinyin": "gē ge xǐ huān chī jiǎo zi",
+            "en": "My older brother likes eating dumplings",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "今年",
+            "pinyin": "jīn nián",
+            "en": "this year",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "我有一个哥哥和一个姐姐",
+            "pinyin": "wǒ yǒu yí gè gē ge hé yí gè jiě jie",
+            "en": "I have an older brother and an older sister",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "荷兰人",
+            "pinyin": "hé lán rén",
+            "en": "Dutch person",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "法语",
+            "pinyin": "fǎ yǔ",
+            "en": "French language",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "乐器",
+            "pinyin": "yuè qì",
+            "en": "musical instrument",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "弹钢琴",
+            "pinyin": "tán gāng qín",
+            "en": "play the piano",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "摄影",
+            "pinyin": "shè yǐng",
+            "en": "photography",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "我喜欢看书",
+            "pinyin": "wǒ xǐ huān kàn shū",
+            "en": "I like reading",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "爬山",
+            "pinyin": "pá shān",
+            "en": "mountain climbing",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "徒步",
+            "pinyin": "tú bù",
+            "en": "hiking",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "看电影",
+            "pinyin": "kàn diàn yǐng",
+            "en": "watching movies",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "在健身房运动",
+            "pinyin": "zài jiàn shēn fáng yùn dòng",
+            "en": "work out at the gym",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "跑步",
+            "pinyin": "pǎo bù",
+            "en": "running",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "旅游",
+            "pinyin": "lǚ yóu",
+            "en": "travelling",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "织东西",
+            "pinyin": "zhī dōng xi",
+            "en": "knitting",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "骑马",
+            "pinyin": "qí mǎ",
+            "en": "horse riding",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "骑自行车",
+            "pinyin": "qí zì xíng chē",
+            "en": "cycling",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "玩电脑游戏",
+            "pinyin": "wán diàn nǎo yóu xì",
+            "en": "play computer games",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "看电视",
+            "pinyin": "kàn diàn shì",
+            "en": "watch TV",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "打电话",
+            "pinyin": "dǎ diàn huà",
+            "en": "make a phone call",
+            "type": "vocab"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "week": 8,
+    "date": "Mar 3, 2026",
+    "chapterRefs": [
+      6,
+      7
+    ],
+    "sections": [
+      {
+        "title": "非常",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "她非常漂亮。",
+            "pinyin": "Tā fēicháng piàoliang.",
+            "en": "She is extremely beautiful.",
+            "type": "sentence"
+          }
+        ]
+      },
+      {
+        "title": "有点儿",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "我有点儿累。",
+            "pinyin": "Wǒ yǒudiǎnr lèi.",
+            "en": "I am a little tired.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "今天有点儿冷。",
+            "pinyin": "Jīntiān yǒudiǎnr lěng.",
+            "en": "It is a little cold today.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "这个有点儿小。",
+            "pinyin": "Zhège yǒudiǎnr xiǎo.",
+            "en": "This is a little small.",
+            "type": "sentence"
+          }
+        ]
+      },
+      {
+        "title": "不太",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "今天不太热。",
+            "pinyin": "Jīntiān bú tài rè.",
+            "en": "It is not very hot today.",
+            "type": "sentence"
+          }
+        ]
+      },
+      {
+        "title": "太…了",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "太贵了。",
+            "pinyin": "Tài guì le.",
+            "en": "It is too expensive.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "太难了。",
+            "pinyin": "Tài nán le.",
+            "en": "It is too difficult.",
+            "type": "sentence"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "week": 9,
+    "date": "Mar 10, 2026",
+    "chapterRefs": [
+      7
+    ],
+    "sections": [
+      {
+        "title": "Notes",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "忙",
+            "pinyin": "máng",
+            "en": "busy",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "我有一个新工作。",
+            "pinyin": "wǒ yǒu yí gè xīn gōngzuò",
+            "en": "I have a new job.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我在公司工作。",
+            "pinyin": "wǒ zài gōngsī gōngzuò",
+            "en": "I work at a company.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "2 新",
+            "pinyin": "xīn",
+            "en": "“new”",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "新",
+            "pinyin": "xīn",
+            "en": "new",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "新年",
+            "pinyin": "xīnnián",
+            "en": "New Year",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "新老师",
+            "pinyin": "xīn lǎoshī",
+            "en": "new teacher",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "新学生",
+            "pinyin": "xīn xuéshēng",
+            "en": "new student",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "个",
+            "pinyin": "gè",
+            "en": "general measure word",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "一个学生",
+            "pinyin": "yí gè xuéshēng",
+            "en": "one student",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "一个老师",
+            "pinyin": "yí gè lǎoshī",
+            "en": "one teacher",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "一个工作",
+            "pinyin": "yí gè gōngzuò",
+            "en": "one job",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "笔",
+            "pinyin": "bǐ",
+            "en": "pen",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "手机",
+            "pinyin": "shǒujī",
+            "en": "mobile phone",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "你的手机号码是多少？",
+            "pinyin": "nǐ de shǒujī hàomǎ shì duōshǎo",
+            "en": "What is your phone number?",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "圣诞节",
+            "pinyin": "Shèngdàn Jié",
+            "en": "Christmas",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "情人节",
+            "pinyin": "Qíngrén Jié",
+            "en": "Valentine’s Day",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "新年是几月几号？",
+            "pinyin": "Xīnnián shì jǐ yuè jǐ hào",
+            "en": "What date is the New Year?",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "上课",
+            "pinyin": "shàngkè",
+            "en": "to start class / attend class",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "下课",
+            "pinyin": "xiàkè",
+            "en": "class finishes",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "上班",
+            "pinyin": "shàngbān",
+            "en": "to go to work",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "下班",
+            "pinyin": "xiàbān",
+            "en": "to finish work",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "你怎么说？",
+            "pinyin": "nǐ zěnme shuō",
+            "en": "How do you say it?",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "你怎么读？",
+            "pinyin": "nǐ zěnme dú",
+            "en": "How do you read it?",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "用中文怎么说？",
+            "pinyin": "yòng Zhōngwén zěnme shuō",
+            "en": "How do you say it in Chinese?",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "用中文怎么读？",
+            "pinyin": "yòng Zhōngwén zěnme dú",
+            "en": "How do you read it in Chinese?",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "用英文怎么说？",
+            "pinyin": "yòng Yīngwén zěnme shuō",
+            "en": "How do you say it in English?",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我觉得法国菜好吃。",
+            "pinyin": "wǒ juéde Fǎguó cài hǎochī",
+            "en": "I think French food is delicious.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我觉得中国菜很好吃。",
+            "pinyin": "wǒ juéde Zhōngguó cài hěn hǎochī",
+            "en": "I think Chinese food is very delicious.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我觉得这个很好。",
+            "pinyin": "wǒ juéde zhège hěn hǎo",
+            "en": "I think this is very good.",
+            "type": "sentence"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "week": 10,
+    "date": "Mar 17, 2026",
+    "chapterRefs": [
+      7,
+      8
+    ],
+    "sections": [
+      {
+        "title": "Notes",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "新年是几月几号？",
+            "pinyin": "xīnnián shì jǐ yuè jǐ hào",
+            "en": "What date is New Year?",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "圣诞节是几月几号？",
+            "pinyin": "Shèngdàn Jié shì jǐ yuè jǐ hào",
+            "en": "What date is Christmas?",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "情人节是几月几号？",
+            "pinyin": "Qíngrén Jié shì jǐ yuè jǐ hào",
+            "en": "What date is Valentine’s Day?",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "请再说一遍。",
+            "pinyin": "qǐng zài shuō yí biàn",
+            "en": "Please say it again.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "你怎么样？",
+            "pinyin": "nǐ zěnmeyàng",
+            "en": "How are you?",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "你们忙不忙？",
+            "pinyin": "nǐmen máng bù máng",
+            "en": "Are you (plural) busy?",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "你累不累？",
+            "pinyin": "nǐ lèi bù lèi",
+            "en": "Are you tired?",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "你饿不饿？",
+            "pinyin": "nǐ è bù è",
+            "en": "Are you hungry?",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "有点忙。",
+            "pinyin": "yǒudiǎn máng",
+            "en": "A little busy.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "有点累。",
+            "pinyin": "yǒudiǎn lèi",
+            "en": "A little tired.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "有点饿。",
+            "pinyin": "yǒudiǎn è",
+            "en": "A little hungry.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "多吃蔬菜。",
+            "pinyin": "duō chī shūcài",
+            "en": "Eat more vegetables.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "少吃肉。",
+            "pinyin": "shǎo chī ròu",
+            "en": "Eat less meat.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "多喝水。",
+            "pinyin": "duō hē shuǐ",
+            "en": "Drink more water.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "觉得",
+            "pinyin": "juéde",
+            "en": "to think / to feel",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "我觉得这个很好。",
+            "pinyin": "wǒ juéde zhège hěn hǎo",
+            "en": "I think this is very good.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "记得",
+            "pinyin": "jìde",
+            "en": "to remember",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "我记得你的名字。",
+            "pinyin": "wǒ jìde nǐ de míngzi",
+            "en": "I remember your name.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "知道",
+            "pinyin": "zhīdào",
+            "en": "to know",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "我知道。",
+            "pinyin": "wǒ zhīdào",
+            "en": "I know.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我不知道。",
+            "pinyin": "wǒ bù zhīdào",
+            "en": "I don’t know.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "今天我去饭馆儿吃饭。",
+            "pinyin": "jīntiān wǒ qù fànguǎnr chī fàn",
+            "en": "Today I go to a restaurant to eat.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "明天我去公园运动。",
+            "pinyin": "míngtiān wǒ qù gōngyuán yùndòng",
+            "en": "Tomorrow I will go to the park to exercise.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "周末你去哪儿做什么？",
+            "pinyin": "zhōumò nǐ qù nǎr zuò shénme",
+            "en": "What will you do this weekend? (Where will you go and what will",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "周末我去饭馆儿吃饭。",
+            "pinyin": "zhōumò wǒ qù fànguǎnr chī fàn",
+            "en": "On the weekend I go to a restaurant to eat.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "周末我去公园运动。",
+            "pinyin": "zhōumò wǒ qù gōngyuán yùndòng",
+            "en": "On the weekend I go to the park to exercise.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "周末我去公园遛狗。",
+            "pinyin": "zhōumò wǒ qù gōngyuán liù gǒu",
+            "en": "On the weekend I go to the park to walk the dog.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "周末我去参加婚礼吃蛋糕。",
+            "pinyin": "zhōumò wǒ qù cānjiā hūnlǐ chī dàngāo",
+            "en": "On the weekend I go to a wedding and eat cake.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "周末我在家里给妈妈打电话。",
+            "pinyin": "zhōumò wǒ zài jiālǐ gěi māma dǎ diànhuà",
+            "en": "On the weekend I stay at home and call my mum.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "上个星期",
+            "pinyin": "shàng gè xīngqī",
+            "en": "last week",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "这个星期",
+            "pinyin": "zhè gè xīngqī",
+            "en": "this week",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "下个星期",
+            "pinyin": "xià gè xīngqī",
+            "en": "next week",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "In regards to  “er”, often written as 儿",
+            "pinyin": "er",
+            "en": ", but pronounced as part of the syllable rather",
+            "type": "vocab"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "week": 11,
+    "date": "Mar 24, 2026",
+    "chapterRefs": [
+      8
+    ],
+    "sections": [
+      {
+        "title": "Notes",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "周末你去哪儿做什么？",
+            "pinyin": "zhōumò nǐ qù nǎr zuò shénme",
+            "en": "Where do you go and what do you do on the weekend?",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "周末你喜欢去哪里做什么？",
+            "pinyin": "zhōumò nǐ xǐhuan qù nǎlǐ zuò shénme",
+            "en": "Where do you like to go and what do you like to do on weekends?",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我喜欢和朋友聊天吃饭。",
+            "pinyin": "wǒ xǐhuan hé péngyou liáotiān chī fàn",
+            "en": "I like chatting and eating with friends.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我喜欢去酒吧和朋友聊天。",
+            "pinyin": "wǒ xǐhuan qù jiǔbā hé péngyou liáotiān",
+            "en": "I like going to a bar to chat with friends.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我们在酒吧聊天。",
+            "pinyin": "wǒmen zài jiǔbā liáotiān",
+            "en": "We are chatting in a bar.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "周末我喜欢去森林遛狗。",
+            "pinyin": "zhōumò wǒ xǐhuan qù sēnlín liù gǒu",
+            "en": "On weekends I like going to the forest to walk my dog.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我去参加婚礼吃蛋糕。",
+            "pinyin": "wǒ qù cānjiā hūnlǐ chī dàngāo",
+            "en": "I go to a wedding and eat cake.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "周末我喜欢出去打网球。",
+            "pinyin": "zhōumò wǒ xǐhuan chūqù dǎ wǎngqiú",
+            "en": "On weekends I like going out to play tennis.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "周末我喜欢在家休息。",
+            "pinyin": "zhōumò wǒ xǐhuan zài jiā xiūxi",
+            "en": "On weekends I like resting at home.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "周末我喜欢在家睡觉。",
+            "pinyin": "zhōumò wǒ xǐhuan zài jiā shuìjiào",
+            "en": "On weekends I like sleeping at home.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "聚会",
+            "pinyin": "jùhuì",
+            "en": "party / gathering",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "儿子",
+            "pinyin": "érzi",
+            "en": "son",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "音乐",
+            "pinyin": "yīnyuè",
+            "en": "music",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "摄影",
+            "pinyin": "shèyǐng",
+            "en": "photography",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "来自",
+            "pinyin": "láizì",
+            "en": "to come from",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "香港",
+            "pinyin": "Xiānggǎng",
+            "en": "Hong Kong",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "伊朗",
+            "pinyin": "Yīlǎng",
+            "en": "Iran",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "一盘饺子",
+            "pinyin": "yì pán jiǎozi",
+            "en": "a plate of dumplings",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "等一下",
+            "pinyin": "děng yíxià",
+            "en": "wait a moment",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "还行",
+            "pinyin": "hái xíng",
+            "en": "it’s okay / not bad",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "我想喝一点儿水。",
+            "pinyin": "wǒ xiǎng hē yìdiǎnr shuǐ",
+            "en": "I want to drink a little water.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我想吃一点儿饺子。",
+            "pinyin": "wǒ xiǎng chī yìdiǎnr jiǎozi",
+            "en": "I want to eat a few dumplings.",
+            "type": "sentence"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "week": 12,
+    "date": "Mar 31, 2026",
+    "chapterRefs": [
+      8,
+      9
+    ],
+    "sections": [
+      {
+        "title": "Notes",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "绿茶",
+            "pinyin": "lǜ chá",
+            "en": "green tea",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "红茶",
+            "pinyin": "hóng chá",
+            "en": "black tea",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "花茶",
+            "pinyin": "huā chá",
+            "en": "flower tea",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "草本茶",
+            "pinyin": "cǎoběn chá",
+            "en": "herbal tea",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "鸡肉",
+            "pinyin": "jī ròu",
+            "en": "chicken",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "牛肉",
+            "pinyin": "niú ròu",
+            "en": "beef",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "羊肉",
+            "pinyin": "yáng ròu",
+            "en": "lamb",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "鱼肉",
+            "pinyin": "yú ròu",
+            "en": "fish",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "猪肉",
+            "pinyin": "zhū ròu",
+            "en": "pork",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "中国白酒",
+            "pinyin": "Zhōngguó báijiǔ",
+            "en": "Chinese liquor",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "白葡萄酒",
+            "pinyin": "bái pútáojiǔ",
+            "en": "white wine",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "红酒 / 红葡萄酒",
+            "pinyin": "hóngjiǔ / hóng pútáojiǔ",
+            "en": "red wine",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "韩国米酒",
+            "pinyin": "Hánguó mǐjiǔ",
+            "en": "Korean rice wine",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "咖啡",
+            "pinyin": "kāfēi",
+            "en": "coffee",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "美式咖啡",
+            "pinyin": "Měishì kāfēi",
+            "en": "Americano",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "拿铁",
+            "pinyin": "nátiě",
+            "en": "latte",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "卡布奇诺",
+            "pinyin": "kǎbùqínuò",
+            "en": "cappuccino",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "5 卡",
+            "pinyin": "card",
+            "en": "Vocabulary",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "卡",
+            "pinyin": "kǎ",
+            "en": "card",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "信用卡",
+            "pinyin": "xìnyòngkǎ",
+            "en": "credit card",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "银行卡",
+            "pinyin": "yínhángkǎ",
+            "en": "bank card",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "饭店",
+            "pinyin": "fàndiàn",
+            "en": "restaurant",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "吃中国菜",
+            "pinyin": "chī Zhōngguó cài",
+            "en": "eat Chinese food",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "散步",
+            "pinyin": "sànbù",
+            "en": "to take a walk",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "一份",
+            "pinyin": "yí fèn",
+            "en": "one portion",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "我想要一份牛肉。",
+            "pinyin": "wǒ xiǎng yào yí fèn niúròu",
+            "en": "I would like one portion of beef.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "还是",
+            "pinyin": "háishì",
+            "en": "or",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "你要咖啡还是茶？",
+            "pinyin": "nǐ yào kāfēi háishì chá",
+            "en": "Do you want coffee or tea?",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "你要米饭还是面？",
+            "pinyin": "nǐ yào mǐfàn háishì miàn",
+            "en": "Do you want rice or noodles?",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "你要红酒还是白葡萄酒？",
+            "pinyin": "nǐ yào hóngjiǔ háishì bái pútáojiǔ",
+            "en": "Do you want red wine or white wine?",
+            "type": "sentence"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "week": 13,
+    "date": "Apr 7, 2026",
+    "chapterRefs": [
+      9
+    ],
+    "sections": [
+      {
+        "title": "Asking About Past Actions 了吗 structure",
+        "kind": "grammar",
+        "items": [
+          {
+            "hanzi": "你们这个周末去遛狗了吗",
+            "pinyin": "nǐmen zhège zhōumò qù liù gǒu le ma",
+            "en": "Did you (plural) walk the dog this weekend",
+            "type": "sentence"
+          }
+        ]
+      },
+      {
+        "title": "Answering 去了 / 没去",
+        "kind": "grammar",
+        "items": [
+          {
+            "hanzi": "去了",
+            "pinyin": "qù le",
+            "en": "Went / Did it",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "我去了",
+            "pinyin": "wǒ qù le",
+            "en": "I went",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "没去",
+            "pinyin": "méi qù",
+            "en": "Didn’t go",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "没弹吉他",
+            "pinyin": "méi tán jítā",
+            "en": "Didn’t play guitar",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "去了",
+            "pinyin": "qù le",
+            "en": "Yes, I did",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "没去",
+            "pinyin": "méi qù",
+            "en": "No, I didn’t",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "我去了",
+            "pinyin": "wǒ qù le",
+            "en": "I went",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "没弹吉他",
+            "pinyin": "méi tán jítā",
+            "en": "I didn’t play guitar",
+            "type": "vocab"
+          }
+        ]
+      },
+      {
+        "title": "Shopping & Café Language",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "一桶啤酒",
+            "pinyin": "yì tǒng píjiǔ",
+            "en": "A barrel or bucket of beer",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "两盘饺子",
+            "pinyin": "liǎng pán jiǎozi",
+            "en": "Two plates of dumplings",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "三份",
+            "pinyin": "sān fèn",
+            "en": "Three portions",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "五个杯子",
+            "pinyin": "wǔ gè bēizi",
+            "en": "Five cups",
+            "type": "vocab"
+          }
+        ]
+      },
+      {
+        "title": "Talking About Work",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "….在银行工作",
+            "pinyin": "... zài yínháng gōngzuò",
+            "en": "…. works at a bank",
+            "type": "sentence"
+          }
+        ]
+      },
+      {
+        "title": "Key Vocabulary",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "瑞士",
+            "pinyin": "Ruìshì",
+            "en": "Switzerland",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "同事",
+            "pinyin": "tóngshì",
+            "en": "colleague",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "公司",
+            "pinyin": "gōngsī",
+            "en": "company",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "衣服",
+            "pinyin": "yīfu",
+            "en": "clothes",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "钥匙",
+            "pinyin": "yàoshi",
+            "en": "key",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "狗",
+            "pinyin": "gǒu",
+            "en": "dog",
+            "type": "vocab"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "week": 14,
+    "date": "Apr 14, 2026",
+    "chapterRefs": [
+      9,
+      10
+    ],
+    "sections": [
+      {
+        "title": "Notes",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "你住在哪里 / 哪儿？",
+            "pinyin": "nǐ zhù zài nǎlǐ / nǎr",
+            "en": "Where do you live?",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我妈妈住在新西兰。",
+            "pinyin": "wǒ māma zhù zài Xīnxīlán",
+            "en": "My mum lives in New Zealand.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我住在伦敦。",
+            "pinyin": "wǒ zhù zài Lúndūn",
+            "en": "I live in London.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "你家有几口人？",
+            "pinyin": "nǐ jiā yǒu jǐ kǒu rén",
+            "en": "How many people are in your family?",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "他们是谁？",
+            "pinyin": "tāmen shì shéi",
+            "en": "Who are they?",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我老公、狗和我。",
+            "pinyin": "wǒ lǎogōng, gǒu hé wǒ",
+            "en": "My husband, my dog and me.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "你有妹妹吗？",
+            "pinyin": "nǐ yǒu mèimei ma",
+            "en": "Do you have a younger sister?",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "没有。",
+            "pinyin": "méiyǒu",
+            "en": "No.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "姐姐",
+            "pinyin": "jiějie",
+            "en": "older sister",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "叔叔",
+            "pinyin": "shūshu",
+            "en": "uncle",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "婶婶",
+            "pinyin": "shěnshen",
+            "en": "aunt",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "现在我们在哪儿？",
+            "pinyin": "xiànzài wǒmen zài nǎr",
+            "en": "Where are we now?",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我们在WeWork。",
+            "pinyin": "wǒmen zài WeWork",
+            "en": "We are at WeWork.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我们在WeWork学习中文。",
+            "pinyin": "wǒmen zài WeWork xuéxí Zhōngwén",
+            "en": "We are studying Chinese at WeWork.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "瓶子 / 杯子 / 书在哪儿？",
+            "pinyin": "píngzi / bēizi / shū zài nǎr",
+            "en": "Where is the bottle / cup / book?",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "在那儿 / 这儿 / 这里。",
+            "pinyin": "zài nàr / zhèr / zhèlǐ",
+            "en": "It is there / here.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "上",
+            "pinyin": "shàng",
+            "en": "on / above",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "下",
+            "pinyin": "xià",
+            "en": "under / below",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "里",
+            "pinyin": "lǐ",
+            "en": "inside",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "外",
+            "pinyin": "wài",
+            "en": "outside",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "旁边",
+            "pinyin": "pángbiān",
+            "en": "next to",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "桌子",
+            "pinyin": "zhuōzi",
+            "en": "table",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "狗在椅子下面吗？",
+            "pinyin": "gǒu zài yǐzi xiàmiàn ma",
+            "en": "Is the dog under the chair?",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "鞋在哪儿？",
+            "pinyin": "xié zài nǎr",
+            "en": "Where are the shoes?",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我们的鞋在桌子下面。",
+            "pinyin": "wǒmen de xié zài zhuōzi xiàmiàn",
+            "en": "Our shoes are under the table.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我们在哪里？",
+            "pinyin": "wǒmen zài nǎlǐ",
+            "en": "Where are we?",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我们在办公室里面。",
+            "pinyin": "wǒmen zài bàngōngshì lǐmiàn",
+            "en": "We are inside the office.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "他在办公室外面。",
+            "pinyin": "tā zài bàngōngshì wàimiàn",
+            "en": "He is outside the office.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "你们在家吗？",
+            "pinyin": "nǐmen zài jiā ma",
+            "en": "Are you at home?",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "不在。",
+            "pinyin": "bú zài",
+            "en": "No.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "你的狗在家吗？",
+            "pinyin": "nǐ de gǒu zài jiā ma",
+            "en": "Is your dog at home?",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "你的手机在哪儿？",
+            "pinyin": "nǐ de shǒujī zài nǎr",
+            "en": "Where is your phone?",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "在衣服里。",
+            "pinyin": "zài yīfu lǐ",
+            "en": "It is in the clothes.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "请进。",
+            "pinyin": "qǐng jìn",
+            "en": "Please come in.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我能进来吗？",
+            "pinyin": "wǒ néng jìnlái ma",
+            "en": "Can I come in?",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我能去洗手间吗？",
+            "pinyin": "wǒ néng qù xǐshǒujiān ma",
+            "en": "Can I go to the toilet?",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "请去。",
+            "pinyin": "qǐng qù",
+            "en": "Please go.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "去吧。",
+            "pinyin": "qù ba",
+            "en": "Go ahead.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我们走吧。",
+            "pinyin": "wǒmen zǒu ba",
+            "en": "Let’s go.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "酒吧",
+            "pinyin": "jiǔbā",
+            "en": "bar",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "我能来一杯咖啡吗？",
+            "pinyin": "wǒ néng lái yì bēi kāfēi ma",
+            "en": "Can I have a coffee?",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我能去散步吗？",
+            "pinyin": "wǒ néng qù sànbù ma",
+            "en": "Can I go for a walk?",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "明天我能在家工作吗？",
+            "pinyin": "míngtiān wǒ néng zài jiā gōngzuò ma",
+            "en": "Can I work from home tomorrow?",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "明天你能去公司吗？",
+            "pinyin": "míngtiān nǐ néng qù gōngsī ma",
+            "en": "Can you go to the office tomorrow?",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "国人",
+            "pinyin": "guórén",
+            "en": "people of a country",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "外国语",
+            "pinyin": "wàiguóyǔ",
+            "en": "foreign language",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "上课 / 下课",
+            "pinyin": "shàngkè / xiàkè",
+            "en": "start class / finish class",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "上午 / 下午",
+            "pinyin": "shàngwǔ / xiàwǔ",
+            "en": "morning / afternoon",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "上面 / 下面",
+            "pinyin": "shàngmiàn / xiàmiàn",
+            "en": "on top / underneath",
+            "type": "vocab"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "week": 15,
+    "date": "Apr 21, 2026",
+    "chapterRefs": [
+      11
+    ],
+    "sections": [
+      {
+        "title": "Notes",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "分享屏幕",
+            "pinyin": "fēn xiǎng píng mù",
+            "en": "share screen",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "在线学习汉语",
+            "pinyin": "zài xiàn xué xí hàn yǔ",
+            "en": "learn Chinese online",
+            "type": "sentence"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "week": 16,
+    "date": "Apr 28, 2026",
+    "chapterRefs": [
+      11,
+      12
+    ],
+    "sections": [
+      {
+        "title": "Notes",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "2015年",
+            "pinyin": "èr líng yī wǔ nián",
+            "en": "year 2015",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "你是什么时候来英国的？",
+            "pinyin": "nǐ shì shénme shíhou lái Yīngguó de",
+            "en": "When did you come to the UK?",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "最近",
+            "pinyin": "zuìjìn",
+            "en": "recently / lately",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "半夜",
+            "pinyin": "bàn yè",
+            "en": "midnight",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "周中",
+            "pinyin": "zhōu zhōng",
+            "en": "midweek/weekdays",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "从周一到周五",
+            "pinyin": "cóng zhōuyī dào zhōuwǔ",
+            "en": "from Monday to Friday",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "从星期一到星期五",
+            "pinyin": "cóng xīngqīyī dào xīngqīwǔ",
+            "en": "from Monday to Friday",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我七点半吃早餐。",
+            "pinyin": "wǒ qī diǎn bàn chī zǎocān",
+            "en": "I eat breakfast at 7:30.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "早饭 / 早餐",
+            "pinyin": "zǎofàn / zǎocān",
+            "en": "breakfast",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "晚饭 / 晚餐",
+            "pinyin": "wǎnfàn / wǎncān",
+            "en": "dinner",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "床上有早餐。",
+            "pinyin": "chuáng shàng yǒu zǎocān",
+            "en": "There is breakfast on the bed.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "床上有一盘吃的。",
+            "pinyin": "chuáng shàng yǒu yì pán chī de",
+            "en": "There is a plate of food on the bed.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "椅子在房间里面。",
+            "pinyin": "yǐzi zài fángjiān lǐmiàn",
+            "en": "The chair is inside the room.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "蓝色的车在地上。",
+            "pinyin": "lánsè de chē zài dìshàng",
+            "en": "The blue car is on the ground.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "桌子的下面有一本书。",
+            "pinyin": "zhuōzi de xiàmiàn yǒu yì běn shū",
+            "en": "There is a book under the table.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "袋子里面有一串香蕉。",
+            "pinyin": "dàizi lǐmiàn yǒu yí chuàn xiāngjiāo",
+            "en": "There is a bunch of bananas inside the bag.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "一袋米",
+            "pinyin": "yí dài mǐ",
+            "en": "a bag of rice",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "一本书",
+            "pinyin": "yì běn shū",
+            "en": "a book",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "一只狗",
+            "pinyin": "yì zhī gǒu",
+            "en": "a dog",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "一盘吃的",
+            "pinyin": "yì pán chī de",
+            "en": "a plate of food",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "一串香蕉",
+            "pinyin": "yí chuàn xiāngjiāo",
+            "en": "a bunch of bananas",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "一袋米",
+            "pinyin": "yí dài mǐ",
+            "en": "a bag of rice",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "来自",
+            "pinyin": "láizì",
+            "en": "to come from",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "织",
+            "pinyin": "zhī",
+            "en": "to knit / weave",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "只",
+            "pinyin": "zhī",
+            "en": "measure word for animals / certain objects",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "因为",
+            "pinyin": "yīnwèi",
+            "en": "because",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "太早了。",
+            "pinyin": "tài zǎo le",
+            "en": "Too early.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "太晚了。",
+            "pinyin": "tài wǎn le",
+            "en": "Too late.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "太…了",
+            "pinyin": "tài...le",
+            "en": "too... / excessively...",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "今天太冷了。",
+            "pinyin": "jīntiān tài lěng le",
+            "en": "Today is too cold.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "这个房间太小了。",
+            "pinyin": "zhège fángjiān tài xiǎo le",
+            "en": "This room is too small.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "你是什么时候来英国的？",
+            "pinyin": "nǐ shì shénme shíhou lái Yīngguó de",
+            "en": "When did you come to the UK?",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "你几点吃早餐？",
+            "pinyin": "nǐ jǐ diǎn chī zǎocān",
+            "en": "What time do you eat breakfast?",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "袋子里面有什么？",
+            "pinyin": "dàizi lǐmiàn yǒu shénme",
+            "en": "What is inside the bag?",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "为什么太晚了？",
+            "pinyin": "wèishénme tài wǎn le",
+            "en": "Why is it too late?",
+            "type": "sentence"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "week": 17,
+    "date": "May 5, 2026",
+    "chapterRefs": [
+      11,
+      12
+    ],
+    "sections": [
+      {
+        "title": "Notes",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "我有事。",
+            "pinyin": "wǒ yǒu shì",
+            "en": "I have something to do / I’m busy",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "没有。",
+            "pinyin": "méiyǒu",
+            "en": "No / don’t have",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "不是。",
+            "pinyin": "bú shì",
+            "en": "No / is not",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我今天没去公司。",
+            "pinyin": "wǒ jīntiān méi qù gōngsī",
+            "en": "I didn’t go to the office today",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我今天在家工作。",
+            "pinyin": "wǒ jīntiān zài jiā gōngzuò",
+            "en": "I work from home today",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "上班",
+            "pinyin": "shàngbān",
+            "en": "go to work",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "下班",
+            "pinyin": "xiàbān",
+            "en": "finish work",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "起床",
+            "pinyin": "qǐchuáng",
+            "en": "get up",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "睡觉",
+            "pinyin": "shuìjiào",
+            "en": "sleep",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "晚上十一点我睡觉。",
+            "pinyin": "wǎnshang shíyī diǎn wǒ shuìjiào",
+            "en": "I go to bed at 11 pm",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我八点左右吃早饭。",
+            "pinyin": "wǒ bā diǎn zuǒyòu chī zǎofàn",
+            "en": "I eat breakfast around 8",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "你今天什么时候上汉语课？",
+            "pinyin": "nǐ jīntiān shénme shíhou shàng Hànyǔ kè",
+            "en": "When do you have Chinese class today",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "你今天是什么时候来学校的？",
+            "pinyin": "nǐ jīntiān shì shénme shíhou lái xuéxiào de",
+            "en": "When did you come to school today",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "你是什么时候开始学汉语的？",
+            "pinyin": "nǐ shì shénme shíhou kāishǐ xué Hànyǔ de",
+            "en": "When did you start learning Chinese",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "你这个杯子是在哪买的？",
+            "pinyin": "nǐ zhège bēizi shì zài nǎ mǎi de",
+            "en": "Where did you buy this cup",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我是坐地铁来的。",
+            "pinyin": "wǒ shì zuò dìtiě lái de",
+            "en": "I came by metro",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "今天天气怎么样？",
+            "pinyin": "jīntiān tiānqì zěnmeyàng",
+            "en": "How is the weather today",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "今天不冷也不热。",
+            "pinyin": "jīntiān bù lěng yě bù rè",
+            "en": "It’s neither cold nor hot today",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "你身体最近怎么样？",
+            "pinyin": "nǐ shēntǐ zuìjìn zěnmeyàng",
+            "en": "How is your health recently",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "你的工作怎么样？",
+            "pinyin": "nǐ de gōngzuò zěnmeyàng",
+            "en": "How is your job",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "有点忙。",
+            "pinyin": "yǒudiǎn máng",
+            "en": "A bit busy",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "你的家人怎么样？",
+            "pinyin": "nǐ de jiārén zěnmeyàng",
+            "en": "How is your family",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "这个网站怎么样？",
+            "pinyin": "zhège wǎngzhàn zěnmeyàng",
+            "en": "How is this website",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "你觉得这个怎么样？",
+            "pinyin": "nǐ juéde zhège zěnmeyàng",
+            "en": "What do you think about this",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "还行。",
+            "pinyin": "hái xíng",
+            "en": "It’s okay",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我有点忙。",
+            "pinyin": "wǒ yǒudiǎn máng",
+            "en": "I am a bit busy",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我有点累。",
+            "pinyin": "wǒ yǒudiǎn lèi",
+            "en": "I am a bit tired",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "零下三十度。",
+            "pinyin": "líng xià sānshí dù",
+            "en": "minus 30 degrees",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "太冷了",
+            "pinyin": "tài lěng le",
+            "en": "too cold",
+            "type": "vocab"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "week": 18,
+    "date": "May 12, 2026",
+    "chapterRefs": [
+      12,
+      13
+    ],
+    "sections": [
+      {
+        "title": "Notes",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "好久不见！",
+            "pinyin": "hǎo jiǔ bú jiàn",
+            "en": "Long time no see!",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "很久",
+            "pinyin": "hěn jiǔ",
+            "en": "a long time",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "很长时间",
+            "pinyin": "hěn cháng shíjiān",
+            "en": "a very long time",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "什么时候",
+            "pinyin": "shénme shíhou",
+            "en": "when",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "多久",
+            "pinyin": "duō jiǔ",
+            "en": "how long",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "多长时间",
+            "pinyin": "duō cháng shíjiān",
+            "en": "how long (duration)",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "以前 / 前",
+            "pinyin": "yǐqián / qián",
+            "en": "before / ago",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "一百岁",
+            "pinyin": "yì bǎi suì",
+            "en": "100 years old",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "我很高兴。",
+            "pinyin": "wǒ hěn gāoxìng",
+            "en": "I am very happy",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "你觉得日本怎么样？",
+            "pinyin": "nǐ juéde Rìběn zěnmeyàng",
+            "en": "What do you think of Japan?",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我同意。",
+            "pinyin": "wǒ tóngyì",
+            "en": "I agree",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我听不懂。",
+            "pinyin": "wǒ tīng bù dǒng",
+            "en": "I don’t understand what I hear",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "旅行",
+            "pinyin": "lǚxíng",
+            "en": "trip / travel",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "旅游",
+            "pinyin": "lǚyóu",
+            "en": "to travel",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "巴黎",
+            "pinyin": "Bālí",
+            "en": "Paris",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "巴厘岛",
+            "pinyin": "Bālídǎo",
+            "en": "Bali",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "度",
+            "pinyin": "dù",
+            "en": "degree",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "温度",
+            "pinyin": "wēndù",
+            "en": "temperature",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "零下",
+            "pinyin": "língxià",
+            "en": "below zero / minus",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "干净",
+            "pinyin": "gānjìng",
+            "en": "clean",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "海阔凭鱼跃，天高任鸟飞。",
+            "pinyin": "hǎi kuò píng yú yuè, tiān gāo rèn niǎo fēi",
+            "en": "The sea is wide enough for fish to leap, and the sky is high enough for birds to fly",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "香港",
+            "pinyin": "Xiānggǎng",
+            "en": "Hong Kong",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "香水",
+            "pinyin": "xiāngshuǐ",
+            "en": "perfume",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "香蕉",
+            "pinyin": "xiāngjiāo",
+            "en": "banana",
+            "type": "vocab"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "week": 19,
+    "date": "May 19, 2026",
+    "chapterRefs": [
+      12,
+      13
+    ],
+    "sections": [
+      {
+        "title": "Notes",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "今天风太大了！",
+            "pinyin": "jīntiān fēng tài dà le",
+            "en": "The wind is too strong today!",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我太忙了！",
+            "pinyin": "wǒ tài máng le",
+            "en": "I am too busy!",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "不太忙。",
+            "pinyin": "bú tài máng",
+            "en": "Not too busy",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我经常很忙。",
+            "pinyin": "wǒ jīngcháng hěn máng",
+            "en": "I am often very busy",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "上个星期，我们学什么了？",
+            "pinyin": "shàng gè xīngqī, wǒmen xué shénme le",
+            "en": "What did we learn last week?",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "下课后，我会回家。",
+            "pinyin": "xiàkè hòu, wǒ huì huí jiā",
+            "en": "After class, I will go home",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "早饭后，我去公司。",
+            "pinyin": "zǎofàn hòu, wǒ qù gōngsī",
+            "en": "After breakfast, I go to the office",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "五点前，我会下班。",
+            "pinyin": "wǔ diǎn qián, wǒ huì xiàbān",
+            "en": "Before 5 o’clock, I will finish work",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "你的电话号码是多少？",
+            "pinyin": "nǐ de diànhuà hàomǎ shì duōshao",
+            "en": "What is your phone number?",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "你的手机号是多少？",
+            "pinyin": "nǐ de shǒujī hàomǎ shì duōshao",
+            "en": "What is your mobile number?",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "晚饭后，我一边看电视，一边吃零食。",
+            "pinyin": "wǎnfàn hòu, wǒ yìbiān kàn diànshì, yìbiān chī língshí",
+            "en": "After dinner, I watch TV while eating snacks",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "零食",
+            "pinyin": "língshí",
+            "en": "snacks",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "四天前八点，我在喂狗。",
+            "pinyin": "sì tiān qián bā diǎn, wǒ zài wèi gǒu",
+            "en": "At 8 o’clock four days ago, I was feeding the dog",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "明天八点，我会喂狗。",
+            "pinyin": "míngtiān bā diǎn, wǒ huì wèi gǒu",
+            "en": "Tomorrow at 8 o’clock, I will feed the dog",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "喂狗",
+            "pinyin": "wèi gǒu",
+            "en": "feed the dog",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "我在喝水。",
+            "pinyin": "wǒ zài hē shuǐ",
+            "en": "I am drinking water",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "现在，我在喝水。",
+            "pinyin": "xiànzài, wǒ zài hē shuǐ",
+            "en": "Right now, I am drinking water",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "请进。",
+            "pinyin": "qǐng jìn",
+            "en": "Please come in",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "流行",
+            "pinyin": "liúxíng",
+            "en": "popular / fashionable",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "电视剧",
+            "pinyin": "diànshìjù",
+            "en": "TV drama / TV series",
+            "type": "vocab"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "week": 20,
+    "date": "May 26, 2026",
+    "chapterRefs": [
+      13,
+      14
+    ],
+    "sections": [
+      {
+        "title": "Question Words 疑问词",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "为什么",
+            "pinyin": "Wèishénme",
+            "en": "Why",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "因为",
+            "pinyin": "Yīnwèi",
+            "en": "Because",
+            "type": "vocab"
+          }
+        ]
+      },
+      {
+        "title": "Weather & Environment 天气与环境",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "潮湿",
+            "pinyin": "Cháoshī",
+            "en": "Humid",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "花园",
+            "pinyin": "Huāyuán",
+            "en": "Garden",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "种花",
+            "pinyin": "Zhòng huā",
+            "en": "To grow flowers",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "园艺",
+            "pinyin": "Yuányì",
+            "en": "Gardening",
+            "type": "vocab"
+          }
+        ]
+      },
+      {
+        "title": "Daily Life & Habits 日常生活",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "周末",
+            "pinyin": "Zhōumò",
+            "en": "Weekend",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "经常",
+            "pinyin": "Jīngcháng",
+            "en": "Often",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "讨厌",
+            "pinyin": "Tǎoyàn",
+            "en": "To dislike / hate",
+            "type": "vocab"
+          }
+        ]
+      },
+      {
+        "title": "Appearance 外貌",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "美女",
+            "pinyin": "Měinǚ",
+            "en": "Beautiful woman",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "眼镜",
+            "pinyin": "Yǎnjìng",
+            "en": "Glasses",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "头发",
+            "pinyin": "Tóufa",
+            "en": "Hair",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "长",
+            "pinyin": "Cháng",
+            "en": "Long",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "短",
+            "pinyin": "Duǎn",
+            "en": "Short",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "高",
+            "pinyin": "Gāo",
+            "en": "Tall / high",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "低",
+            "pinyin": "Dī",
+            "en": "Low / short",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "长发",
+            "pinyin": "Chángfà",
+            "en": "Long hair",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "短发",
+            "pinyin": "Duǎnfà",
+            "en": "Short hair",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "体型",
+            "pinyin": "Tǐxíng",
+            "en": "Body shape",
+            "type": "vocab"
+          }
+        ]
+      },
+      {
+        "title": "Useful Sentence Patterns 常用句式",
+        "kind": "grammar",
+        "items": [
+          {
+            "hanzi": "这是……",
+            "pinyin": "Zhè shì...",
+            "en": "This is...",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "在……的路上",
+            "pinyin": "Zài... de lùshàng",
+            "en": "On the way to...",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "在回家的路上",
+            "pinyin": "Zài huí jiā de lùshàng",
+            "en": "On the way home",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "一样",
+            "pinyin": "Yíyàng",
+            "en": "The same",
+            "type": "vocab"
+          }
+        ]
+      },
+      {
+        "title": "Example Sentences 例句",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "因为经常下雨。",
+            "pinyin": "Yīnwèi jīngcháng xiàyǔ.",
+            "en": "Because it often rains.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "周末我喜欢在花园种花。",
+            "pinyin": "Zhōumò wǒ xǐhuan zài huāyuán zhòng huā.",
+            "en": "I like growing flowers in the garden on weekends.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我对园艺很感兴趣。",
+            "pinyin": "Wǒ duì yuányì hěn gǎn xìngqù.",
+            "en": "I am very interested in gardening.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "她戴眼镜。",
+            "pinyin": "Tā dài yǎnjìng.",
+            "en": "She wears glasses.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "她是长发。",
+            "pinyin": "Tā shì chángfà.",
+            "en": "She has long hair.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "他的头发很短。",
+            "pinyin": "Tā de tóufa hěn duǎn.",
+            "en": "His hair is very short.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "这个杯子和那个杯子一样。",
+            "pinyin": "Zhège bēizi hé nàge bēizi yíyàng.",
+            "en": "This cup is the same as that cup.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我在回家的路上。",
+            "pinyin": "Wǒ zài huí jiā de lùshàng.",
+            "en": "I am on the way home.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我在去公司的路上。",
+            "pinyin": "Wǒ zài qù gōngsī de lùshàng.",
+            "en": "I am on the way to the company.",
+            "type": "sentence"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "week": 21,
+    "date": "Jun 2, 2026",
+    "chapterRefs": [
+      14
+    ],
+    "sections": [
+      {
+        "title": "Weather & Time Expressions 天气与时间表达",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "这个星期每天都会下雨。",
+            "pinyin": "Zhège xīngqī měitiān dōu huì xiàyǔ.",
+            "en": "It will rain every day this week.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "从……到……",
+            "pinyin": "Cóng... dào...",
+            "en": "From... to...",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "从星期一到星期五。",
+            "pinyin": "Cóng Xīngqīyī dào Xīngqīwǔ.",
+            "en": "From Monday to Friday.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "从早上八点到下午五点。",
+            "pinyin": "Cóng zǎoshang bā diǎn dào xiàwǔ wǔ diǎn.",
+            "en": "From 8 a.m. to 5 p.m.",
+            "type": "sentence"
+          }
+        ]
+      },
+      {
+        "title": "都 (all, both) 都的用法",
+        "kind": "grammar",
+        "items": [
+          {
+            "hanzi": "我们都喜欢咖啡。",
+            "pinyin": "Wǒmen dōu xǐhuan kāfēi.",
+            "en": "We all like coffee.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我们都喜欢茶。",
+            "pinyin": "Wǒmen dōu xǐhuan chá.",
+            "en": "We all like tea.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "同学都上课。",
+            "pinyin": "Tóngxué dōu shàngkè.",
+            "en": "All the students attend class.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "同学都不上课。",
+            "pinyin": "Tóngxué dōu bù shàngkè.",
+            "en": "None of the students attend class.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "同学都没上课。",
+            "pinyin": "Tóngxué dōu méi shàngkè.",
+            "en": "None of the students attended class.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "同学都没来上课。",
+            "pinyin": "Tóngxué dōu méi lái shàngkè.",
+            "en": "None of the students came to class.",
+            "type": "sentence"
+          }
+        ]
+      },
+      {
+        "title": "还没 (not yet)",
+        "kind": "grammar",
+        "items": [
+          {
+            "hanzi": "我还没吃晚饭。",
+            "pinyin": "Wǒ hái méi chī wǎnfàn.",
+            "en": "I haven't eaten dinner yet.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我还没下班。",
+            "pinyin": "Wǒ hái méi xiàbān.",
+            "en": "I haven't finished work yet.",
+            "type": "sentence"
+          }
+        ]
+      },
+      {
+        "title": "还是 (or)",
+        "kind": "grammar",
+        "items": [
+          {
+            "hanzi": "还是",
+            "pinyin": "Háishì",
+            "en": "Or",
+            "type": "vocab"
+          }
+        ]
+      },
+      {
+        "title": "一些 (some)",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "我买了一些衣服。",
+            "pinyin": "Wǒ mǎi le yìxiē yīfu.",
+            "en": "I bought some clothes.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我买了一些水果。",
+            "pinyin": "Wǒ mǎi le yìxiē shuǐguǒ.",
+            "en": "I bought some fruit.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我买了一些书。",
+            "pinyin": "Wǒ mǎi le yìxiē shū.",
+            "en": "I bought some books.",
+            "type": "sentence"
+          }
+        ]
+      },
+      {
+        "title": "Completed Actions with 了",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "我吃午饭了。",
+            "pinyin": "Wǒ chī wǔfàn le.",
+            "en": "I ate lunch.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我买了一瓶茶。",
+            "pinyin": "Wǒ mǎi le yì píng chá.",
+            "en": "I bought a bottle of tea.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我买了一杯咖啡。",
+            "pinyin": "Wǒ mǎi le yì bēi kāfēi.",
+            "en": "I bought a cup of coffee.",
+            "type": "sentence"
+          }
+        ]
+      },
+      {
+        "title": "Measure Words 量词",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "一瓶茶",
+            "pinyin": "Yì píng chá",
+            "en": "A bottle of tea",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "一杯咖啡",
+            "pinyin": "Yì bēi kāfēi",
+            "en": "A cup of coffee",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "一些衣服",
+            "pinyin": "Yìxiē yīfu",
+            "en": "Some clothes",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "一些水果",
+            "pinyin": "Yìxiē shuǐguǒ",
+            "en": "Some fruit",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "一些书",
+            "pinyin": "Yìxiē shū",
+            "en": "Some books",
+            "type": "vocab"
+          }
+        ]
+      },
+      {
+        "title": "Talking About the Weather 天气",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "今天下大雨了。",
+            "pinyin": "Jīntiān xià dàyǔ le.",
+            "en": "It rained heavily today.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "今天阴天。",
+            "pinyin": "Jīntiān yīntiān.",
+            "en": "It is cloudy today.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "今天很冷。",
+            "pinyin": "Jīntiān hěn lěng.",
+            "en": "It is very cold today.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "今天不冷也不热。",
+            "pinyin": "Jīntiān bù lěng yě bù rè.",
+            "en": "It is neither cold nor hot today.",
+            "type": "sentence"
+          }
+        ]
+      },
+      {
+        "title": "Talking About Time 时间",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "现在差十分七点。",
+            "pinyin": "Xiànzài chà shí fēn qī diǎn.",
+            "en": "It is ten minutes to seven.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "现在七点了。",
+            "pinyin": "Xiànzài qī diǎn le.",
+            "en": "It is seven o'clock now.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "现在七点半了。",
+            "pinyin": "Xiànzài qī diǎn bàn le.",
+            "en": "It is half past seven now.",
+            "type": "sentence"
+          }
+        ]
+      },
+      {
+        "title": "Talking About Food Preferences 饮食喜好",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "我喜欢吃日本菜。",
+            "pinyin": "Wǒ xǐhuan chī Rìběn cài.",
+            "en": "I like Japanese food.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我喜欢吃中国菜。",
+            "pinyin": "Wǒ xǐhuan chī Zhōngguó cài.",
+            "en": "I like Chinese food.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我更喜欢吃日本菜。",
+            "pinyin": "Wǒ gèng xǐhuan chī Rìběn cài.",
+            "en": "I prefer Japanese food.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我更喜欢喝茶。",
+            "pinyin": "Wǒ gèng xǐhuan hē chá.",
+            "en": "I prefer tea.",
+            "type": "sentence"
+          }
+        ]
+      },
+      {
+        "title": "更 (more, prefer)",
+        "kind": "grammar",
+        "items": [
+          {
+            "hanzi": "更",
+            "pinyin": "Gèng",
+            "en": "More / even more",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "我喜欢咖啡。",
+            "pinyin": "Wǒ xǐhuan kāfēi.",
+            "en": "I like coffee.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我更喜欢茶。",
+            "pinyin": "Wǒ gèng xǐhuan chá.",
+            "en": "I prefer tea.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我更喜欢中国。",
+            "pinyin": "Wǒ gèng xǐhuan Zhōngguó.",
+            "en": "I prefer China.",
+            "type": "sentence"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "week": 22,
+    "date": "Jun 9, 2026",
+    "chapterRefs": [
+      14,
+      15
+    ],
+    "sections": [
+      {
+        "title": "从……来 (come from)",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "我从公司来。",
+            "pinyin": "Wǒ cóng gōngsī lái.",
+            "en": "I am coming from the company.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我从家来。",
+            "pinyin": "Wǒ cóng jiā lái.",
+            "en": "I am coming from home.",
+            "type": "sentence"
+          }
+        ]
+      },
+      {
+        "title": "Time + 前 / 后",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "一个月后",
+            "pinyin": "Yí gè yuè hòu",
+            "en": "One month later",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "三个月后",
+            "pinyin": "Sān gè yuè hòu",
+            "en": "Three months later",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "回家前，我们先去超市吧。",
+            "pinyin": "Huí jiā qián, wǒmen xiān qù chāoshì ba.",
+            "en": "Before going home, let's go to the supermarket first.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "回去前，我想买点儿东西。",
+            "pinyin": "Huí qù qián, wǒ xiǎng mǎi diǎnr dōngxi.",
+            "en": "Before going back, I want to buy a few things.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "上课前，我喝了一杯咖啡。",
+            "pinyin": "Shàngkè qián, wǒ hē le yì bēi kāfēi.",
+            "en": "Before class, I drank a cup of coffee.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "下课后，我回家做饭。",
+            "pinyin": "Xiàkè hòu, wǒ huí jiā zuòfàn.",
+            "en": "After class, I go home and cook.",
+            "type": "sentence"
+          }
+        ]
+      },
+      {
+        "title": "Titles & People 称呼",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "张先生",
+            "pinyin": "Zhāng xiānsheng",
+            "en": "Mr. Zhang",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "于老师",
+            "pinyin": "Yú lǎoshī",
+            "en": "Teacher Yu",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "张经理",
+            "pinyin": "Zhāng jīnglǐ",
+            "en": "Manager Zhang",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "老板",
+            "pinyin": "Lǎobǎn",
+            "en": "Boss",
+            "type": "vocab"
+          }
+        ]
+      },
+      {
+        "title": "Travel & Personal Items 旅行和物品",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "跑鞋",
+            "pinyin": "Pǎoxié",
+            "en": "Running shoes",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "水瓶",
+            "pinyin": "Shuǐpíng",
+            "en": "Water bottle",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "狗",
+            "pinyin": "Gǒu",
+            "en": "Dog",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "行李箱",
+            "pinyin": "Xínglǐxiāng",
+            "en": "Suitcase",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "机票",
+            "pinyin": "Jīpiào",
+            "en": "Air ticket",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "护照",
+            "pinyin": "Hùzhào",
+            "en": "Passport",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "钱",
+            "pinyin": "Qián",
+            "en": "Money",
+            "type": "vocab"
+          }
+        ]
+      },
+      {
+        "title": "Around the House 家里",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "车库",
+            "pinyin": "Chēkù",
+            "en": "Garage",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "厨房桌子上",
+            "pinyin": "Chúfáng zhuōzi shàng",
+            "en": "On the kitchen table",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "卧室桌子上",
+            "pinyin": "Wòshì zhuōzi shàng",
+            "en": "On the bedroom table",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "护照在厨房桌子上。",
+            "pinyin": "Hùzhào zài chúfáng zhuōzi shàng.",
+            "en": "The passport is on the kitchen table.",
+            "type": "sentence"
+          }
+        ]
+      },
+      {
+        "title": "Shopping & Daily Conversation 购物与日常对话",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "不太远。",
+            "pinyin": "Bú tài yuǎn.",
+            "en": "Not too far.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "还没……",
+            "pinyin": "Hái méi...",
+            "en": "Not yet...",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我还没决定。",
+            "pinyin": "Wǒ hái méi juédìng.",
+            "en": "I haven't decided yet.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我还没吃晚饭。",
+            "pinyin": "Wǒ hái méi chī wǎnfàn.",
+            "en": "I haven't eaten dinner yet.",
+            "type": "sentence"
+          },
+          {
+            "hanzi": "我还没买。",
+            "pinyin": "Wǒ hái méi mǎi.",
+            "en": "I haven't bought it yet.",
+            "type": "sentence"
+          }
+        ]
+      },
+      {
+        "title": "Useful Vocabulary 补充词汇",
+        "kind": "vocab",
+        "items": [
+          {
+            "hanzi": "超市",
+            "pinyin": "Chāoshì",
+            "en": "Supermarket",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "超人",
+            "pinyin": "Chāorén",
+            "en": "Superman",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "剩女",
+            "pinyin": "Shèngnǚ",
+            "en": "Single woman beyond the traditional marriage age (literal: \"leftover woman\")",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "剩菜剩饭",
+            "pinyin": "Shèngcài shèngfàn",
+            "en": "Leftover food",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "决定",
+            "pinyin": "Juédìng",
+            "en": "To decide",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "先",
+            "pinyin": "Xiān",
+            "en": "First",
+            "type": "vocab"
+          },
+          {
+            "hanzi": "东西",
+            "pinyin": "Dōngxi",
+            "en": "Things / stuff",
+            "type": "vocab"
+          }
+        ]
+      }
+    ]
+  }
+]

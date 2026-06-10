@@ -1,6 +1,6 @@
 import { WORDS } from '../data/vocab'
 
-function shuffle(a) {
+export function shuffle(a) {
   const arr = [...a]
   for (let i = arr.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1))
@@ -14,25 +14,7 @@ function distractors(word, key, n = 3) {
   return shuffle(pool).slice(0, n)
 }
 
-// Build a varied, shuffled exercise queue from a set of words.
-// types is the list of exercise kinds to mix in.
-export function buildQueue(words, {
-  types = ['listen-meaning', 'read-meaning', 'meaning-hanzi', 'pinyin-choose', 'listen-hanzi', 'build-sentence', 'write'],
-  perWord = 1,
-  includeWrite = false,
-} = {}) {
-  const q = []
-  const useTypes = includeWrite ? types : types.filter((t) => t !== 'write')
-
-  for (const word of words) {
-    const picks = shuffle(useTypes)
-    for (let k = 0; k < perWord; k++) {
-      const type = picks[k % picks.length]
-      q.push(makeExercise(type, word))
-    }
-  }
-  return shuffle(q).filter(Boolean)
-}
+const WORD_TYPES = ['listen-meaning', 'read-meaning', 'meaning-hanzi', 'pinyin-choose', 'listen-hanzi', 'build-sentence', 'write']
 
 export function makeExercise(type, word) {
   switch (type) {
@@ -57,12 +39,50 @@ export function makeExercise(type, word) {
       return { type, word, options: opts, prompt: 'Choose the correct pinyin' }
     }
     case 'build-sentence':
-      return { type, word, prompt: 'Build the sentence' }
+      return { type, word, sentence: word.ex ? { hanzi: word.ex[0], en: word.ex[1] } : null, prompt: 'Build the sentence' }
     case 'write':
       return { type, word, prompt: 'Write the character' }
     default:
-      return { type: 'read-meaning', word, options: shuffle([word, ...distractors(word, 'en')]).map((w) => ({ label: w.en, correct: w.id === word.id })) }
+      return makeExercise('read-meaning', word)
   }
 }
 
-export { shuffle }
+// Word-based queue (used by chapter vocab practice and review).
+export function buildQueue(words, { types = WORD_TYPES, perWord = 1, includeWrite = false } = {}) {
+  const useTypes = includeWrite ? types : types.filter((t) => t !== 'write')
+  const q = []
+  for (const word of words) {
+    const picks = shuffle(useTypes)
+    for (let k = 0; k < perWord; k++) q.push(makeExercise(picks[k % picks.length], word))
+  }
+  return shuffle(q).filter(Boolean)
+}
+
+// Grammar drill: blank the pattern keyword in one of the lesson's example sentences.
+export function makeFillBlank(grammar) {
+  const withKw = grammar.examples.filter((e) => e.hanzi.includes(grammar.drill.keyword))
+  const ex = (withKw.length ? withKw : grammar.examples)[Math.floor(Math.random() * (withKw.length || grammar.examples.length))]
+  const options = shuffle(grammar.drill.options).map((o) => ({ label: o, han: true, correct: o === grammar.drill.keyword }))
+  return {
+    type: 'fill-blank', grammarId: grammar.id, keyword: grammar.drill.keyword,
+    sentence: ex, options, prompt: `Complete the sentence · ${grammar.title.split('—')[0].trim()}`,
+  }
+}
+
+export function buildGrammarQueue(grammar) {
+  const q = []
+  // a couple of fill-blanks + reorder its example sentences
+  q.push(makeFillBlank(grammar))
+  q.push(makeFillBlank(grammar))
+  for (const ex of shuffle(grammar.examples).slice(0, 2)) {
+    q.push({ type: 'build-sentence', grammarId: grammar.id, sentence: ex, prompt: 'Build the sentence' })
+  }
+  return shuffle(q)
+}
+
+// Mixed chapter practice: core-word exercises + one fill-blank per grammar point.
+export function buildChapterQueue(chapter, { includeWrite = true } = {}) {
+  const q = buildQueue(chapter.coreWords, { includeWrite, perWord: 1 })
+  for (const g of chapter.grammar) q.push(makeFillBlank(g))
+  return shuffle(q)
+}

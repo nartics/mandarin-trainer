@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { LESSONS, lessonWords } from '../data/vocab'
+import { CHAPTERS } from '../data/chapters'
 import { useSpeech } from '../hooks/useSpeech'
 import { deriveMastery, defaultCard } from '../lib/sm2'
 import { annotate } from '../lib/pinyin'
@@ -19,14 +19,14 @@ export default function WordBrowser({ progress }) {
         placeholder="Search hanzi, pinyin or meaning…"
         className="w-full mb-4 px-4 py-3 rounded-xl bg-ink-800 border border-white/10 text-base outline-none focus:border-white/30"
       />
-      {LESSONS.map((lesson) => {
-        const words = lessonWords(lesson.id).filter((w) =>
+      {CHAPTERS.map((chapter) => {
+        const words = chapter.coreWords.filter((w) =>
           !q || w.hanzi.includes(q) || w.pinyin.toLowerCase().includes(q.toLowerCase()) || w.en.toLowerCase().includes(q.toLowerCase())
         )
         if (!words.length) return null
         return (
-          <div key={lesson.id} className="mb-5">
-            <h3 className="text-xs uppercase tracking-wide text-slate-500 mb-2">{lesson.icon} {lesson.title}</h3>
+          <div key={chapter.num} className="mb-5">
+            <h3 className="text-xs uppercase tracking-wide text-slate-500 mb-2">Ch {chapter.num} · <span className="han">{chapter.titleZh}</span></h3>
             <div className="flex flex-col gap-2">
               {words.map((w) => {
                 const m = deriveMastery(progress.cardFor(w.id) || defaultCard())

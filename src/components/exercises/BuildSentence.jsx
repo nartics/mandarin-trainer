@@ -4,9 +4,11 @@ import { shuffle } from '../../lib/queue'
 import { SpeakerButton } from '../ui/common'
 
 // Reconstruct a Chinese sentence by tapping characters in the right order.
-export default function BuildSentence({ word, onResult, speak, speaking }) {
-  const target = word.ex?.[0] || word.hanzi
-  const english = word.ex?.[1] || word.en
+// Accepts a `sentence` {hanzi,en}, falling back to a word's example sentence.
+export default function BuildSentence({ sentence, word, onResult, speak, speaking }) {
+  const src = sentence || (word?.ex ? { hanzi: word.ex[0], en: word.ex[1] } : { hanzi: word?.hanzi || '', en: word?.en || '' })
+  const target = src.hanzi
+  const english = src.en
   const chars = useMemo(() => Array.from(target).filter((c) => c !== ' '), [target])
   const tokens = useMemo(
     () => shuffle(chars.map((c, i) => ({ c, i }))),

@@ -1,13 +1,13 @@
 import { useState, useMemo } from 'react'
-import { CHARACTERS } from '../data/vocab'
+import { CHAR_LIST } from '../data/chapters'
 import { useSpeech } from '../hooks/useSpeech'
 import CharWriter from './exercises/CharWriter'
 import { SpeakerButton, PrimaryButton } from './ui/common'
 
 export default function WriteTrainer({ progress, onWrite }) {
   const { speak, speaking } = useSpeech()
-  const [active, setActive] = useState(null) // index into CHARACTERS
-  const chars = CHARACTERS
+  const [active, setActive] = useState(null) // index into CHAR_LIST
+  const chars = CHAR_LIST
 
   const open = (i) => setActive(i)
   const close = () => setActive(null)

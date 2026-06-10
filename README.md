@@ -1,7 +1,9 @@
-# 汉语 — HSK 1 Mastery
+# 汉语 — HSK 1 Mastery (Manhattan Mandarin)
 
-A Duolingo-style trainer to fully master **HSK 1** Chinese across **reading, writing & listening**.
-Vite + React + Tailwind PWA. Fully self-contained — no API keys, works offline after first load.
+A Duolingo-style trainer **structured around your live HSK 1 class** — the Spring 2026
+Manhattan Mandarin course, which follows the **HSK Standard Course textbook, chapters 1–15**.
+Reading, writing, listening and grammar, all mapped to what you actually study each week.
+Vite + React + Tailwind PWA. Self-contained — no API keys, works offline after first load.
 
 ## Run it
 
@@ -11,52 +13,55 @@ npm install
 npm run dev      # http://localhost:5188
 ```
 
-Build for production / install to your phone:
+Build / install to your phone: `npm run build && npm run preview`, open on your phone and
+**Add to Home Screen**. Progress is saved locally on the device.
 
-```bash
-npm run build && npm run preview
-```
+## Structured around the class
 
-Then open on your phone and **Add to Home Screen** (iOS Safari: Share → Add to Home Screen).
-It launches full-screen like a native app, and all progress is saved locally on the device.
+The backbone is the **15 HSK Standard Course chapters** (你好 → 我是坐飞机来的). The home
+screen marks **"Your class is here"** at the chapter you're currently on. Each chapter opens to:
 
-## What's inside
+- **Vocab** — the core HSK 1 words for that lesson, plus a collapsible *"From class — extension"*
+  group of the extra conversational words your teacher added (kept separate so they don't
+  distort your exam-vocab progress).
+- **Grammar** — full lessons for every pattern the class teaches (想/可以/在+V, 是/吗, 的, 有,
+  会/能, **都**, 喜欢, measure words, telling time, 怎么样, 太…了, 在…呢, **了 / 了吗**, **还是**,
+  一些/更, **是…的**, 从…来 / 前·后…): a plain-English explanation, the pattern template, the
+  **real example sentences from your class notes**, and drills.
+- **Practice** — a mixed session (listen / read / pinyin / build-sentence / write / grammar
+  fill-blank) scoped to that chapter.
+- **Resources** — the exact **ChinesePod** native-speaker episodes, **Quizlet** sets and
+  textbook lesson from that week's homework.
 
-The full **official HSK 1 word list** (~146 words / 170 characters), grouped into 15 themed
-lessons. Every word has a native example sentence.
-
-### Four ways to train
+### Four tabs
 
 | Tab | What it does |
 |-----|--------------|
-| **Learn** | A lesson path. Each lesson mixes 6 exercise types: listen-and-choose, read-the-meaning, meaning→hanzi, pick-the-pinyin, build-the-sentence, and stroke-order writing. |
-| **Listen** 听力 | Connected-speech comprehension. Hear a full sentence at **native speed** (toggle 🐢 slow), then pick the meaning. |
-| **Write** 写字 | Stroke-order practice for every character, powered by Hanzi Writer. Trace it correctly to master it; tap **▶ Show me** to watch the strokes. |
-| **Review** 复习 | Anki-style spaced repetition (SM-2). Due words come back right before you'd forget them. |
+| **Learn** | Chapter path + dashboard. Open any chapter for its vocab, grammar, practice & resources. |
+| **Listen** 听力 | Connected-speech comprehension at **native speed** (🐢 slow toggle), drawn from the class's example sentences. |
+| **Write** 写字 | Stroke-order practice for every core character (Hanzi Writer). |
+| **Review** 复习 | Anki-style spaced repetition (SM-2) across all core words. |
 
 ### Listening — native voices
+Listening uses your device's **native system Mandarin voice** (Tingting / Sinji / Meijia on
+macOS/iOS). Each chapter's Resources tab also links the class's ChinesePod episodes for real
+native-speaker dialogue. *(ChinesePod & Quizlet use the class login from your course sheet.)*
 
-Listening uses your device's **native system Mandarin voice** via the Web Speech API.
-On macOS / iOS these are genuine native-speaker voices (Tingting, Sinji, Meijia…). No key, no network.
+## Where the content comes from
 
-> If a device has no Chinese voice installed, add one in
-> **Settings → Accessibility → Spoken Content → Voices → Chinese**.
-
-## How mastery works
-
-- Every answer feeds an SM-2 spaced-repetition card per word.
-- A word climbs **new → learning → familiar → mastered** as your recall intervals grow.
-- The dashboard shows exactly how many of the 146 words you've mastered, plus streak & XP.
-- Writing mastery is tracked separately per character (a clean, mistake-free trace = mastered).
+- `resources/class-notes.pdf` — your class PDF (22 weeks of notes).
+- `scripts/parse_class_pdf.py` — extracts the notes into `src/data/classNotes.json`
+  (~694 vocab items + example sentences). Re-run after each new class:
+  ```bash
+  pip install pymupdf
+  python3 scripts/parse_class_pdf.py
+  ```
+- `src/data/vocab.js` — the 146 core HSK 1 words, bucketed into the 15 chapters.
+- `src/data/grammar.js` — authored grammar lessons (examples sourced from the class notes).
+- `src/data/chapters.js` — ties it together (core + grammar + class extension vocab + sentences).
+- `src/data/resources.js` — per-chapter ChinesePod / Quizlet / textbook links.
 
 ## Tech
-
-- **Pinyin** is generated at runtime with `pinyin-pro` (tone-marked and tone-colored), so the
-  data file only stores hanzi + English — less to get wrong.
-- **Stroke data** loads on demand from the Hanzi Writer CDN and is cached by the service worker.
-- State lives in `localStorage` under `hsk1-progress-v1`.
-
-## Extending to real native audio
-
-Listening currently uses on-device TTS. To swap in real native recordings, drop audio files in
-`public/audio/<hanzi>.mp3` and update `useSpeech` to prefer them — the rest of the app is unchanged.
+Pinyin is generated at runtime with `pinyin-pro` (tone-marked & colored). Hanzi stroke data
+loads on demand from the Hanzi Writer CDN and is service-worker cached. Progress lives in
+`localStorage` (`hsk1-progress-v1`).
