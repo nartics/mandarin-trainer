@@ -2,13 +2,15 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 import { useSpeech } from '../hooks/useSpeech'
 import { useSounds } from '../hooks/useSounds'
 import { QUALITY } from '../lib/sm2'
-import { Annotated, SpeakerButton, Choice, PrimaryButton } from './ui/common'
+import { Annotated, SpeakerButton, Choice, PrimaryButton, PinyinToggle } from './ui/common'
+import { useSettings } from '../hooks/useSettings'
 import BuildSentence from './exercises/BuildSentence'
 import FillBlank from './exercises/FillBlank'
 import CharWriter from './exercises/CharWriter'
 
 export default function ExerciseRunner({ queue, title, onReview, onWrite, onGrammar, onClose, onComplete }) {
   const { speak, speaking } = useSpeech()
+  const { showPinyin } = useSettings()
   const sounds = useSounds()
   const [idx, setIdx] = useState(0)
   const [picked, setPicked] = useState(null)   // index of chosen option
@@ -51,6 +53,8 @@ export default function ExerciseRunner({ queue, title, onReview, onWrite, onGram
 
   const handleChoice = (i) => {
     if (revealed) return
+    // Tapping a hanzi option plays its pronunciation.
+    if (ex.options[i].han) speak(ex.options[i].label, { rate: 0.8 })
     setPicked(i)
     setRevealed(true)
     const ok = ex.options[i].correct
@@ -92,7 +96,8 @@ export default function ExerciseRunner({ queue, title, onReview, onWrite, onGram
         <div className="flex-1 h-3 rounded-full bg-ink-700 overflow-hidden">
           <div className="h-full bg-jade-500 transition-all" style={{ width: `${(idx / total) * 100}%` }} />
         </div>
-        <span className="text-xs text-slate-400 w-12 text-right">{idx + 1}/{total}</span>
+        <PinyinToggle />
+        <span className="text-xs text-slate-400 w-10 text-right">{idx + 1}/{total}</span>
       </div>
 
       {/* Body */}
@@ -108,8 +113,7 @@ export default function ExerciseRunner({ queue, title, onReview, onWrite, onGram
             <div className="flex flex-col items-center gap-4">
               <div className="text-center text-slate-300">
                 <span className="text-lg">{ex.word.en}</span>
-                <span className="mx-2 text-slate-500">·</span>
-                <span className="tone1">{ex.word.pinyin}</span>
+                {showPinyin && <><span className="mx-2 text-slate-500">·</span><span className="tone1">{ex.word.pinyin}</span></>}
               </div>
               <CharWriter key={idx} char={ex.word.hanzi[0]} onComplete={writeResult} />
             </div>
@@ -163,8 +167,8 @@ export default function ExerciseRunner({ queue, title, onReview, onWrite, onGram
                 </p>
                 <p className="text-sm text-slate-300 mt-0.5">
                   <span className="han text-base">{ex.word.hanzi}</span>
-                  <span className="mx-1.5 tone1">{ex.word.pinyin}</span>
-                  <span className="text-slate-400">— {ex.word.en}</span>
+                  {showPinyin && <span className="mx-1.5 tone1">{ex.word.pinyin}</span>}
+                  <span className="text-slate-400">{showPinyin ? '— ' : ' '}{ex.word.en}</span>
                 </p>
               </div>
               <SpeakerButton onClick={() => speak(ex.word.hanzi, { rate: 0.8 })} speaking={speaking} />

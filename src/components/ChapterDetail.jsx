@@ -1,12 +1,13 @@
 import { useState } from 'react'
 import { useSpeech } from '../hooks/useSpeech'
+import { useSettings } from '../hooks/useSettings'
 import { deriveMastery, defaultCard } from '../lib/sm2'
 import { chapterResources, PORTAL } from '../data/resources'
-import { annotate } from '../lib/pinyin'
-import { MASTERY_COLORS, PrimaryButton } from './ui/common'
+import { MASTERY_COLORS, PrimaryButton, PinyinToggle } from './ui/common'
 
 export default function ChapterDetail({ chapter, progress, onClose, onPractice, onOpenGrammar }) {
   const { speak } = useSpeech()
+  const { showPinyin } = useSettings()
   const [tab, setTab] = useState('vocab')
   const [showExt, setShowExt] = useState(false)
   const res = chapterResources(chapter.num)
@@ -32,13 +33,14 @@ export default function ChapterDetail({ chapter, progress, onClose, onPractice, 
             <p className="text-xs text-slate-400">{chapter.pinyin} · {chapter.en}</p>
           </div>
         </div>
-        <div className="flex gap-1.5 mt-3">
+        <div className="flex items-center gap-1.5 mt-3">
           {TABS.map((t) => (
             <button key={t.id} onClick={() => setTab(t.id)}
               className={`px-3 py-1.5 rounded-full text-xs font-medium transition ${tab === t.id ? 'bg-jade-500 text-ink-900' : 'bg-ink-700 text-slate-300'}`}>
               {t.label}
             </button>
           ))}
+          <PinyinToggle className="ml-auto" />
         </div>
       </div>
 
@@ -54,7 +56,7 @@ export default function ChapterDetail({ chapter, progress, onClose, onPractice, 
                     className="w-full flex items-center gap-3 p-3 rounded-2xl bg-ink-800 border border-white/10 text-left active:bg-ink-700">
                     <span className="han text-3xl w-14 text-center">{w.hanzi}</span>
                     <span className="flex-1 min-w-0">
-                      <span className="tone1 block">{w.pinyin}</span>
+                      {showPinyin && <span className="tone1 block">{w.pinyin}</span>}
                       <span className="text-slate-400 text-sm">{w.en}</span>
                     </span>
                     <span className={`text-[10px] px-2 py-1 rounded-full ${MASTERY_COLORS[m]}`}>{m}</span>
@@ -77,7 +79,7 @@ export default function ChapterDetail({ chapter, progress, onClose, onPractice, 
                           className="w-full flex items-center gap-3 p-2.5 rounded-xl bg-ink-800/60 border border-white/5 text-left active:bg-ink-700">
                           <span className="han text-2xl w-12 text-center">{w.hanzi}</span>
                           <span className="flex-1 min-w-0">
-                            <span className="tone1 block text-sm">{w.pinyin}</span>
+                            {showPinyin && <span className="tone1 block text-sm">{w.pinyin}</span>}
                             <span className="text-slate-400 text-xs">{w.en}</span>
                           </span>
                         </button>

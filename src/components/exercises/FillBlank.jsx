@@ -1,10 +1,12 @@
 import { useState } from 'react'
 import { annotate } from '../../lib/pinyin'
 import { SpeakerButton, Choice, PrimaryButton } from '../ui/common'
+import { useSettings } from '../../hooks/useSettings'
 
 // Grammar drill: the pattern keyword is blanked out of a sentence; pick the right word.
 export default function FillBlank({ exercise, speak, speaking, onResult }) {
   const { sentence, keyword, options } = exercise
+  const { showPinyin } = useSettings()
   const [picked, setPicked] = useState(null)
   const [revealed, setRevealed] = useState(false)
 
@@ -15,9 +17,10 @@ export default function FillBlank({ exercise, speak, speaking, onResult }) {
 
   const choose = (i) => {
     if (revealed) return
+    speak?.(options[i].label, { rate: 0.7 }) // tapping a character plays it
     setPicked(i); setRevealed(true)
     const ok = options[i].correct
-    setTimeout(() => speak?.(sentence.hanzi), 250)
+    setTimeout(() => speak?.(sentence.hanzi), 450)
     setTimeout(() => onResult?.(ok), ok ? 850 : 1700)
   }
 
@@ -35,7 +38,7 @@ export default function FillBlank({ exercise, speak, speaking, onResult }) {
         <div className="flex flex-wrap items-end justify-center gap-x-0.5 gap-y-1 text-2xl">
           {annotate(before).map((s, i) => (
             <span key={'b' + i} className="flex flex-col items-center leading-tight">
-              <span className={`text-[10px] tone${s.tone}`}>{s.pinyin}</span>
+              {showPinyin && <span className={`text-[10px] tone${s.tone}`}>{s.pinyin}</span>}
               <span className="han">{s.hanzi}</span>
             </span>
           ))}
@@ -44,7 +47,7 @@ export default function FillBlank({ exercise, speak, speaking, onResult }) {
           </span>
           {annotate(after).map((s, i) => (
             <span key={'a' + i} className="flex flex-col items-center leading-tight">
-              <span className={`text-[10px] tone${s.tone}`}>{s.pinyin}</span>
+              {showPinyin && <span className={`text-[10px] tone${s.tone}`}>{s.pinyin}</span>}
               <span className="han">{s.hanzi}</span>
             </span>
           ))}

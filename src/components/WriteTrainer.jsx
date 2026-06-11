@@ -1,11 +1,13 @@
 import { useState, useMemo } from 'react'
 import { CHAR_LIST } from '../data/chapters'
 import { useSpeech } from '../hooks/useSpeech'
+import { useSettings } from '../hooks/useSettings'
 import CharWriter from './exercises/CharWriter'
 import { SpeakerButton, PrimaryButton } from './ui/common'
 
 export default function WriteTrainer({ progress, onWrite }) {
   const { speak, speaking } = useSpeech()
+  const { showPinyin } = useSettings()
   const [active, setActive] = useState(null) // index into CHAR_LIST
   const chars = CHAR_LIST
 
@@ -25,7 +27,7 @@ export default function WriteTrainer({ progress, onWrite }) {
         </div>
         <div className="flex-1 flex flex-col items-center justify-center gap-5 px-5 pb-6">
           <div className="text-center">
-            <p className="tone1 text-xl">{c.pinyin}</p>
+            {showPinyin && <p className="tone1 text-xl">{c.pinyin}</p>}
             <p className="text-slate-400 text-sm">{c.en} · from 「{c.fromWord}」</p>
           </div>
           <CharWriter key={active} char={c.char} onComplete={(m) => onWrite?.(c.char, m)} />

@@ -1,18 +1,22 @@
 import { useState } from 'react'
 import { CHAPTERS } from '../data/chapters'
 import { useSpeech } from '../hooks/useSpeech'
+import { useSettings } from '../hooks/useSettings'
 import { deriveMastery, defaultCard } from '../lib/sm2'
-import { annotate } from '../lib/pinyin'
-import { MASTERY_COLORS } from './ui/common'
+import { MASTERY_COLORS, PinyinToggle, SentenceLine } from './ui/common'
 
 export default function WordBrowser({ progress }) {
   const { speak } = useSpeech()
+  const { showPinyin } = useSettings()
   const [open, setOpen] = useState(null)
   const [q, setQ] = useState('')
 
   return (
     <div className="px-5 pb-6">
-      <h2 className="text-xl font-bold mb-1 mt-2">Vocabulary 词汇</h2>
+      <div className="flex items-center justify-between mb-1 mt-2">
+        <h2 className="text-xl font-bold">Vocabulary 词汇</h2>
+        <PinyinToggle />
+      </div>
       <input
         value={q}
         onChange={(e) => setQ(e.target.value)}
@@ -39,7 +43,7 @@ export default function WordBrowser({ progress }) {
                     >
                       <span className="han text-3xl w-16 text-center">{w.hanzi}</span>
                       <span className="flex-1 min-w-0">
-                        <span className="tone1 block">{w.pinyin}</span>
+                        {showPinyin && <span className="tone1 block">{w.pinyin}</span>}
                         <span className="text-slate-400 text-sm">{w.en}</span>
                       </span>
                       <span className={`text-[10px] px-2 py-1 rounded-full ${MASTERY_COLORS[m]}`}>{m}</span>
@@ -49,14 +53,7 @@ export default function WordBrowser({ progress }) {
                         <div className="rounded-xl bg-ink-900/60 p-3 flex items-center gap-2">
                           <span className="text-sky-400 text-lg">🔊</span>
                           <span className="flex flex-col">
-                            <span className="flex flex-wrap gap-x-0.5">
-                              {annotate(w.ex[0]).map((s, i) => (
-                                <span key={i} className="flex flex-col items-center leading-tight">
-                                  <span className={`text-[10px] tone${s.tone}`}>{s.pinyin}</span>
-                                  <span className="han text-lg">{s.hanzi}</span>
-                                </span>
-                              ))}
-                            </span>
+                            <SentenceLine text={w.ex[0]} size="text-lg" />
                             <span className="text-slate-400 text-sm mt-1">{w.ex[1]}</span>
                           </span>
                         </div>

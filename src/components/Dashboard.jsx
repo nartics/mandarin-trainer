@@ -1,5 +1,6 @@
 import { CHAPTER_BY_NUM, CURRENT_CHAPTER } from '../data/chapters'
 import { GRAMMAR } from '../data/grammar'
+import { PinyinToggle } from './ui/common'
 
 export default function Dashboard({ stats, streak, xp, grammarCount = 0 }) {
   const cur = CHAPTER_BY_NUM[CURRENT_CHAPTER]
@@ -10,7 +11,8 @@ export default function Dashboard({ stats, streak, xp, grammarCount = 0 }) {
           <h1 className="text-2xl font-bold leading-none">汉语 <span className="text-slate-500 text-base font-normal">HSK 1</span></h1>
           <p className="text-slate-400 text-sm mt-1">Manhattan Mandarin · Standard Course</p>
         </div>
-        <div className="flex gap-2">
+        <div className="flex items-center gap-2">
+          <PinyinToggle />
           <Badge icon="🔥" value={streak} label="streak" />
           <Badge icon="⭐" value={xp} label="XP" />
         </div>

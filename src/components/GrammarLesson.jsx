@@ -1,6 +1,5 @@
 import { useSpeech } from '../hooks/useSpeech'
-import { annotate } from '../lib/pinyin'
-import { SpeakerButton, PrimaryButton } from './ui/common'
+import { PrimaryButton, PinyinToggle, SentenceLine } from './ui/common'
 
 // A single grammar lesson: pattern + explanation + class example sentences + practice.
 export default function GrammarLesson({ grammar, onClose, onPractice }) {
@@ -9,10 +8,11 @@ export default function GrammarLesson({ grammar, onClose, onPractice }) {
     <div className="fixed inset-0 z-40 bg-ink-900 flex flex-col safe-top">
       <div className="flex items-center gap-3 px-4 pt-3 pb-2 border-b border-white/10">
         <button onClick={onClose} className="text-slate-400 text-2xl px-2">←</button>
-        <div className="min-w-0">
+        <div className="min-w-0 flex-1">
           <h2 className="font-semibold truncate">{grammar.title}</h2>
           <p className="text-xs text-sky-400 han">{grammar.patternZh}</p>
         </div>
+        <PinyinToggle />
       </div>
 
       <div className="flex-1 overflow-y-auto no-scrollbar px-5 py-5 pb-28">
@@ -42,14 +42,7 @@ export default function GrammarLesson({ grammar, onClose, onPractice }) {
               >
                 <span className="text-sky-400 text-lg shrink-0">🔊</span>
                 <span className="flex-1 min-w-0">
-                  <span className="flex flex-wrap gap-x-0.5">
-                    {annotate(ex.hanzi).map((s, j) => (
-                      <span key={j} className="flex flex-col items-center leading-tight">
-                        <span className={`text-[10px] tone${s.tone}`}>{s.pinyin}</span>
-                        <span className="han text-xl">{s.hanzi}</span>
-                      </span>
-                    ))}
-                  </span>
+                  <SentenceLine text={ex.hanzi} size="text-xl" />
                   <span className="block text-slate-400 text-sm mt-1">{ex.en}</span>
                 </span>
               </button>

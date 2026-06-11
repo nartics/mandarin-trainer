@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react'
 import { annotate } from '../../lib/pinyin'
 import { shuffle } from '../../lib/queue'
 import { SpeakerButton } from '../ui/common'
+import { useSettings } from '../../hooks/useSettings'
 
 // Reconstruct a Chinese sentence by tapping characters in the right order.
 // Accepts a `sentence` {hanzi,en}, falling back to a word's example sentence.
@@ -16,13 +17,15 @@ export default function BuildSentence({ sentence, word, onResult, speak, speakin
   )
   const [picked, setPicked] = useState([])
   const [checked, setChecked] = useState(false)
+  const { showPinyin } = useSettings()
 
   const used = new Set(picked.map((p) => p.i))
   const built = picked.map((p) => p.c).join('')
   const correct = built === chars.join('')
 
-  const pick = (t) => { if (!checked && !used.has(t.i)) setPicked([...picked, t]) }
-  const unpick = (idx) => { if (!checked) setPicked(picked.filter((_, i) => i !== idx)) }
+  // Tapping a character plays its pronunciation.
+  const pick = (t) => { if (!checked && !used.has(t.i)) { speak?.(t.c, { rate: 0.7 }); setPicked([...picked, t]) } }
+  const unpick = (idx) => { if (!checked) { speak?.(picked[idx].c, { rate: 0.7 }); setPicked(picked.filter((_, i) => i !== idx)) } }
 
   const check = () => {
     setChecked(true)
@@ -54,7 +57,7 @@ export default function BuildSentence({ sentence, word, onResult, speak, speakin
               <div className="flex flex-wrap justify-center gap-x-1">
                 {annotate(target).map((s, i) => (
                   <span key={i} className="flex flex-col items-center leading-tight">
-                    <span className={`text-xs tone${s.tone}`}>{s.pinyin}</span>
+                    {showPinyin && <span className={`text-xs tone${s.tone}`}>{s.pinyin}</span>}
                     <span className="han text-2xl text-slate-100">{s.hanzi}</span>
                   </span>
                 ))}
