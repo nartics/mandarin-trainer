@@ -6,7 +6,6 @@ import { GRAMMAR } from './data/grammar'
 import { buildQueue, buildChapterQueue, buildGrammarQueue, buildReviewQueue, shuffle } from './lib/queue'
 import { isDue } from './lib/sm2'
 import Dashboard from './components/Dashboard'
-import ChapterPath from './components/ChapterPath'
 import ChapterDetail from './components/ChapterDetail'
 import GrammarLesson from './components/GrammarLesson'
 import BottomNav from './components/BottomNav'
@@ -16,6 +15,9 @@ import WriteTrainer from './components/WriteTrainer'
 import ListenLab from './components/ListenLab'
 import WordBrowser from './components/WordBrowser'
 import { PrimaryButton } from './components/ui/common'
+import Sidebar from './components/duo/Sidebar'
+import RightRail from './components/duo/RightRail'
+import PathView from './components/duo/PathView'
 
 export default function App() {
   const progress = useProgress()
@@ -61,26 +63,41 @@ export default function App() {
   const chapter = openChapter != null ? CHAPTER_BY_NUM[openChapter] : null
 
   return (
-    <div className="min-h-full max-w-md mx-auto relative">
-      <main className="pb-24 safe-top">
-        {tab === 'learn' && (
-          <>
-            <Dashboard stats={progress.stats} streak={progress.state.streak} xp={progress.state.xp} grammarCount={Object.keys(progress.state.grammar).length} />
-            <div className="px-5 mb-2">
-              <PrimaryButton color="gold" onClick={startReview}>
-                {dueCount > 0 ? `Review ${dueCount} due word${dueCount > 1 ? 's' : ''}` : 'Quick practice'}
-              </PrimaryButton>
-            </div>
-            <ChapterPath progress={progress} onOpen={setOpenChapter} onOpenGrammar={setOpenGrammar} />
-          </>
-        )}
-        {tab === 'listen' && <div className="safe-top"><ListenLab onReview={progress.reviewWord} /></div>}
-        {tab === 'write' && <WriteTrainer progress={progress} onWrite={progress.recordWrite} />}
-        {tab === 'review' && <ReviewLanding dueCount={dueCount} stats={progress.stats} onStart={startReview} />}
-        {tab === 'words' && <WordBrowser progress={progress} />}
-      </main>
+    <div className="min-h-full">
+      <div className="lg:flex lg:max-w-[1280px] lg:mx-auto">
+        <Sidebar tab={tab} onChange={setTab} dueCount={dueCount} className="hidden lg:flex sticky top-0 h-screen" />
 
-      <BottomNav active={tab} onChange={setTab} dueCount={dueCount} />
+        <main className="flex-1 min-w-0 pb-24 lg:pb-12 safe-top lg:pt-8">
+          {tab === 'learn' && (
+            <>
+              {/* Mobile-only summary (desktop shows it in the right rail) */}
+              <div className="lg:hidden">
+                <Dashboard stats={progress.stats} streak={progress.state.streak} xp={progress.state.xp} grammarCount={Object.keys(progress.state.grammar).length} />
+                <div className="px-5 mb-4">
+                  <PrimaryButton color="gold" onClick={startReview}>
+                    {dueCount > 0 ? `Review ${dueCount} due word${dueCount > 1 ? 's' : ''}` : 'Quick practice'}
+                  </PrimaryButton>
+                </div>
+              </div>
+              <PathView progress={progress} onOpenChapter={setOpenChapter} onOpenGrammar={setOpenGrammar} onPractice={startChapter} />
+            </>
+          )}
+          {tab !== 'learn' && (
+            <div className="lg:max-w-[640px] lg:mx-auto">
+              {tab === 'listen' && <ListenLab onReview={progress.reviewWord} />}
+              {tab === 'write' && <WriteTrainer progress={progress} onWrite={progress.recordWrite} />}
+              {tab === 'review' && <ReviewLanding dueCount={dueCount} stats={progress.stats} onStart={startReview} />}
+              {tab === 'words' && <WordBrowser progress={progress} />}
+            </div>
+          )}
+        </main>
+
+        <RightRail progress={progress} stats={progress.stats} onPractice={startChapter} className="hidden xl:block sticky top-0 h-screen overflow-y-auto no-scrollbar" />
+      </div>
+
+      <div className="lg:hidden">
+        <BottomNav active={tab} onChange={setTab} dueCount={dueCount} />
+      </div>
 
       {/* Overlays — later in DOM = on top */}
       {chapter && (
