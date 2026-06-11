@@ -6,6 +6,7 @@ import { Annotated, SpeakerButton, Choice, PrimaryButton, PinyinToggle } from '.
 import { useSettings } from '../hooks/useSettings'
 import BuildSentence from './exercises/BuildSentence'
 import FillBlank from './exercises/FillBlank'
+import GrammarTip from './exercises/GrammarTip'
 import CharWriter from './exercises/CharWriter'
 
 export default function ExerciseRunner({ queue, title, onReview, onWrite, onGrammar, onClose, onComplete }) {
@@ -15,39 +16,45 @@ export default function ExerciseRunner({ queue, title, onReview, onWrite, onGram
   const [idx, setIdx] = useState(0)
   const [picked, setPicked] = useState(null)   // index of chosen option
   const [revealed, setRevealed] = useState(false)
-  const [correctCount, setCorrectCount] = useState(0)
   const [reAsk, setReAsk] = useState([])        // wrong items to repeat at the end
+  const correctRef = useRef(0)                  // scored answers correct
+  const scoredRef = useRef(0)                   // scored answers total (excludes tips)
   const autoplayed = useRef(-1)
 
   const ex = queue[idx]
   const total = queue.length
 
-  // Auto-play audio for listening exercises.
+  // Auto-play audio for listening exercises and grammar tips.
   useEffect(() => {
-    if (!ex) return
-    if ((ex.type === 'listen-meaning' || ex.type === 'listen-hanzi') && autoplayed.current !== idx) {
+    if (!ex || autoplayed.current === idx) return
+    if (ex.type === 'listen-meaning' || ex.type === 'listen-hanzi') {
       autoplayed.current = idx
       const t = setTimeout(() => speak(ex.audio, { rate: 0.8 }), 350)
       return () => clearTimeout(t)
     }
+    if (ex.type === 'grammar-tip' && ex.sentence) {
+      autoplayed.current = idx
+      const t = setTimeout(() => speak(ex.sentence.hanzi), 400)
+      return () => clearTimeout(t)
+    }
   }, [idx, ex, speak])
 
-  const advance = useCallback((wasCorrect) => {
-    if (wasCorrect) setCorrectCount((c) => c + 1)
+  const record = (correct) => { scoredRef.current += 1; if (correct) correctRef.current += 1 }
+
+  // Advance to the next item (re-asking missed items once at the end).
+  const goNext = useCallback(() => {
+    setPicked(null); setRevealed(false)
     if (idx + 1 < queue.length) {
       setIdx(idx + 1)
-      setPicked(null); setRevealed(false)
     } else if (reAsk.length) {
-      // Re-ask missed items once.
       const next = reAsk
       setReAsk([])
       queue.push(...next)
       setIdx(idx + 1)
-      setPicked(null); setRevealed(false)
     } else {
-      onComplete?.({ correct: wasCorrect ? correctCount + 1 : correctCount, total })
+      onComplete?.({ correct: correctRef.current, total: scoredRef.current })
     }
-  }, [idx, queue, reAsk, correctCount, total, onComplete])
+  }, [idx, queue, reAsk, onComplete])
 
   if (!ex) return null
 
@@ -58,6 +65,7 @@ export default function ExerciseRunner({ queue, title, onReview, onWrite, onGram
     setPicked(i)
     setRevealed(true)
     const ok = ex.options[i].correct
+    record(ok)
     if (ok) { sounds.correct(); onReview?.(ex.word.id, QUALITY.GOOD) }
     else {
       sounds.wrong(); onReview?.(ex.word.id, QUALITY.AGAIN)
@@ -72,17 +80,19 @@ export default function ExerciseRunner({ queue, title, onReview, onWrite, onGram
   // Attribute a free-form (sentence/grammar) result to SRS and/or grammar progress.
   const freeResult = (ok) => {
     if (ok) sounds.correct(); else sounds.wrong()
+    record(ok)
     if (ex.word) onReview?.(ex.word.id, ok ? QUALITY.GOOD : QUALITY.AGAIN)
     if (ex.grammarId) onGrammar?.(ex.grammarId, ok)
     if (!ok) setReAsk((r) => [...r, { ...ex }])
-    advance(ok)
+    goNext()
   }
 
   const writeResult = (mistakes) => {
     sounds.complete()
+    record(mistakes === 0)
     onWrite?.(ex.word.hanzi[0], mistakes)
     onReview?.(ex.word.id, mistakes === 0 ? QUALITY.GOOD : QUALITY.HARD)
-    setTimeout(() => advance(mistakes === 0), 600)
+    setTimeout(() => goNext(), 600)
   }
 
   const isChoice = ['listen-meaning', 'listen-hanzi', 'read-meaning', 'meaning-hanzi', 'pinyin-choose'].includes(ex.type)
@@ -103,9 +113,11 @@ export default function ExerciseRunner({ queue, title, onReview, onWrite, onGram
       {/* Body */}
       <div className="flex-1 overflow-y-auto no-scrollbar px-5 pt-4 pb-40">
         <div className="max-w-md mx-auto">
-          <h2 className="text-sm uppercase tracking-wide text-slate-400 mb-5">{ex.prompt}</h2>
+          {ex.prompt && <h2 className="text-sm uppercase tracking-wide text-slate-400 mb-5">{ex.prompt}</h2>}
 
-          {ex.type === 'build-sentence' ? (
+          {ex.type === 'grammar-tip' ? (
+            <GrammarTip key={idx} grammar={ex.grammar} sentence={ex.sentence} speak={speak} speaking={speaking} onContinue={goNext} />
+          ) : ex.type === 'build-sentence' ? (
             <BuildSentence key={idx} sentence={ex.sentence} word={ex.word} speak={speak} speaking={speaking} onResult={freeResult} />
           ) : ex.type === 'fill-blank' ? (
             <FillBlank key={idx} exercise={ex} speak={speak} speaking={speaking} onResult={freeResult} />
@@ -173,7 +185,7 @@ export default function ExerciseRunner({ queue, title, onReview, onWrite, onGram
               </div>
               <SpeakerButton onClick={() => speak(ex.word.hanzi, { rate: 0.8 })} speaking={speaking} />
             </div>
-            <PrimaryButton color={wasCorrect ? 'jade' : 'cinnabar'} onClick={() => advance(wasCorrect)}>
+            <PrimaryButton color={wasCorrect ? 'jade' : 'cinnabar'} onClick={goNext}>
               Continue
             </PrimaryButton>
           </div>

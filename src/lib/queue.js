@@ -80,9 +80,38 @@ export function buildGrammarQueue(grammar) {
   return shuffle(q)
 }
 
-// Mixed chapter practice: core-word exercises + one fill-blank per grammar point.
+// A short teaching card shown inline, right before a grammar drill.
+export function makeGrammarTip(grammar) {
+  return { type: 'grammar-tip', grammarId: grammar.id, grammar, sentence: grammar.examples[0], prompt: '' }
+}
+
+// One grammar "beat" inside a session: introduce the pattern, then drill it.
+function grammarSegment(grammar) {
+  return [makeGrammarTip(grammar), makeFillBlank(grammar)]
+}
+
+// Splice contiguous segments into a base queue at spread-out positions, so grammar
+// surfaces *as you go* rather than bunched at the end. Each segment stays in order.
+function interleave(base, segments) {
+  const out = [...base]
+  if (!segments.length) return out
+  const gap = Math.max(1, Math.floor(out.length / (segments.length + 1)))
+  let pos = gap
+  for (const seg of segments) {
+    out.splice(Math.min(pos, out.length), 0, ...seg)
+    pos += gap + seg.length
+  }
+  return out
+}
+
+// Mixed chapter practice: core-word exercises with grammar tip+drill woven through.
 export function buildChapterQueue(chapter, { includeWrite = true } = {}) {
-  const q = buildQueue(chapter.coreWords, { includeWrite, perWord: 1 })
-  for (const g of chapter.grammar) q.push(makeFillBlank(g))
-  return shuffle(q)
+  const words = buildQueue(chapter.coreWords, { includeWrite, perWord: 1 })
+  return interleave(words, chapter.grammar.map(grammarSegment))
+}
+
+// Review / quick practice: word queue with a few grammar beats woven in.
+export function buildReviewQueue(words, grammarList = []) {
+  const base = buildQueue(words, { includeWrite: false })
+  return interleave(base, grammarList.map(grammarSegment))
 }

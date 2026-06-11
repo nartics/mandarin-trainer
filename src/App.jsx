@@ -2,7 +2,8 @@ import { useState, useCallback, useRef } from 'react'
 import { useProgress } from './hooks/useProgress'
 import { WORDS } from './data/vocab'
 import { CHAPTER_BY_NUM, CURRENT_CHAPTER } from './data/chapters'
-import { buildQueue, buildChapterQueue, buildGrammarQueue, shuffle } from './lib/queue'
+import { GRAMMAR } from './data/grammar'
+import { buildQueue, buildChapterQueue, buildGrammarQueue, buildReviewQueue, shuffle } from './lib/queue'
 import { isDue } from './lib/sm2'
 import Dashboard from './components/Dashboard'
 import ChapterPath from './components/ChapterPath'
@@ -44,7 +45,12 @@ export default function App() {
       const fresh = WORDS.filter((w) => !progress.cardFor(w.id))
       pool = [...pool, ...[...seen, ...fresh].filter((w) => !pool.includes(w)).slice(0, 12 - pool.length)]
     }
-    start(buildQueue(shuffle(pool).slice(0, 14), { includeWrite: false }), 'Review complete!')
+    // Weave in 2-3 grammar beats from chapters reached so far, least-practiced first.
+    const grammarPicks = GRAMMAR
+      .filter((g) => g.chapter <= CURRENT_CHAPTER)
+      .sort((a, b) => (progress.grammarFor(a.id)?.seen ?? 0) - (progress.grammarFor(b.id)?.seen ?? 0))
+      .slice(0, 3)
+    start(buildReviewQueue(shuffle(pool).slice(0, 12), grammarPicks), 'Review complete!')
   }, [progress, start])
 
   const onSessionComplete = useCallback((res) => {
@@ -65,7 +71,7 @@ export default function App() {
                 {dueCount > 0 ? `Review ${dueCount} due word${dueCount > 1 ? 's' : ''}` : 'Quick practice'}
               </PrimaryButton>
             </div>
-            <ChapterPath progress={progress} onOpen={setOpenChapter} />
+            <ChapterPath progress={progress} onOpen={setOpenChapter} onOpenGrammar={setOpenGrammar} />
           </>
         )}
         {tab === 'listen' && <div className="safe-top"><ListenLab onReview={progress.reviewWord} /></div>}
