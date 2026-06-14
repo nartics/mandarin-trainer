@@ -58,6 +58,12 @@ export function buildQueue(words, { types = WORD_TYPES, perWord = 1, includeWrit
   return shuffle(q).filter(Boolean)
 }
 
+// Lightweight feedback context carried on each grammar drill so the drill UI can
+// render the explanation without re-importing the grammar table.
+function feedbackCtx(grammar) {
+  return { id: grammar.id, title: grammar.title, summary: grammar.summary, notes: grammar.notes, why: grammar.why, contrasts: grammar.contrasts || {} }
+}
+
 // Grammar drill: blank the pattern keyword in one of the lesson's example sentences.
 export function makeFillBlank(grammar) {
   const withKw = grammar.examples.filter((e) => e.hanzi.includes(grammar.drill.keyword))
@@ -65,18 +71,18 @@ export function makeFillBlank(grammar) {
   const options = shuffle(grammar.drill.options).map((o) => ({ label: o, han: true, correct: o === grammar.drill.keyword }))
   return {
     type: 'fill-blank', grammarId: grammar.id, keyword: grammar.drill.keyword,
-    sentence: ex, options, prompt: `Complete the sentence · ${grammar.title.split('—')[0].trim()}`,
+    sentence: ex, options, grammar: feedbackCtx(grammar),
+    prompt: `Complete the sentence · ${grammar.title.split('—')[0].trim()}`,
   }
 }
 
+function makeBuildSentence(grammar, ex) {
+  return { type: 'build-sentence', grammarId: grammar.id, sentence: ex, grammar: feedbackCtx(grammar), prompt: 'Build the sentence' }
+}
+
 export function buildGrammarQueue(grammar) {
-  const q = []
-  // a couple of fill-blanks + reorder its example sentences
-  q.push(makeFillBlank(grammar))
-  q.push(makeFillBlank(grammar))
-  for (const ex of shuffle(grammar.examples).slice(0, 2)) {
-    q.push({ type: 'build-sentence', grammarId: grammar.id, sentence: ex, prompt: 'Build the sentence' })
-  }
+  const q = [makeFillBlank(grammar), makeFillBlank(grammar)]
+  for (const ex of shuffle(grammar.examples).slice(0, 2)) q.push(makeBuildSentence(grammar, ex))
   return shuffle(q)
 }
 
@@ -85,9 +91,20 @@ export function makeGrammarTip(grammar) {
   return { type: 'grammar-tip', grammarId: grammar.id, grammar, sentence: grammar.examples[0], prompt: '' }
 }
 
-// One grammar "beat" inside a session: introduce the pattern, then drill it.
-function grammarSegment(grammar) {
-  return [makeGrammarTip(grammar), makeFillBlank(grammar)]
+// First encounter with a concept: introduce it, then a short cluster of drills.
+function grammarIntroBlock(grammar) {
+  const exs = shuffle(grammar.examples)
+  return [
+    makeGrammarTip(grammar),
+    makeFillBlank(grammar),
+    makeBuildSentence(grammar, exs[0] || grammar.examples[0]),
+    makeFillBlank(grammar),
+  ]
+}
+
+// Later encounters: a single spaced review drill.
+function grammarReviewItem(grammar) {
+  return makeFillBlank(grammar)
 }
 
 // Splice contiguous segments into a base queue at spread-out positions, so grammar
@@ -104,14 +121,27 @@ function interleave(base, segments) {
   return out
 }
 
-// Mixed chapter practice: core-word exercises with grammar tip+drill woven through.
-export function buildChapterQueue(chapter, { includeWrite = true } = {}) {
-  const words = buildQueue(chapter.coreWords, { includeWrite, perWord: 1 })
-  return interleave(words, chapter.grammar.map(grammarSegment))
+const isNew = (g, isIntroduced) => !(isIntroduced ? isIntroduced(g.id) : false)
+
+// Split a grammar list into new-concept intro blocks (lead the session) and
+// single review drills for already-known concepts (interleaved among words).
+function assemble(words, grammarList, isIntroduced, maxNewIntros) {
+  const fresh = grammarList.filter((g) => isNew(g, isIntroduced)).slice(0, maxNewIntros)
+  const known = grammarList.filter((g) => !isNew(g, isIntroduced))
+  const intro = fresh.flatMap(grammarIntroBlock)            // contiguous: intro + drills
+  const body = interleave(words, known.map((g) => [grammarReviewItem(g)]))
+  return [...intro, ...body]
 }
 
-// Review / quick practice: word queue with a few grammar beats woven in.
-export function buildReviewQueue(words, grammarList = []) {
+// Mixed chapter practice: introduce up to `maxNewIntros` new concepts (intro + drills),
+// then the word questions with review drills for concepts already learned.
+export function buildChapterQueue(chapter, { includeWrite = true, isIntroduced, maxNewIntros = 2 } = {}) {
+  const words = buildQueue(chapter.coreWords, { includeWrite, perWord: 1 })
+  return assemble(words, chapter.grammar, isIntroduced, maxNewIntros)
+}
+
+// Review / quick practice: same logic over a chosen grammar list.
+export function buildReviewQueue(words, grammarList = [], { isIntroduced, maxNewIntros = 1 } = {}) {
   const base = buildQueue(words, { includeWrite: false })
-  return interleave(base, grammarList.map(grammarSegment))
+  return assemble(base, grammarList, isIntroduced, maxNewIntros)
 }

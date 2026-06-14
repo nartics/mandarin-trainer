@@ -9,7 +9,7 @@ import FillBlank from './exercises/FillBlank'
 import GrammarTip from './exercises/GrammarTip'
 import CharWriter from './exercises/CharWriter'
 
-export default function ExerciseRunner({ queue, title, onReview, onWrite, onGrammar, onClose, onComplete }) {
+export default function ExerciseRunner({ queue, title, onReview, onWrite, onGrammar, onGrammarIntroduced, onOpenGrammar, onClose, onComplete }) {
   const { speak, speaking } = useSpeech()
   const { showPinyin } = useSettings()
   const sounds = useSounds()
@@ -116,11 +116,13 @@ export default function ExerciseRunner({ queue, title, onReview, onWrite, onGram
           {ex.prompt && <h2 className="text-sm uppercase tracking-wide text-slate-400 mb-5">{ex.prompt}</h2>}
 
           {ex.type === 'grammar-tip' ? (
-            <GrammarTip key={idx} grammar={ex.grammar} sentence={ex.sentence} speak={speak} speaking={speaking} onContinue={goNext} />
+            <GrammarTip key={idx} grammar={ex.grammar} sentence={ex.sentence} speak={speak} speaking={speaking}
+              onContinue={() => { onGrammarIntroduced?.(ex.grammarId); goNext() }} />
           ) : ex.type === 'build-sentence' ? (
             <BuildSentence key={idx} sentence={ex.sentence} word={ex.word} speak={speak} speaking={speaking} onResult={freeResult} />
           ) : ex.type === 'fill-blank' ? (
-            <FillBlank key={idx} exercise={ex} speak={speak} speaking={speaking} onResult={freeResult} />
+            <FillBlank key={idx} exercise={ex} speak={speak} speaking={speaking} onResult={freeResult}
+              onReviewLesson={ex.grammarId ? () => onOpenGrammar?.(ex.grammarId) : null} />
           ) : ex.type === 'write' ? (
             <div className="flex flex-col items-center gap-4">
               <div className="text-center text-slate-300">

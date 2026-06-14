@@ -2,7 +2,7 @@ import { useState, useCallback, useRef } from 'react'
 import { useProgress } from './hooks/useProgress'
 import { WORDS } from './data/vocab'
 import { CHAPTER_BY_NUM, CURRENT_CHAPTER } from './data/chapters'
-import { GRAMMAR } from './data/grammar'
+import { GRAMMAR, GRAMMAR_BY_ID } from './data/grammar'
 import { buildQueue, buildChapterQueue, buildGrammarQueue, buildReviewQueue, shuffle } from './lib/queue'
 import { isDue } from './lib/sm2'
 import Dashboard from './components/Dashboard'
@@ -36,7 +36,7 @@ export default function App() {
     setSession({ queue, label })
   }, [progress.state.xp])
 
-  const startChapter = useCallback((chapter) => start(buildChapterQueue(chapter), `Chapter ${chapter.num} complete!`), [start])
+  const startChapter = useCallback((chapter) => start(buildChapterQueue(chapter, { isIntroduced: progress.isIntroduced }), `Chapter ${chapter.num} complete!`), [start, progress.isIntroduced])
   const startGrammar = useCallback((grammar) => start(buildGrammarQueue(grammar), 'Grammar practiced!'), [start])
 
   const startReview = useCallback(() => {
@@ -52,7 +52,7 @@ export default function App() {
       .filter((g) => g.chapter <= CURRENT_CHAPTER)
       .sort((a, b) => (progress.grammarFor(a.id)?.seen ?? 0) - (progress.grammarFor(b.id)?.seen ?? 0))
       .slice(0, 3)
-    start(buildReviewQueue(shuffle(pool).slice(0, 12), grammarPicks), 'Review complete!')
+    start(buildReviewQueue(shuffle(pool).slice(0, 12), grammarPicks, { isIntroduced: progress.isIntroduced }), 'Review complete!')
   }, [progress, start])
 
   const onSessionComplete = useCallback((res) => {
@@ -109,21 +109,23 @@ export default function App() {
           onOpenGrammar={setOpenGrammar}
         />
       )}
-      {openGrammar && (
-        <GrammarLesson
-          grammar={openGrammar}
-          onClose={() => setOpenGrammar(null)}
-          onPractice={(g) => { setOpenGrammar(null); startGrammar(g) }}
-        />
-      )}
       {session && (
         <ExerciseRunner
           queue={session.queue}
           onReview={progress.reviewWord}
           onWrite={progress.recordWrite}
           onGrammar={progress.recordGrammar}
+          onGrammarIntroduced={progress.markGrammarIntroduced}
+          onOpenGrammar={(id) => setOpenGrammar(GRAMMAR_BY_ID[id])}
           onClose={() => setSession(null)}
           onComplete={onSessionComplete}
+        />
+      )}
+      {openGrammar && (
+        <GrammarLesson
+          grammar={openGrammar}
+          onClose={() => setOpenGrammar(null)}
+          onPractice={(g) => { setOpenGrammar(null); startGrammar(g) }}
         />
       )}
       {complete && (

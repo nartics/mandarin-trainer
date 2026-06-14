@@ -26,7 +26,9 @@ export default defineConfig({
       },
       workbox: {
         navigateFallback: '/index.html',
+        navigateFallbackDenylist: [/^\/api\//],
         runtimeCaching: [
+          { urlPattern: /^\/api\//, handler: 'NetworkOnly' },
           { urlPattern: /\.(?:js|css|svg|png|woff2?|json)$/, handler: 'CacheFirst' },
         ],
       },

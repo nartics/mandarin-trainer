@@ -91,7 +91,7 @@ export function useProgress() {
 
   const recordGrammar = useCallback((grammarId, correct) => {
     setState((s) => {
-      const prev = s.grammar[grammarId] || { correct: 0, seen: 0 }
+      const prev = s.grammar[grammarId] || { correct: 0, seen: 0, introduced: false }
       const gain = correct ? 8 : 2
       const today = todayStr()
       const yesterday = new Date(Date.now() - 86_400_000).toISOString().slice(0, 10)
@@ -99,12 +99,21 @@ export function useProgress() {
       if (s.lastActive !== today) streak = (s.lastActive === yesterday ? streak : 0) + 1
       return {
         ...s,
-        grammar: { ...s.grammar, [grammarId]: { correct: prev.correct + (correct ? 1 : 0), seen: prev.seen + 1 } },
+        grammar: { ...s.grammar, [grammarId]: { ...prev, correct: prev.correct + (correct ? 1 : 0), seen: prev.seen + 1, introduced: true } },
         xp: s.xp + gain,
         streak,
         lastActive: today,
         daily: { ...s.daily, [today]: (s.daily[today] || 0) + gain },
       }
+    })
+  }, [])
+
+  // Mark a concept as introduced (its intro card was shown) so it isn't re-introduced.
+  const markGrammarIntroduced = useCallback((grammarId) => {
+    setState((s) => {
+      const prev = s.grammar[grammarId] || { correct: 0, seen: 0, introduced: false }
+      if (prev.introduced) return s
+      return { ...s, grammar: { ...s.grammar, [grammarId]: { ...prev, introduced: true } } }
     })
   }, [])
 
@@ -141,5 +150,10 @@ export function useProgress() {
     })
   }, [state])
 
-  return { state, stats, reviewWord, recordWrite, recordGrammar, completeLesson, resetAll, dueWords, cardFor: (id) => state.cards[id], grammarFor: (id) => state.grammar[id] }
+  const isIntroduced = useCallback((id) => {
+    const g = state.grammar[id]
+    return !!g && (g.introduced || (g.seen ?? 0) > 0)
+  }, [state.grammar])
+
+  return { state, stats, reviewWord, recordWrite, recordGrammar, markGrammarIntroduced, isIntroduced, completeLesson, resetAll, dueWords, cardFor: (id) => state.cards[id], grammarFor: (id) => state.grammar[id] }
 }

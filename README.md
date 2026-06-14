@@ -43,9 +43,17 @@ screen marks **"Your class is here"** at the chapter you're currently on. Each c
 | **Review** 复习 | Anki-style spaced repetition (SM-2) across all core words. |
 
 ### Listening — native voices
-Listening uses your device's **native system Mandarin voice** (Tingting / Sinji / Meijia on
-macOS/iOS). Each chapter's Resources tab also links the class's ChinesePod episodes for real
-native-speaker dialogue. *(ChinesePod & Quizlet use the class login from your course sheet.)*
+By default, listening uses your device's **native system Mandarin voice** (Tingting / Sinji /
+Meijia on macOS/iOS). Each chapter's Resources tab also links the class's ChinesePod episodes
+for real native-speaker dialogue. *(ChinesePod & Quizlet use the class login from your course sheet.)*
+
+**Optional — ElevenLabs voices.** For higher-quality audio, set an ElevenLabs key and the app
+uses it automatically (cached per phrase), falling back to the system voice if a call fails:
+- **Deployed / `vercel dev`**: set `ELEVENLABS_API_KEY` (server-side; the `api/tts.js` edge
+  proxy keeps it out of the browser bundle). Optionally `VITE_ELEVENLABS_VOICE_ID`.
+- **Plain `npm run dev`** (no proxy): set `VITE_ELEVENLABS_API_KEY` in `.env` for dev-only
+  direct calls. With no key set, nothing changes — it stays on the free system voice.
+See `.env.example`.
 
 ## Where the content comes from
 

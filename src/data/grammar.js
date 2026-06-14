@@ -4,7 +4,9 @@
 // → classNotes.json). Pinyin is generated at runtime via pinyin-pro.
 //
 // Shape: { id, chapter, title, patternZh, summary, notes:[], examples:[{hanzi,en}],
-//          drill: { keyword, options:[] } }  — keyword is blanked in fill-blank drills.
+//          drill: { keyword, options:[] }, why, contrasts:{ <distractor>: reason } }
+//   why       — one line on why the keyword is the right fit (shown in drill feedback)
+//   contrasts — why each wrong option doesn't fit (shown when the user picks it)
 
 export const GRAMMAR = [
   // ── Chapter 1 ──────────────────────────────────────────────────────────
@@ -19,6 +21,8 @@ export const GRAMMAR = [
       { hanzi: '我想喝茶。', en: 'I want to drink tea.' },
     ],
     drill: { keyword: '想', options: ['想', '是', '在', '都'] },
+    why: '想 is the modal "want to" placed right before another verb.',
+    contrasts: { '是': '是 links two nouns (A is B); it can\'t carry "want to".', '在': '在 marks an action in progress, not wanting.', '都': '都 means "all" and goes after the subject.' },
   },
   {
     id: 'keyi', chapter: 1, title: 'Permission — 可以', patternZh: '主语 + 可以 + 动词',
@@ -30,6 +34,8 @@ export const GRAMMAR = [
       { hanzi: '我们现在不可以休息。', en: "We can't rest right now." },
     ],
     drill: { keyword: '可以', options: ['可以', '喜欢', '名字', '谢谢'] },
+    why: '可以 = "may / be allowed to" before a verb.',
+    contrasts: { '喜欢': '喜欢 means "to like", not permission.', '名字': '名字 is a noun, "name".', '谢谢': '谢谢 means "thank you".' },
   },
   {
     id: 'zai-v', chapter: 1, title: 'Happening now — 在 + verb', patternZh: '主语 + (现在) 在 + 动词',
@@ -41,6 +47,8 @@ export const GRAMMAR = [
       { hanzi: '我们现在在上课。', en: 'We are having class now.' },
     ],
     drill: { keyword: '在', options: ['在', '想', '会', '了'] },
+    why: '在 before a verb marks an action in progress ("-ing").',
+    contrasts: { '想': '想 means "want to", not happening now.', '会': '会 means "can / will", not in progress.', '了': '了 marks a completed action — the opposite of ongoing.' },
   },
 
   // ── Chapter 3 ──────────────────────────────────────────────────────────
@@ -54,6 +62,8 @@ export const GRAMMAR = [
       { hanzi: '他是我的朋友。', en: 'He is my friend.' },
     ],
     drill: { keyword: '是', options: ['是', '在', '有', '很'] },
+    why: '是 links two nouns: A 是 B.',
+    contrasts: { '在': '在 means "to be at a place", not "to be (something)".', '有': '有 means "to have / there is".', '很': '很 goes before adjectives (很好), not nouns.' },
   },
   {
     id: 'ma', chapter: 3, title: 'Yes/no questions — 吗', patternZh: '陈述句 + 吗？',
@@ -65,6 +75,8 @@ export const GRAMMAR = [
       { hanzi: '你想喝咖啡吗？', en: 'Do you want to drink coffee?' },
     ],
     drill: { keyword: '吗', options: ['吗', '呢', '了', '的'] },
+    why: '吗 at the end turns a statement into a yes/no question.',
+    contrasts: { '呢': '呢 asks a follow-up ("and you?"), not a yes/no question.', '了': '了 marks completion, not a question.', '的': '的 shows possession.' },
   },
 
   // ── Chapter 4 ──────────────────────────────────────────────────────────
@@ -78,6 +90,8 @@ export const GRAMMAR = [
       { hanzi: '那是谁的猫？', en: 'Whose cat is that?' },
     ],
     drill: { keyword: '的', options: ['的', '是', '在', '吗'] },
+    why: '的 links an owner to the thing owned: 我的书 = my book.',
+    contrasts: { '是': '是 links two nouns as equal, not possession.', '在': '在 marks location.', '吗': '吗 makes a yes/no question.' },
   },
 
   // ── Chapter 5 ──────────────────────────────────────────────────────────
@@ -91,6 +105,8 @@ export const GRAMMAR = [
       { hanzi: '你家有几个人？', en: 'How many people are in your family?' },
     ],
     drill: { keyword: '没有', options: ['没有', '不有', '不是', '没是'] },
+    why: 'The negative of 有 is 没有 — always 没, never 不.',
+    contrasts: { '不有': '不 never negates 有; the fixed form is 没有.', '不是': '不是 = "is not", not "does not have".', '没是': '没 negates 有, not 是.' },
   },
   {
     id: 'age', chapter: 5, title: 'Asking age — 几岁 / 多大', patternZh: '你今年 + 几岁 / 多大？',
@@ -102,6 +118,8 @@ export const GRAMMAR = [
       { hanzi: '你今年多大？', en: 'How old are you? (to an adult)' },
     ],
     drill: { keyword: '几', options: ['几', '多少', '什么', '怎么'] },
+    why: '几 asks "how many" for small numbers — it fits 几岁 for a child.',
+    contrasts: { '多少': '多少 asks larger / open quantities, not 岁 for a child.', '什么': '什么 means "what".', '怎么': '怎么 means "how".' },
   },
 
   // ── Chapter 6 ──────────────────────────────────────────────────────────
@@ -115,6 +133,8 @@ export const GRAMMAR = [
       { hanzi: '你能来吗？', en: 'Can you come?' },
     ],
     drill: { keyword: '会', options: ['会', '能', '可以', '想'] },
+    why: '会 = a learned skill, "know how to" (e.g. speak a language).',
+    contrasts: { '能': '能 = able to in this situation, not a learned skill.', '可以': '可以 = have permission, not skill.', '想': '想 = want to, not ability.' },
   },
   {
     id: 'dou', chapter: 6, title: 'All / both — 都', patternZh: '主语 + 都 + (不/没) + 动词',
@@ -127,6 +147,8 @@ export const GRAMMAR = [
       { hanzi: '同学都没来上课。', en: 'None of the students came to class.' },
     ],
     drill: { keyword: '都', options: ['都', '也', '很', '不'] },
+    why: '都 = "all/both", placed after the subject and before the verb.',
+    contrasts: { '也': '也 means "also", linking to a previous statement.', '很': '很 modifies adjectives, not "all".', '不': '不 negates; it doesn\'t mean "all".' },
   },
 
   // ── Chapter 8 ──────────────────────────────────────────────────────────
@@ -140,6 +162,8 @@ export const GRAMMAR = [
       { hanzi: '我喜欢学习汉语。', en: 'I like studying Chinese.' },
     ],
     drill: { keyword: '喜欢', options: ['喜欢', '可以', '名字', '认识'] },
+    why: '喜欢 = "to like" — a noun or an activity can follow it.',
+    contrasts: { '可以': '可以 = "may", permission, not liking.', '名字': '名字 is the noun "name".', '认识': '认识 = "to know / recognise" a person.' },
   },
   {
     id: 'measure', chapter: 8, title: 'Measure words — 个 / 杯 / 瓶', patternZh: '数字 + 量词 + 名词',
@@ -151,6 +175,8 @@ export const GRAMMAR = [
       { hanzi: '我家有三个人。', en: 'There are three people in my family.' },
     ],
     drill: { keyword: '杯', options: ['杯', '瓶', '个', '本'] },
+    why: '杯 is the measure word for a cup/glass of a drink: 一杯咖啡.',
+    contrasts: { '瓶': '瓶 counts bottles, not a cup.', '个': '个 is the general measure word, but a drink in a cup takes 杯.', '本': '本 counts books.' },
   },
 
   // ── Chapter 9 ──────────────────────────────────────────────────────────
@@ -164,6 +190,8 @@ export const GRAMMAR = [
       { hanzi: '你在哪儿工作？', en: 'Where do you work?' },
     ],
     drill: { keyword: '在', options: ['在', '是', '有', '去'] },
+    why: '在 + a place means "to be located at".',
+    contrasts: { '是': '是 links nouns, not location.', '有': '有 = "to have / there is".', '去': '去 = "to go to" — a movement, not being at.' },
   },
 
   // ── Chapter 10 ─────────────────────────────────────────────────────────
@@ -177,6 +205,8 @@ export const GRAMMAR = [
       { hanzi: '钱在家里。', en: 'The money is at home.' },
     ],
     drill: { keyword: '上', options: ['上', '下', '里', '在'] },
+    why: '上 after a noun means "on top of": 桌子上 = on the table.',
+    contrasts: { '下': '下 = "under", the opposite of on.', '里': '里 = "inside", not "on".', '在': '在 is the verb "to be at"; the position word still comes after the noun.' },
   },
 
   // ── Chapter 11 ─────────────────────────────────────────────────────────
@@ -190,6 +220,8 @@ export const GRAMMAR = [
       { hanzi: '现在差十分七点。', en: "It's ten minutes to seven." },
     ],
     drill: { keyword: '点', options: ['点', '分', '岁', '块'] },
+    why: '点 marks the hour: 七点 = seven o\'clock.',
+    contrasts: { '分': '分 marks minutes, not the hour.', '岁': '岁 counts years of age.', '块': '块 counts money (yuan).' },
   },
 
   // ── Chapter 12 ─────────────────────────────────────────────────────────
@@ -202,6 +234,8 @@ export const GRAMMAR = [
       { hanzi: '这个菜怎么样？', en: 'How is this dish?' },
     ],
     drill: { keyword: '怎么样', options: ['怎么样', '什么', '多少', '哪儿'] },
+    why: '怎么样 asks "how is it?" — perfect for opinions and weather.',
+    contrasts: { '什么': '什么 asks "what", not "how is".', '多少': '多少 asks "how much / many".', '哪儿': '哪儿 asks "where".' },
   },
   {
     id: 'hui-will', chapter: 12, title: 'Will / too… — 会 & 太…了', patternZh: '会 + 动词 · 太 + 形容词 + 了',
@@ -213,6 +247,8 @@ export const GRAMMAR = [
       { hanzi: '太好了！', en: 'Great!' },
     ],
     drill: { keyword: '会', options: ['会', '在', '是', '都'] },
+    why: '会 before a verb predicts the future ("will"): 会下雨.',
+    contrasts: { '在': '在 marks something happening now, not the future.', '是': '是 links nouns.', '都': '都 means "all".' },
   },
 
   // ── Chapter 13 ─────────────────────────────────────────────────────────
@@ -225,6 +261,8 @@ export const GRAMMAR = [
       { hanzi: '回家前，我们先去超市吧。', en: "Before going home, let's go to the supermarket first." },
     ],
     drill: { keyword: '呢', options: ['呢', '吗', '了', '的'] },
+    why: '呢 closes the 在…呢 frame that stresses an action happening right now.',
+    contrasts: { '吗': '吗 makes a yes/no question, not a "right now" statement.', '了': '了 marks completion — the opposite of ongoing.', '的': '的 shows possession.' },
   },
 
   // ── Chapter 14 ─────────────────────────────────────────────────────────
@@ -238,6 +276,8 @@ export const GRAMMAR = [
       { hanzi: '我还没吃晚饭。', en: "I haven't eaten dinner yet." },
     ],
     drill: { keyword: '了', options: ['了', '吗', '在', '的'] },
+    why: '了 after the verb marks the action as completed.',
+    contrasts: { '吗': '吗 only asks a question; it doesn\'t mark completion.', '在': '在 marks an action in progress, not finished.', '的': '的 shows possession.' },
   },
   {
     id: 'haishi', chapter: 14, title: 'Choice questions — 还是', patternZh: 'A + 还是 + B？',
@@ -248,6 +288,8 @@ export const GRAMMAR = [
       { hanzi: '你想吃米饭还是面？', en: 'Would you like rice or noodles?' },
     ],
     drill: { keyword: '还是', options: ['还是', '和', '都', '也'] },
+    why: '还是 = "or", offering a choice between A and B in a question.',
+    contrasts: { '和': '和 = "and", joining items, not a choice.', '都': '都 = "all / both".', '也': '也 = "also".' },
   },
   {
     id: 'yixie-geng', chapter: 14, title: 'Some & prefer — 一些 / 更', patternZh: '动词 + 一些 + 名词 · 更 + 喜欢',
@@ -259,6 +301,8 @@ export const GRAMMAR = [
       { hanzi: '我更喜欢中国。', en: 'I prefer China.' },
     ],
     drill: { keyword: '更', options: ['更', '都', '很', '太'] },
+    why: '更 before a verb/adjective means "more / prefer": 更喜欢.',
+    contrasts: { '都': '都 = "all", not "more".', '很': '很 = "very" (a plain degree), not a comparison.', '太': '太 = "too (much)", not "more".' },
   },
 
   // ── Chapter 15 ─────────────────────────────────────────────────────────
@@ -271,6 +315,8 @@ export const GRAMMAR = [
       { hanzi: '你是怎么来的？', en: 'How did you get here?' },
     ],
     drill: { keyword: '的', options: ['的', '了', '吗', '在'] },
+    why: 'In 是…的, the final 的 closes the frame that stresses how/when a past action happened.',
+    contrasts: { '了': '了 just marks completion; 是…的 emphasises the manner, not only that it happened.', '吗': '吗 makes a question.', '在': '在 marks location or progress.' },
   },
   {
     id: 'cong', chapter: 15, title: 'From & before/after — 从…来 / 前·后', patternZh: '从 + 地方 + 来 · 时间 + 前/后',
@@ -282,6 +328,8 @@ export const GRAMMAR = [
       { hanzi: '下课后，我回家做饭。', en: 'After class, I go home and cook.' },
     ],
     drill: { keyword: '从', options: ['从', '在', '到', '后'] },
+    why: '从 marks the starting point — "from" a place or time: 从家来.',
+    contrasts: { '在': '在 = "at" a place, not "from".', '到': '到 = "to / arrive at" — the destination, not the source.', '后': '后 = "after", a time word.' },
   },
 ]
 
