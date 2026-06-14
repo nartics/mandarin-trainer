@@ -14,6 +14,10 @@ const VOICE_ID = import.meta.env.VITE_ELEVENLABS_VOICE_ID || DEFAULT_VOICE_ID
 
 const DIRECT_KEY = import.meta.env.VITE_ELEVENLABS_API_KEY
 const USE_DIRECT = !!DIRECT_KEY
+// Public flag (safe to expose) that says the /api/tts proxy is configured with a
+// server-side ELEVENLABS_API_KEY. Set VITE_ELEVENLABS_ENABLED=1 in Vercel alongside
+// the secret key. Without it we never call the proxy — audio uses the device voice.
+const PROXY_ENABLED = ['1', 'true', 'yes'].includes(String(import.meta.env.VITE_ELEVENLABS_ENABLED || '').toLowerCase())
 
 // In-memory blob-URL cache keyed by `${voiceId}|${text}` so a phrase is only
 // synthesised once per session (avoids repeat API calls / cost).
@@ -73,9 +77,10 @@ export async function synthesize(text) {
   return null
 }
 
-// True when there's a path to ElevenLabs: a direct dev key, or (in a browser) the
-// /api/tts proxy, which we assume is mounted in production / `vercel dev`.
+// True only when ElevenLabs is actually configured: a direct dev key, or the
+// proxy explicitly enabled via VITE_ELEVENLABS_ENABLED. Otherwise we stay on the
+// device voice and never make a wasted /api/tts request.
 export function hasElevenLabsKey() {
   if (USE_DIRECT) return true
-  return typeof window !== 'undefined' && window.location.protocol.startsWith('http') && !import.meta.env.DEV
+  return PROXY_ENABLED && typeof window !== 'undefined' && window.location.protocol.startsWith('http') && !import.meta.env.DEV
 }

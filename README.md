@@ -50,7 +50,8 @@ for real native-speaker dialogue. *(ChinesePod & Quizlet use the class login fro
 **Optional — ElevenLabs voices.** For higher-quality audio, set an ElevenLabs key and the app
 uses it automatically (cached per phrase), falling back to the system voice if a call fails:
 - **Deployed / `vercel dev`**: set `ELEVENLABS_API_KEY` (server-side; the `api/tts.js` edge
-  proxy keeps it out of the browser bundle). Optionally `VITE_ELEVENLABS_VOICE_ID`.
+  proxy keeps it out of the browser bundle) **and** `VITE_ELEVENLABS_ENABLED=1` (the public
+  flag that turns the proxy on). Optionally `VITE_ELEVENLABS_VOICE_ID`. Redeploy after adding.
 - **Plain `npm run dev`** (no proxy): set `VITE_ELEVENLABS_API_KEY` in `.env` for dev-only
   direct calls. With no key set, nothing changes — it stays on the free system voice.
 See `.env.example`.
