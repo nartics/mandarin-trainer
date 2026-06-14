@@ -8,37 +8,36 @@ const ITEMS = [
 
 export default function Sidebar({ tab, onChange, dueCount = 0, className = '' }) {
   return (
-    <aside className={`w-[240px] shrink-0 border-r border-duo-border px-3 py-5 flex flex-col ${className}`}>
-      <div className="px-3 mb-6">
-        <span className="text-3xl font-extrabold text-duo-green tracking-tight han">汉语</span>
-        <span className="block text-[11px] font-bold tracking-widest text-duo-muted mt-0.5">HSK 1 TRAINER</span>
+    <aside className={`w-[220px] shrink-0 border-r border-ink-700 px-4 py-7 flex flex-col ${className}`}>
+      <div className="px-2 mb-8">
+        <span className="text-xl font-semibold text-white han">汉语</span>
+        <span className="block text-[11px] text-ink-400 mt-0.5">HSK 1 · Manhattan Mandarin</span>
       </div>
 
-      <nav className="flex flex-col gap-1.5">
+      <nav className="flex flex-col gap-0.5">
         {ITEMS.map((it) => {
           const on = tab === it.id
           return (
             <button
               key={it.id}
               onClick={() => onChange(it.id)}
-              className={`relative flex items-center gap-3 px-3 py-3 rounded-xl border-2 font-extrabold uppercase text-sm tracking-wide transition
-                ${on ? 'bg-duo-blue/15 border-duo-blue/60 text-duo-blue'
-                     : 'border-transparent text-duo-text/80 hover:bg-white/5'}`}
+              className={`group relative flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition
+                ${on ? 'bg-white/5 text-white' : 'text-ink-300 hover:text-white hover:bg-white/[0.03]'}`}
             >
-              <svg viewBox="0 0 24 24" fill="currentColor" className="w-7 h-7"><path d={it.icon} /></svg>
+              {on && <span className="absolute left-0 top-1/2 -translate-y-1/2 h-5 w-0.5 rounded-full bg-accent" />}
+              <svg viewBox="0 0 24 24" fill="currentColor" className={`w-5 h-5 ${on ? 'text-accent' : 'text-ink-400 group-hover:text-ink-200'}`}><path d={it.icon} /></svg>
               {it.label}
               {it.id === 'review' && dueCount > 0 && (
-                <span className="ml-auto min-w-[20px] h-5 px-1.5 rounded-full bg-duo-red text-white text-[11px] grid place-items-center">{dueCount}</span>
+                <span className="ml-auto text-[11px] text-ink-400">{dueCount}</span>
               )}
             </button>
           )
         })}
       </nav>
 
-      <div className="mt-auto rounded-2xl bg-duo-card2 border-2 border-duo-border p-4">
-        <p className="font-extrabold text-sm mb-1">Master HSK 1 汉语</p>
-        <p className="text-xs text-duo-muted leading-snug">Following your Manhattan Mandarin class — chapters 1–15.</p>
-      </div>
+      <p className="mt-auto px-2 text-[11px] text-ink-500 leading-relaxed">
+        HSK Standard Course · chapters 1–15
+      </p>
     </aside>
   )
 }

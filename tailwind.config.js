@@ -4,11 +4,23 @@ export default {
   theme: {
     extend: {
       colors: {
+        // Neutral grey scale (minimal). Used app-wide via the existing ink-* classes.
         ink: {
-          900: '#0b1220',
-          800: '#111a2e',
-          700: '#1a2740',
-          600: '#243352',
+          100: '#ECEDEE',
+          200: '#C9CBCF',
+          300: '#A1A4AB',
+          400: '#82858C',
+          500: '#5B5E66',
+          600: '#2b2e36',
+          700: '#1f2127',
+          800: '#16181d',
+          900: '#0d0e11',
+        },
+        // Single soft accent.
+        accent: {
+          DEFAULT: '#5cc99a',
+          dim: '#3f8f6c',
+          soft: 'rgba(92,201,154,0.14)',
         },
         cinnabar: {
           400: '#ff6b5e',
@@ -48,7 +60,7 @@ export default {
       },
       fontFamily: {
         han: ['"Noto Serif SC"', '"Songti SC"', '"SimSun"', 'serif'],
-        sans: ['Nunito', 'system-ui', '-apple-system', 'Segoe UI', 'sans-serif'],
+        sans: ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'sans-serif'],
       },
       keyframes: {
         pop: { '0%': { transform: 'scale(0.9)', opacity: 0 }, '100%': { transform: 'scale(1)', opacity: 1 } },

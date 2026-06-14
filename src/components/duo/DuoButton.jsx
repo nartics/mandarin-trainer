@@ -1,21 +1,13 @@
-// Duolingo-style 3D button. `color` picks the face + darker rim.
-const COLORS = {
-  green: { bg: '#58cc02', rim: '#4caf00', text: '#fff' },
-  blue: { bg: '#1cb0f6', rim: '#1899d6', text: '#fff' },
-  gold: { bg: '#ffc800', rim: '#e0a800', text: '#1b2a32' },
-  red: { bg: '#ff4b4b', rim: '#ea2b2b', text: '#fff' },
-  grey: { bg: '#202f36', rim: '#37464f', text: '#93a1ab' },
-  white: { bg: '#ffffff', rim: '#e2e8ec', text: '#1b2a32' },
+// Flat, minimal button. `color` picks a quiet treatment.
+const STYLES = {
+  accent: 'bg-accent text-ink-900 hover:bg-accent/90',
+  ghost: 'bg-transparent text-white border border-ink-600 hover:bg-white/5',
+  subtle: 'bg-ink-700 text-white hover:bg-ink-600',
 }
 
-export default function DuoButton({ color = 'green', children, className = '', style, ...props }) {
-  const c = COLORS[color] || COLORS.green
+export default function DuoButton({ color = 'accent', children, className = '', ...props }) {
   return (
-    <button
-      {...props}
-      className={`duo3d uppercase text-sm px-5 py-3 ${className}`}
-      style={{ background: c.bg, color: c.text, '--rim': c.rim, ...style }}
-    >
+    <button {...props} className={`flatbtn px-4 py-2.5 text-sm ${STYLES[color] || STYLES.accent} ${className}`}>
       {children}
     </button>
   )

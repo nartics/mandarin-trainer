@@ -41,8 +41,8 @@ export function PinyinToggle({ className = '' }) {
       onClick={toggle}
       aria-pressed={showPinyin}
       title={showPinyin ? 'Hide pinyin' : 'Show pinyin'}
-      className={`shrink-0 px-2.5 py-1.5 rounded-xl border text-xs font-medium transition active:scale-95
-        ${showPinyin ? 'bg-sky-500/15 border-sky-500/40 text-sky-300' : 'bg-ink-700 border-white/10 text-slate-400'} ${className}`}
+      className={`shrink-0 px-2.5 py-1.5 rounded-lg border text-xs font-medium transition active:scale-95
+        ${showPinyin ? 'bg-accent-soft border-accent/40 text-accent' : 'bg-transparent border-ink-600 text-ink-400'} ${className}`}
     >
       <span className="han">拼音</span> {showPinyin ? 'On' : 'Off'}
     </button>
@@ -69,8 +69,8 @@ export function SpeakerButton({ onClick, speaking, size = 'w-14 h-14', big }) {
   return (
     <button
       onClick={onClick}
-      className={`${size} shrink-0 rounded-2xl bg-ink-700 border border-white/10 grid place-items-center
-        active:scale-95 transition ${speaking ? 'text-cinnabar-400 ring-2 ring-cinnabar-400/50' : 'text-sky-300'}`}
+      className={`${size} shrink-0 rounded-2xl bg-ink-800 border border-ink-600 grid place-items-center
+        active:scale-95 transition ${speaking ? 'text-accent ring-2 ring-accent/40' : 'text-ink-200'}`}
       aria-label="Play audio"
     >
       <svg viewBox="0 0 24 24" fill="currentColor" className={big ? 'w-9 h-9' : 'w-7 h-7'}>
@@ -91,12 +91,12 @@ export function ProgressBar({ value, max, className = '' }) {
 
 export function Choice({ children, state, onClick, disabled }) {
   // state: 'idle' | 'correct' | 'wrong' | 'muted'
-  const base = 'w-full text-left px-4 py-4 rounded-2xl border text-lg transition active:scale-[0.99] '
+  const base = 'w-full text-left px-4 py-3.5 rounded-xl border text-lg transition active:scale-[0.99] '
   const styles = {
-    idle: 'bg-ink-700 border-white/10 hover:border-white/25',
-    correct: 'bg-jade-600/30 border-jade-400 text-jade-100',
-    wrong: 'bg-cinnabar-600/30 border-cinnabar-400 text-cinnabar-100 animate-shake',
-    muted: 'bg-ink-800 border-white/5 opacity-50',
+    idle: 'bg-ink-800 border-ink-600 hover:border-ink-500',
+    correct: 'bg-accent-soft border-accent text-white',
+    wrong: 'bg-cinnabar-600/20 border-cinnabar-500/60 text-cinnabar-100 animate-shake',
+    muted: 'bg-ink-800 border-ink-700 opacity-40',
   }
   return (
     <button disabled={disabled} onClick={onClick} className={base + (styles[state] || styles.idle)}>
@@ -107,16 +107,16 @@ export function Choice({ children, state, onClick, disabled }) {
 
 export function PrimaryButton({ children, onClick, disabled, color = 'jade', className = '' }) {
   const colors = {
-    jade: 'bg-jade-500 hover:bg-jade-400 text-ink-900',
+    jade: 'bg-accent hover:bg-accent/90 text-ink-900',
     cinnabar: 'bg-cinnabar-500 hover:bg-cinnabar-400 text-white',
-    gold: 'bg-gold-500 hover:bg-gold-400 text-ink-900',
-    ghost: 'bg-ink-700 hover:bg-ink-600 text-white border border-white/10',
+    gold: 'bg-transparent border border-ink-600 text-white hover:bg-white/5',
+    ghost: 'bg-ink-700 hover:bg-ink-600 text-white border border-ink-600',
   }
   return (
     <button
       onClick={onClick}
       disabled={disabled}
-      className={`w-full py-4 rounded-2xl font-semibold text-lg transition active:scale-[0.98]
+      className={`w-full py-3.5 rounded-xl font-medium text-base transition active:scale-[0.98]
         disabled:opacity-40 disabled:active:scale-100 ${colors[color]} ${className}`}
     >
       {children}
@@ -125,8 +125,8 @@ export function PrimaryButton({ children, onClick, disabled, color = 'jade', cla
 }
 
 export const MASTERY_COLORS = {
-  new: 'bg-ink-600 text-slate-300',
-  learning: 'bg-gold-500/20 text-gold-400',
-  familiar: 'bg-sky-500/20 text-sky-300',
-  mastered: 'bg-jade-500/20 text-jade-400',
+  new: 'bg-ink-700 text-ink-400',
+  learning: 'bg-accent-soft text-accent',
+  familiar: 'bg-accent-soft text-accent',
+  mastered: 'bg-accent text-ink-900',
 }
