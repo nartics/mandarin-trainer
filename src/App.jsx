@@ -70,14 +70,9 @@ export default function App() {
         <main className="flex-1 min-w-0 pb-24 lg:pb-12 safe-top lg:pt-8">
           {tab === 'learn' && (
             <>
-              {/* Mobile-only summary (desktop shows it in the right rail) */}
+              {/* Mobile-only minimal top bar */}
               <div className="lg:hidden">
-                <Dashboard stats={progress.stats} streak={progress.state.streak} xp={progress.state.xp} grammarCount={Object.keys(progress.state.grammar).length} />
-                <div className="px-5 mb-4">
-                  <PrimaryButton color="gold" onClick={startReview}>
-                    {dueCount > 0 ? `Review ${dueCount} due word${dueCount > 1 ? 's' : ''}` : 'Quick practice'}
-                  </PrimaryButton>
-                </div>
+                <Dashboard />
               </div>
               <PathView progress={progress} onOpenChapter={setOpenChapter} onOpenGrammar={setOpenGrammar} onPractice={startChapter} />
             </>
@@ -92,7 +87,7 @@ export default function App() {
           )}
         </main>
 
-        <RightRail progress={progress} stats={progress.stats} onPractice={startChapter} className="hidden xl:block sticky top-0 h-screen overflow-y-auto no-scrollbar" />
+        <RightRail onPractice={startChapter} className="hidden xl:block sticky top-0 h-screen overflow-y-auto no-scrollbar" />
       </div>
 
       <div className="lg:hidden">

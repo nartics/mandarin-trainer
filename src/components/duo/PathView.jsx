@@ -94,12 +94,9 @@ export default function PathView({ progress, onOpenChapter, onOpenGrammar, onPra
                 <div key={i} className="relative">
                   <PathNode node={n} active={i === activeIdx} />
                   {i === activeIdx && (
-                    <>
-                      <span className="absolute right-full mr-4 top-1/2 -translate-y-1/2 flex items-center gap-2">
-                        <Mascot size={64} className="animate-bobble" />
-                        <span className="text-xs font-medium text-accent whitespace-nowrap">Start here</span>
-                      </span>
-                    </>
+                    <span className="absolute right-full mr-4 top-1/2 -translate-y-1/2">
+                      <Mascot size={64} className="animate-bobble" />
+                    </span>
                   )}
                 </div>
               ))}

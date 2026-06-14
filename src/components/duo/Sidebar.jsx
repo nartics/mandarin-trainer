@@ -1,3 +1,5 @@
+import Mascot from './Mascot'
+
 const ITEMS = [
   { id: 'learn', label: 'Learn', icon: 'M4 13h6V4H4v9zm0 7h6v-5H4v5zm10 0h6V11h-6v9zm0-16v5h6V4h-6z' },
   { id: 'listen', label: 'Listen', icon: 'M3 9v6h4l5 5V4L7 9H3zm13.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4z' },
@@ -9,9 +11,8 @@ const ITEMS = [
 export default function Sidebar({ tab, onChange, dueCount = 0, className = '' }) {
   return (
     <aside className={`w-[220px] shrink-0 border-r border-ink-700 px-4 py-7 flex flex-col ${className}`}>
-      <div className="px-2 mb-8">
-        <span className="text-xl font-semibold text-white han">汉语</span>
-        <span className="block text-[11px] text-ink-400 mt-0.5">HSK 1 · Manhattan Mandarin</span>
+      <div className="px-1 mb-8">
+        <Mascot size={44} />
       </div>
 
       <nav className="flex flex-col gap-0.5">
@@ -34,10 +35,6 @@ export default function Sidebar({ tab, onChange, dueCount = 0, className = '' })
           )
         })}
       </nav>
-
-      <p className="mt-auto px-2 text-[11px] text-ink-500 leading-relaxed">
-        HSK Standard Course · chapters 1–15
-      </p>
     </aside>
   )
 }
