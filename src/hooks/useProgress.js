@@ -37,6 +37,13 @@ export function useProgress() {
     try { localStorage.setItem(KEY, JSON.stringify(state)) } catch {}
   }, [state])
 
+  // Reload from localStorage when cloud sync merges in remote progress.
+  useEffect(() => {
+    const reload = () => setState({ ...freshState(), ...(load() || {}) })
+    window.addEventListener('hsk1-sync-reload', reload)
+    return () => window.removeEventListener('hsk1-sync-reload', reload)
+  }, [])
+
   // Roll the streak forward on first load of a new day.
   useEffect(() => {
     setState((s) => {

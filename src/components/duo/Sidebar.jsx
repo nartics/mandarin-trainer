@@ -8,7 +8,9 @@ const ITEMS = [
   { id: 'words', label: 'Words', icon: 'M4 6h16v2H4zm0 5h16v2H4zm0 5h10v2H4z' },
 ]
 
-export default function Sidebar({ tab, onChange, dueCount = 0, className = '' }) {
+const PERSON = 'M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm0 2c-5 0-9 2.5-9 6v2h18v-2c0-3.5-4-6-9-6z'
+
+export default function Sidebar({ tab, onChange, dueCount = 0, onOpenAccount, syncStatus, signedIn, className = '' }) {
   return (
     <aside className={`w-[220px] shrink-0 border-r border-ink-700 px-4 py-7 flex flex-col ${className}`}>
       <div className="px-1 mb-8">
@@ -35,6 +37,17 @@ export default function Sidebar({ tab, onChange, dueCount = 0, className = '' })
           )
         })}
       </nav>
+
+      <button
+        onClick={onOpenAccount}
+        className="mt-auto flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-ink-300 hover:text-white hover:bg-white/[0.03] transition"
+      >
+        <span className="relative">
+          <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 text-ink-400"><path d={PERSON} /></svg>
+          {signedIn && <span className={`absolute -right-0.5 -top-0.5 w-2 h-2 rounded-full ${syncStatus === 'error' ? 'bg-cinnabar-500' : 'bg-accent'}`} />}
+        </span>
+        {signedIn ? 'Account' : 'Sign in'}
+      </button>
     </aside>
   )
 }

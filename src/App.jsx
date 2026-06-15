@@ -1,5 +1,7 @@
-import { useState, useCallback, useRef } from 'react'
+import { useState, useCallback, useRef, useEffect } from 'react'
 import { useProgress } from './hooks/useProgress'
+import { useSync } from './hooks/useSync'
+import AccountPanel from './components/AccountPanel'
 import { WORDS } from './data/vocab'
 import { CHAPTER_BY_NUM, CURRENT_CHAPTER } from './data/chapters'
 import { GRAMMAR, GRAMMAR_BY_ID } from './data/grammar'
@@ -21,12 +23,17 @@ import PathView from './components/duo/PathView'
 
 export default function App() {
   const progress = useProgress()
+  const sync = useSync()
   const [tab, setTab] = useState('learn')
   const [openChapter, setOpenChapter] = useState(null) // chapter num
   const [openGrammar, setOpenGrammar] = useState(null) // grammar obj
   const [session, setSession] = useState(null)         // { queue, label }
   const [complete, setComplete] = useState(null)
+  const [accountOpen, setAccountOpen] = useState(false)
   const xpAtStart = useRef(0)
+
+  // Push local progress to the cloud (debounced) whenever it changes.
+  useEffect(() => { sync.schedulePush() }, [progress.state, sync.schedulePush])
 
   const dueCount = WORDS.filter((w) => { const c = progress.cardFor(w.id); return c && isDue(c) }).length
 
@@ -65,14 +72,14 @@ export default function App() {
   return (
     <div className="min-h-full">
       <div className="lg:flex lg:max-w-[1280px] lg:mx-auto">
-        <Sidebar tab={tab} onChange={setTab} dueCount={dueCount} className="hidden lg:flex sticky top-0 h-screen" />
+        <Sidebar tab={tab} onChange={setTab} dueCount={dueCount} onOpenAccount={() => setAccountOpen(true)} syncStatus={sync.status} signedIn={!!sync.user} className="hidden lg:flex sticky top-0 h-screen" />
 
         <main className="flex-1 min-w-0 pb-24 lg:pb-12 safe-top lg:pt-8">
           {tab === 'learn' && (
             <>
               {/* Mobile-only minimal top bar */}
               <div className="lg:hidden">
-                <Dashboard />
+                <Dashboard onOpenAccount={() => setAccountOpen(true)} signedIn={!!sync.user} />
               </div>
               <PathView progress={progress} onOpenChapter={setOpenChapter} onOpenGrammar={setOpenGrammar} onPractice={startChapter} />
             </>
@@ -95,6 +102,7 @@ export default function App() {
       </div>
 
       {/* Overlays — later in DOM = on top */}
+      {accountOpen && <AccountPanel sync={sync} onClose={() => setAccountOpen(false)} />}
       {chapter && (
         <ChapterDetail
           chapter={chapter}

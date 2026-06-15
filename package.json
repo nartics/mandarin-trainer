@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.108.2",
     "hanzi-writer": "^3.7.0",
     "pinyin-pro": "^3.26.0",
     "react": "^19.2.6",
