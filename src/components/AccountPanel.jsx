@@ -8,13 +8,14 @@ const STATUS = {
   error: { label: 'Sync error', cls: 'text-cinnabar-300 border-cinnabar-500/40' },
 }
 
-export default function AccountPanel({ sync, onClose }) {
+export default function AccountPanel({ sync, onReset, onClose }) {
   const { configured, user, status, signIn, verifyOtp, signOut, push, lastSync } = sync
   const [email, setEmail] = useState('')
   const [sent, setSent] = useState(false)
   const [code, setCode] = useState('')
   const [busy, setBusy] = useState(false)
   const [err, setErr] = useState(null)
+  const [confirmReset, setConfirmReset] = useState(false)
 
   const chip = STATUS[status] || STATUS.idle
 
@@ -85,6 +86,21 @@ export default function AccountPanel({ sync, onClose }) {
             {err && <p className="text-cinnabar-300 text-xs">{/rate|limit/i.test(err) ? 'Too many attempts — wait a minute and try again.' : err}</p>}
           </div>
         )}
+
+        {/* Reset progress */}
+        <div className="mt-5 pt-4 border-t border-ink-700">
+          {!confirmReset ? (
+            <button onClick={() => setConfirmReset(true)} className="text-sm text-ink-400 hover:text-cinnabar-300 transition">
+              Reset all progress
+            </button>
+          ) : (
+            <div className="flex items-center gap-3">
+              <span className="text-sm text-cinnabar-300 flex-1">Erase all progress and start from zero?</span>
+              <button onClick={() => { onReset?.(); setConfirmReset(false); onClose?.() }} className="text-sm font-semibold text-cinnabar-300">Reset</button>
+              <button onClick={() => setConfirmReset(false)} className="text-sm text-ink-400">Cancel</button>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   )

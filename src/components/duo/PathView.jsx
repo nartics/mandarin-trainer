@@ -1,7 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { CHAPTERS, CURRENT_CHAPTER } from '../../data/chapters'
 import { deriveMastery, defaultCard } from '../../lib/sm2'
-import Mascot from './Mascot'
 
 const ICON = {
   star: 'M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5.9 20.4l1.4-6.8L2.2 9l6.9-.7L12 2z',
@@ -93,11 +92,6 @@ export default function PathView({ progress, onOpenChapter, onOpenGrammar, onPra
               {nodes.map((n, i) => (
                 <div key={i} className="relative">
                   <PathNode node={n} active={i === activeIdx} />
-                  {i === activeIdx && (
-                    <span className="absolute right-full mr-4 top-1/2 -translate-y-1/2">
-                      <Mascot size={64} className="animate-bobble" />
-                    </span>
-                  )}
                 </div>
               ))}
             </div>

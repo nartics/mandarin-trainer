@@ -62,6 +62,12 @@ export default function App() {
     start(buildReviewQueue(shuffle(pool).slice(0, 12), grammarPicks, { isIntroduced: progress.isIntroduced }), 'Review complete!')
   }, [progress, start])
 
+  // Reset all progress to zero (local + cloud via the auto-push effect).
+  const resetProgress = useCallback(() => {
+    progress.resetAll()
+    setSession(null); setComplete(null); setOpenChapter(null); setOpenGrammar(null)
+  }, [progress])
+
   const onSessionComplete = useCallback((res) => {
     setComplete({ ...res, xp: progress.state.xp - xpAtStart.current, label: session?.label })
     setSession(null)
@@ -102,7 +108,7 @@ export default function App() {
       </div>
 
       {/* Overlays — later in DOM = on top */}
-      {accountOpen && <AccountPanel sync={sync} onClose={() => setAccountOpen(false)} />}
+      {accountOpen && <AccountPanel sync={sync} onReset={resetProgress} onClose={() => setAccountOpen(false)} />}
       {chapter && (
         <ChapterDetail
           chapter={chapter}
