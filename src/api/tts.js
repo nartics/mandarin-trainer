@@ -7,9 +7,9 @@
 //     (dev only — the key is inlined into the bundle).
 // Without any key the app falls back to the browser's system Chinese voice.
 
-// A clear, multilingual ElevenLabs voice that handles Mandarin well. Override with
-// VITE_ELEVENLABS_VOICE_ID to use your own.
-const DEFAULT_VOICE_ID = 'EXAVITQu4vr4xnSDxMaL' // Sarah — clear, neutral
+// A native Mandarin ElevenLabs voice (clear, friendly, standard accent — good for a
+// learner). Override with VITE_ELEVENLABS_VOICE_ID to use a different one.
+const DEFAULT_VOICE_ID = '9lHjugDhwqoxA5MhX0az' // Anna Su — bright, natural Mandarin (female)
 const VOICE_ID = import.meta.env.VITE_ELEVENLABS_VOICE_ID || DEFAULT_VOICE_ID
 
 const DIRECT_KEY = import.meta.env.VITE_ELEVENLABS_API_KEY
