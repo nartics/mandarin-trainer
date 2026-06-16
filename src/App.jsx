@@ -62,11 +62,13 @@ export default function App() {
     start(buildReviewQueue(shuffle(pool).slice(0, 12), grammarPicks, { isIntroduced: progress.isIntroduced }), 'Review complete!')
   }, [progress, start])
 
-  // Reset all progress to zero (local + cloud via the auto-push effect).
+  // Reset all progress to zero — locally and authoritatively in the cloud, so the
+  // merge-on-pull can't restore it.
   const resetProgress = useCallback(() => {
     progress.resetAll()
+    sync.reset()
     setSession(null); setComplete(null); setOpenChapter(null); setOpenGrammar(null)
-  }, [progress])
+  }, [progress, sync])
 
   const onSessionComplete = useCallback((res) => {
     setComplete({ ...res, xp: progress.state.xp - xpAtStart.current, label: session?.label })

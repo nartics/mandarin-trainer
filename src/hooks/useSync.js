@@ -144,9 +144,27 @@ export function useSync() {
     localStorage.removeItem(LAST_SYNC_KEY)
   }, [])
 
+  // Authoritative reset: clear local + overwrite the cloud row with empty progress
+  // (not a merge), and cancel any pending push, so a later pull can't restore it.
+  const reset = useCallback(async () => {
+    clearTimeout(pushTimer.current)
+    try {
+      localStorage.removeItem(PROGRESS_KEY)
+      localStorage.setItem(LAST_SYNC_KEY, new Date().toISOString())
+    } catch {}
+    window.dispatchEvent(new Event(RELOAD_EVENT))
+    if (hasSupabase() && user) {
+      setStatus('syncing')
+      try {
+        await supabase.from(TABLE).upsert({ user_id: user.id, progress: {}, updated_at: new Date().toISOString() }, { onConflict: 'user_id' })
+        setStatus('synced')
+      } catch { setStatus('error') }
+    }
+  }, [user])
+
   return {
     configured: hasSupabase(),
-    user, status, signIn, verifyOtp, signOut,
+    user, status, signIn, verifyOtp, signOut, reset,
     push: () => user && pushFor(user.id),
     pull: () => user && pull(user.id),
     schedulePush,
