@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import { CHAPTERS, CURRENT_CHAPTER } from '../../data/chapters'
+import { CHAPTERS, activeChapterNum } from '../../data/chapters'
 import { deriveMastery, defaultCard } from '../../lib/sm2'
 
 const ICON = {
@@ -34,17 +34,19 @@ function PathNode({ node, active }) {
 
 export default function PathView({ progress, onOpenChapter, onOpenGrammar, onPractice }) {
   const currentRef = useRef(null)
-  // Open the path at the chapter the class is on — defer past first paint so layout is settled.
+  const activeNum = activeChapterNum(progress)
+  // Open the path at the learner's current chapter, and re-center when it changes
+  // (e.g. after finishing a chapter or resetting). Deferred past paint.
   useEffect(() => {
     const t = setTimeout(() => currentRef.current?.scrollIntoView({ block: 'center' }), 80)
     return () => clearTimeout(t)
-  }, [])
+  }, [activeNum])
 
   return (
     <div className="max-w-[460px] mx-auto px-6 pb-24">
       {CHAPTERS.map((c) => {
         const locked = c.status === 'upcoming'
-        const current = c.num === CURRENT_CHAPTER
+        const current = c.num === activeNum
         const learned = c.coreWords.filter((w) => {
           const m = deriveMastery(progress.cardFor(w.id) || defaultCard())
           return m === 'mastered' || m === 'familiar'

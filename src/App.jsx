@@ -3,7 +3,7 @@ import { useProgress } from './hooks/useProgress'
 import { useSync } from './hooks/useSync'
 import AccountPanel from './components/AccountPanel'
 import { WORDS } from './data/vocab'
-import { CHAPTER_BY_NUM, CURRENT_CHAPTER } from './data/chapters'
+import { CHAPTER_BY_NUM, CURRENT_CHAPTER, activeChapterNum } from './data/chapters'
 import { GRAMMAR, GRAMMAR_BY_ID } from './data/grammar'
 import { buildQueue, buildChapterQueue, buildGrammarQueue, buildReviewQueue, shuffle } from './lib/queue'
 import { isDue } from './lib/sm2'
@@ -31,6 +31,8 @@ export default function App() {
   const [complete, setComplete] = useState(null)
   const [accountOpen, setAccountOpen] = useState(false)
   const xpAtStart = useRef(0)
+
+  const activeChapter = CHAPTER_BY_NUM[activeChapterNum(progress)]
 
   // Push local progress to the cloud (debounced) whenever it changes.
   useEffect(() => { sync.schedulePush() }, [progress.state, sync.schedulePush])
@@ -102,7 +104,7 @@ export default function App() {
           )}
         </main>
 
-        <RightRail onPractice={startChapter} className="hidden xl:block sticky top-0 h-screen overflow-y-auto no-scrollbar" />
+        <RightRail chapter={activeChapter} onPractice={startChapter} className="hidden xl:block sticky top-0 h-screen overflow-y-auto no-scrollbar" />
       </div>
 
       <div className="lg:hidden">
