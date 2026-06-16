@@ -43,7 +43,7 @@ body {
 .tone4 { color: #60a5fa; }
 .tone5 { color: #9ca3af; }
 
-.han { font-family: 'Noto Serif SC', 'Songti SC', serif; }
+.han { font-family: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif; }
 
 /* hide scrollbars but keep scroll */
 .no-scrollbar::-webkit-scrollbar { display: none; }

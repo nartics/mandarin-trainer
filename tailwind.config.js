@@ -59,7 +59,7 @@ export default {
         },
       },
       fontFamily: {
-        han: ['"Noto Serif SC"', '"Songti SC"', '"SimSun"', 'serif'],
+        han: ['"Noto Sans SC"', '"PingFang SC"', '"Microsoft YaHei"', 'sans-serif'],
         sans: ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'sans-serif'],
       },
       keyframes: {
