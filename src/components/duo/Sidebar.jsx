@@ -10,11 +10,14 @@ const ITEMS = [
 
 const PERSON = 'M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm0 2c-5 0-9 2.5-9 6v2h18v-2c0-3.5-4-6-9-6z'
 
-export default function Sidebar({ tab, onChange, dueCount = 0, onOpenAccount, syncStatus, signedIn, className = '' }) {
+export default function Sidebar({ tab, onChange, dueCount = 0, onOpenAccount, onOpenProfile, streak = 0, syncStatus, signedIn, className = '' }) {
   return (
     <aside className={`w-[220px] shrink-0 border-r border-ink-700 px-4 py-7 flex flex-col ${className}`}>
-      <div className="px-1 mb-8">
+      <div className="px-1 mb-8 flex items-center justify-between">
         <Mascot size={44} />
+        <button onClick={onOpenProfile} title="Your progress" className="flex items-center gap-1 text-sm font-semibold text-ink-200 hover:text-white px-2 py-1 rounded-lg hover:bg-white/[0.04] transition">
+          🔥<span>{streak}</span>
+        </button>
       </div>
 
       <nav className="flex flex-col gap-0.5">

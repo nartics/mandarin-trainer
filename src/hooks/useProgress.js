@@ -16,16 +16,28 @@ function todayStr() {
   return new Date().toISOString().slice(0, 10)
 }
 
+// Advance the day-streak on the first activity of a day; track the best streak.
+function bumpStreak(s) {
+  const today = todayStr()
+  const yesterday = new Date(Date.now() - 86_400_000).toISOString().slice(0, 10)
+  let streak = s.streak
+  if (s.lastActive !== today) streak = (s.lastActive === yesterday ? streak : 0) + 1
+  const bestStreak = Math.max(s.bestStreak || 0, streak)
+  return { today, streak, bestStreak }
+}
+
 function freshState() {
   return {
     cards: {},        // wordId -> sm2 card
-    write: {},        // char -> { reps, lastReviewed }
-    grammar: {},      // grammarId -> { correct, seen }
+    write: {},        // char -> { reps, lastReviewed, bestMistakes }
+    grammar: {},      // grammarId -> { correct, seen, introduced }
     xp: 0,
     streak: 0,
+    bestStreak: 0,
     lastActive: null, // yyyy-mm-dd
     daily: {},        // yyyy-mm-dd -> xp earned that day
     lessonsDone: {},  // lessonId -> highest level cleared
+    celebratedBadges: [], // badge ids already shown in a toast
   }
 }
 
@@ -62,15 +74,12 @@ export function useProgress() {
       const card = s.cards[wordId] || defaultCard()
       const updated = applyReview(card, quality)
       const gain = quality === 0 ? 1 : quality === 1 ? 5 : quality === 2 ? 10 : 12
-      const today = todayStr()
-      const yesterday = new Date(Date.now() - 86_400_000).toISOString().slice(0, 10)
-      let streak = s.streak
-      if (s.lastActive !== today) streak = (s.lastActive === yesterday ? streak : 0) + 1
+      const { today, streak, bestStreak } = bumpStreak(s)
       return {
         ...s,
         cards: { ...s.cards, [wordId]: updated },
         xp: s.xp + gain,
-        streak,
+        streak, bestStreak,
         lastActive: today,
         daily: { ...s.daily, [today]: (s.daily[today] || 0) + gain },
       }
@@ -81,15 +90,12 @@ export function useProgress() {
     setState((s) => {
       const prev = s.write[char] || { reps: 0 }
       const gain = mistakes === 0 ? 10 : mistakes <= 2 ? 6 : 3
-      const today = todayStr()
-      const yesterday = new Date(Date.now() - 86_400_000).toISOString().slice(0, 10)
-      let streak = s.streak
-      if (s.lastActive !== today) streak = (s.lastActive === yesterday ? streak : 0) + 1
+      const { today, streak, bestStreak } = bumpStreak(s)
       return {
         ...s,
         write: { ...s.write, [char]: { reps: prev.reps + 1, lastReviewed: Date.now(), bestMistakes: Math.min(prev.bestMistakes ?? 99, mistakes) } },
         xp: s.xp + gain,
-        streak,
+        streak, bestStreak,
         lastActive: today,
         daily: { ...s.daily, [today]: (s.daily[today] || 0) + gain },
       }
@@ -100,15 +106,12 @@ export function useProgress() {
     setState((s) => {
       const prev = s.grammar[grammarId] || { correct: 0, seen: 0, introduced: false }
       const gain = correct ? 8 : 2
-      const today = todayStr()
-      const yesterday = new Date(Date.now() - 86_400_000).toISOString().slice(0, 10)
-      let streak = s.streak
-      if (s.lastActive !== today) streak = (s.lastActive === yesterday ? streak : 0) + 1
+      const { today, streak, bestStreak } = bumpStreak(s)
       return {
         ...s,
         grammar: { ...s.grammar, [grammarId]: { ...prev, correct: prev.correct + (correct ? 1 : 0), seen: prev.seen + 1, introduced: true } },
         xp: s.xp + gain,
-        streak,
+        streak, bestStreak,
         lastActive: today,
         daily: { ...s.daily, [today]: (s.daily[today] || 0) + gain },
       }
@@ -129,6 +132,11 @@ export function useProgress() {
       ...s,
       lessonsDone: { ...s.lessonsDone, [lessonId]: Math.max(s.lessonsDone[lessonId] || 0, level) },
     }))
+  }, [])
+
+  const markBadgesCelebrated = useCallback((ids) => {
+    if (!ids?.length) return
+    setState((s) => ({ ...s, celebratedBadges: [...new Set([...(s.celebratedBadges || []), ...ids])] }))
   }, [])
 
   const resetAll = useCallback(() => setState(freshState()), [])
@@ -162,5 +170,5 @@ export function useProgress() {
     return !!g && (g.introduced || (g.seen ?? 0) > 0)
   }, [state.grammar])
 
-  return { state, stats, reviewWord, recordWrite, recordGrammar, markGrammarIntroduced, isIntroduced, completeLesson, resetAll, dueWords, cardFor: (id) => state.cards[id], grammarFor: (id) => state.grammar[id] }
+  return { state, stats, reviewWord, recordWrite, recordGrammar, markGrammarIntroduced, markBadgesCelebrated, isIntroduced, completeLesson, resetAll, dueWords, cardFor: (id) => state.cards[id], grammarFor: (id) => state.grammar[id] }
 }

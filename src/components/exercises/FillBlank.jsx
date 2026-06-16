@@ -60,7 +60,7 @@ export default function FillBlank({ exercise, speak, speaking, onResult, onRevie
           if (revealed) state = o.correct ? 'correct' : i === picked ? 'wrong' : 'muted'
           return (
             <Choice key={i} state={state} disabled={revealed} onClick={() => choose(i)}>
-              <span className="han text-2xl">{o.label}</span>
+              <SentenceLine text={o.label} size="text-2xl" pinyinSize="text-xs" />
             </Choice>
           )
         })}

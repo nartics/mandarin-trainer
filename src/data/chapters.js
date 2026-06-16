@@ -97,17 +97,26 @@ export const CHAPTER_BY_NUM = Object.fromEntries(CHAPTERS.map((c) => [c.num, c])
 // (all core words familiar+ and all grammar points practiced). Drives the "you are
 // here" highlight, the auto-scroll, and the rail's Continue. Resets to chapter 1
 // when progress is wiped; advances as they finish chapters.
+function chapterComplete(c, progress) {
+  const learned = c.coreWords.filter((w) => {
+    const m = deriveMastery(progress.cardFor(w.id) || defaultCard())
+    return m === 'mastered' || m === 'familiar'
+  }).length
+  const wordsDone = c.coreWords.length === 0 || learned >= c.coreWords.length
+  const grammarDone = c.grammar.every((g) => { const gp = progress.grammarFor(g.id); return gp && gp.correct > 0 })
+  return wordsDone && grammarDone
+}
+
 export function activeChapterNum(progress) {
   for (const c of CHAPTERS) {
-    const learned = c.coreWords.filter((w) => {
-      const m = deriveMastery(progress.cardFor(w.id) || defaultCard())
-      return m === 'mastered' || m === 'familiar'
-    }).length
-    const wordsDone = c.coreWords.length === 0 || learned >= c.coreWords.length
-    const grammarDone = c.grammar.every((g) => { const gp = progress.grammarFor(g.id); return gp && gp.correct > 0 })
-    if (!(wordsDone && grammarDone)) return c.num
+    if (!chapterComplete(c, progress)) return c.num
   }
   return CHAPTERS[CHAPTERS.length - 1].num
+}
+
+// Count of fully-completed chapters (for achievements).
+export function chaptersCompletedCount(progress) {
+  return CHAPTERS.filter((c) => chapterComplete(c, progress)).length
 }
 
 // Every example sentence across the course (for the Listening Lab / mixed practice).

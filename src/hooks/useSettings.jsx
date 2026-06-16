@@ -1,11 +1,11 @@
 import { createContext, useContext, useState, useEffect, useCallback } from 'react'
 
-// Global, persisted UI settings. Currently just the pinyin-visibility toggle,
-// which governs whether pinyin annotations appear on Chinese words & sentences
-// throughout the app (exercises, vocab lists, grammar examples, etc.).
+// Global, persisted UI settings: pinyin visibility (governs pinyin annotations on
+// Chinese words & sentences throughout the app) and the daily XP goal.
 const KEY = 'hsk1-settings-v1'
+const DEFAULT_GOAL = 30
 
-const SettingsContext = createContext({ showPinyin: true, setShowPinyin: () => {}, toggle: () => {} })
+const SettingsContext = createContext({ showPinyin: true, toggle: () => {}, dailyGoal: DEFAULT_GOAL, setDailyGoal: () => {} })
 
 function load() {
   try {
@@ -16,16 +16,18 @@ function load() {
 }
 
 export function SettingsProvider({ children }) {
-  const [showPinyin, setShowPinyin] = useState(() => load()?.showPinyin ?? true)
+  const saved = load()
+  const [showPinyin, setShowPinyin] = useState(() => saved?.showPinyin ?? true)
+  const [dailyGoal, setDailyGoal] = useState(() => saved?.dailyGoal ?? DEFAULT_GOAL)
 
   useEffect(() => {
-    try { localStorage.setItem(KEY, JSON.stringify({ showPinyin })) } catch {}
-  }, [showPinyin])
+    try { localStorage.setItem(KEY, JSON.stringify({ showPinyin, dailyGoal })) } catch {}
+  }, [showPinyin, dailyGoal])
 
   const toggle = useCallback(() => setShowPinyin((v) => !v), [])
 
   return (
-    <SettingsContext.Provider value={{ showPinyin, setShowPinyin, toggle }}>
+    <SettingsContext.Provider value={{ showPinyin, setShowPinyin, toggle, dailyGoal, setDailyGoal }}>
       {children}
     </SettingsContext.Provider>
   )

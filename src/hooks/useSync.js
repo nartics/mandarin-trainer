@@ -49,6 +49,7 @@ function mergeProgress(local, remote) {
 
   m.xp = max(local.xp, remote.xp)
   m.streak = max(local.streak, remote.streak)
+  m.bestStreak = max(local.bestStreak, remote.bestStreak)
   m.lastActive = (local.lastActive || '') > (remote.lastActive || '') ? local.lastActive : remote.lastActive
 
   m.daily = {}
@@ -56,6 +57,9 @@ function mergeProgress(local, remote) {
 
   m.lessonsDone = {}
   for (const id of keys(local.lessonsDone, remote.lessonsDone)) m.lessonsDone[id] = max(local.lessonsDone?.[id], remote.lessonsDone?.[id])
+
+  // Achievements: union of celebrated badge ids.
+  m.celebratedBadges = [...new Set([...(local.celebratedBadges || []), ...(remote.celebratedBadges || [])])]
 
   return m
 }

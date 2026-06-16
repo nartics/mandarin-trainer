@@ -1,7 +1,10 @@
 import { useState, useCallback, useRef, useEffect } from 'react'
 import { useProgress } from './hooks/useProgress'
 import { useSync } from './hooks/useSync'
+import { useSettings } from './hooks/useSettings'
+import { buildCtx, earnedIds, BADGE_BY_ID } from './data/badges'
 import AccountPanel from './components/AccountPanel'
+import ProfilePanel from './components/ProfilePanel'
 import { WORDS } from './data/vocab'
 import { CHAPTER_BY_NUM, CURRENT_CHAPTER, activeChapterNum } from './data/chapters'
 import { GRAMMAR, GRAMMAR_BY_ID } from './data/grammar'
@@ -24,12 +27,16 @@ import PathView from './components/duo/PathView'
 export default function App() {
   const progress = useProgress()
   const sync = useSync()
+  const { dailyGoal } = useSettings()
+  const progressRef = useRef(progress)
+  progressRef.current = progress
   const [tab, setTab] = useState('learn')
   const [openChapter, setOpenChapter] = useState(null) // chapter num
   const [openGrammar, setOpenGrammar] = useState(null) // grammar obj
   const [session, setSession] = useState(null)         // { queue, label }
   const [complete, setComplete] = useState(null)
   const [accountOpen, setAccountOpen] = useState(false)
+  const [profileOpen, setProfileOpen] = useState(false)
   const xpAtStart = useRef(0)
 
   const activeChapter = CHAPTER_BY_NUM[activeChapterNum(progress)]
@@ -73,23 +80,36 @@ export default function App() {
   }, [progress, sync])
 
   const onSessionComplete = useCallback((res) => {
-    setComplete({ ...res, xp: progress.state.xp - xpAtStart.current, label: session?.label })
+    const p = progressRef.current
+    const ctx = buildCtx(p, dailyGoal)
+    const earned = earnedIds(ctx)
+    const celebrated = p.state.celebratedBadges || []
+    const newBadges = earned.filter((id) => !celebrated.includes(id)).map((id) => BADGE_BY_ID[id])
+    const xpToday = p.state.daily?.[new Date().toISOString().slice(0, 10)] || 0
+    setComplete({
+      ...res,
+      xp: p.state.xp - xpAtStart.current,
+      label: session?.label,
+      streak: p.state.streak,
+      xpToday, dailyGoal, newBadges,
+    })
+    p.markBadgesCelebrated(earned)
     setSession(null)
-  }, [progress.state.xp, session])
+  }, [dailyGoal, session])
 
   const chapter = openChapter != null ? CHAPTER_BY_NUM[openChapter] : null
 
   return (
     <div className="min-h-full">
       <div className="lg:flex lg:max-w-[1280px] lg:mx-auto">
-        <Sidebar tab={tab} onChange={setTab} dueCount={dueCount} onOpenAccount={() => setAccountOpen(true)} syncStatus={sync.status} signedIn={!!sync.user} className="hidden lg:flex sticky top-0 h-screen" />
+        <Sidebar tab={tab} onChange={setTab} dueCount={dueCount} onOpenAccount={() => setAccountOpen(true)} onOpenProfile={() => setProfileOpen(true)} streak={progress.state.streak} syncStatus={sync.status} signedIn={!!sync.user} className="hidden lg:flex sticky top-0 h-screen" />
 
         <main className="flex-1 min-w-0 pb-24 lg:pb-12 safe-top lg:pt-8">
           {tab === 'learn' && (
             <>
               {/* Mobile-only minimal top bar */}
               <div className="lg:hidden">
-                <Dashboard onOpenAccount={() => setAccountOpen(true)} signedIn={!!sync.user} />
+                <Dashboard onOpenAccount={() => setAccountOpen(true)} onOpenProfile={() => setProfileOpen(true)} signedIn={!!sync.user} streak={progress.state.streak} xpToday={progress.state.daily?.[new Date().toISOString().slice(0,10)] || 0} dailyGoal={dailyGoal} />
               </div>
               <PathView progress={progress} onOpenChapter={setOpenChapter} onOpenGrammar={setOpenGrammar} onPractice={startChapter} />
             </>
@@ -104,7 +124,7 @@ export default function App() {
           )}
         </main>
 
-        <RightRail chapter={activeChapter} onPractice={startChapter} className="hidden xl:block sticky top-0 h-screen overflow-y-auto no-scrollbar" />
+        <RightRail chapter={activeChapter} onPractice={startChapter} stats={progress.stats} streak={progress.state.streak} xpToday={progress.state.daily?.[new Date().toISOString().slice(0,10)] || 0} dailyGoal={dailyGoal} onOpenProfile={() => setProfileOpen(true)} className="hidden xl:block sticky top-0 h-screen overflow-y-auto no-scrollbar" />
       </div>
 
       <div className="lg:hidden">
@@ -113,6 +133,7 @@ export default function App() {
 
       {/* Overlays — later in DOM = on top */}
       {accountOpen && <AccountPanel sync={sync} onReset={resetProgress} onClose={() => setAccountOpen(false)} />}
+      {profileOpen && <ProfilePanel progress={progress} onClose={() => setProfileOpen(false)} />}
       {chapter && (
         <ChapterDetail
           chapter={chapter}
@@ -147,6 +168,10 @@ export default function App() {
           total={complete.total}
           xp={complete.xp}
           label={complete.label}
+          streak={complete.streak}
+          xpToday={complete.xpToday}
+          dailyGoal={complete.dailyGoal}
+          newBadges={complete.newBadges}
           onContinue={() => setComplete(null)}
         />
       )}

@@ -2,7 +2,7 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 import { useSpeech } from '../hooks/useSpeech'
 import { useSounds } from '../hooks/useSounds'
 import { QUALITY } from '../lib/sm2'
-import { Annotated, SpeakerButton, Choice, PrimaryButton, PinyinToggle } from './ui/common'
+import { Annotated, SentenceLine, SpeakerButton, Choice, PrimaryButton, PinyinToggle } from './ui/common'
 import { useSettings } from '../hooks/useSettings'
 import BuildSentence from './exercises/BuildSentence'
 import FillBlank from './exercises/FillBlank'
@@ -160,7 +160,9 @@ export default function ExerciseRunner({ queue, title, onReview, onWrite, onGram
                   }
                   return (
                     <Choice key={i} state={state} disabled={revealed} onClick={() => handleChoice(i)}>
-                      <span className={o.han ? 'han text-2xl' : ''}>{o.label}</span>
+                      {o.han
+                        ? <SentenceLine text={o.label} size="text-2xl" pinyinSize="text-xs" />
+                        : o.label}
                     </Choice>
                   )
                 })}
