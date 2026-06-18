@@ -53,6 +53,19 @@ export const GRAMMAR = [
 
   // ── Chapter 3 ──────────────────────────────────────────────────────────
   {
+    id: 'ye', chapter: 3, title: 'Also / too — 也', patternZh: '主语 + 也 + 动词/形容词',
+    summary: '也 (yě) means "also / too" and always comes BEFORE the verb, never after.',
+    notes: ['我也是学生 = I am also a student.', '也 goes before the verb/adjective.', 'Never say 我是也学生.'],
+    examples: [
+      { hanzi: '我也是学生。', en: 'I am also a student.' },
+      { hanzi: '他也喜欢吃饺子。', en: 'He also likes eating dumplings.' },
+      { hanzi: '我也不知道。', en: "I don't know either." },
+    ],
+    drill: { keyword: '也', options: ['也', '都', '很', '不'] },
+    why: '也 = "also/too", placed before the verb/adjective.',
+    contrasts: { '都': '都 = "all" for a group; 也 = "too" linking to a prior statement.', '很': '很 = "very", a degree word.', '不': '不 negates; it doesn\'t mean "also".' },
+  },
+  {
     id: 'shi', chapter: 3, title: 'To be — 是 / 不是', patternZh: 'A + 是 + B',
     summary: '是 (shì) links two nouns: "A is B". Negate with 不是. Don\'t use 是 before adjectives — use 很.',
     notes: ['我是学生 = I am a student.', 'Negative: 不是. (Note: 不 is 4th tone here → bú.)', 'For "I am happy" use 我很高兴, NOT 我是高兴.'],
@@ -149,6 +162,21 @@ export const GRAMMAR = [
     drill: { keyword: '都', options: ['都', '也', '很', '不'] },
     why: '都 = "all/both", placed after the subject and before the verb.',
     contrasts: { '也': '也 means "also", linking to a previous statement.', '很': '很 modifies adjectives, not "all".', '不': '不 negates; it doesn\'t mean "all".' },
+  },
+
+  // ── Chapter 7 ──────────────────────────────────────────────────────────
+  {
+    id: 'date', chapter: 7, title: 'Dates — 年/月/号', patternZh: '年 + 月 + 号/日',
+    summary: 'Chinese dates go from largest to smallest: year → month → day. Ask with 几月几号？',
+    notes: ['2026年6月15号 = 15 June 2026.', '今天几月几号？ = What is today\'s date?', 'Weekdays: 星期一 to 星期日 (Mon–Sun).'],
+    examples: [
+      { hanzi: '今天几月几号？', en: 'What month and day is it today?' },
+      { hanzi: '今天是六月十五号。', en: 'Today is June 15th.' },
+      { hanzi: '明天是星期六。', en: 'Tomorrow is Saturday.' },
+    ],
+    drill: { keyword: '号', options: ['号', '岁', '点', '月'] },
+    why: '号 marks the day of the month: 十五号 = the 15th.',
+    contrasts: { '岁': '岁 counts years of age, not calendar dates.', '点': '点 marks hours on a clock.', '月': '月 marks the month (六月 = June), while 号 marks the specific day.' },
   },
 
   // ── Chapter 8 ──────────────────────────────────────────────────────────

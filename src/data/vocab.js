@@ -22,6 +22,9 @@ const RAW = [
   { ch: 1, hanzi: '三', pinyin: 'sān', en: 'three', pos: 'num', ex: ['我家有三个人。', 'There are three people in my family.'] },
   { ch: 1, hanzi: '四', pinyin: 'sì', en: 'four', pos: 'num', ex: ['现在四点。', "It's four o'clock."] },
   { ch: 1, hanzi: '五', pinyin: 'wǔ', en: 'five', pos: 'num', ex: ['我买了五个苹果。', 'I bought five apples.'] },
+  { ch: 1, hanzi: '零', pinyin: 'líng', en: 'zero', pos: 'num', ex: ['今天零度。', "It's zero degrees today."] },
+  { ch: 1, hanzi: '可以', pinyin: 'kěyǐ', en: 'can; may', pos: 'v', ex: ['我可以问你吗？', 'May I ask you?'] },
+  { ch: 1, hanzi: '也', pinyin: 'yě', en: 'also; too', pos: 'adv', ex: ['我也是学生。', 'I am also a student.'] },
 
   // ── Chapter 2 · 谢谢你 — Thank you ────────────────────────────────────
   { ch: 2, hanzi: '谢谢', pinyin: 'xièxie', en: 'thank you', pos: 'v', ex: ['谢谢你！', 'Thank you!'] },
@@ -36,6 +39,8 @@ const RAW = [
   { ch: 2, hanzi: '八', pinyin: 'bā', en: 'eight', pos: 'num', ex: ['现在八点。', "It's eight o'clock."] },
   { ch: 2, hanzi: '九', pinyin: 'jiǔ', en: 'nine', pos: 'num', ex: ['我九点睡觉。', 'I go to sleep at nine.'] },
   { ch: 2, hanzi: '十', pinyin: 'shí', en: 'ten', pos: 'num', ex: ['这本书十块钱。', 'This book is ten yuan.'] },
+  { ch: 2, hanzi: '您', pinyin: 'nín', en: 'you (polite)', pos: 'pron', ex: ['您好！', 'How do you do?'] },
+  { ch: 2, hanzi: '对', pinyin: 'duì', en: 'correct; right', pos: 'adj', ex: ['你说得对。', 'What you said is correct.'] },
 
   // ── Chapter 3 · 你叫什么名字 — What's your name? ──────────────────────
   { ch: 3, hanzi: '他', pinyin: 'tā', en: 'he; him', pos: 'pron', ex: ['他是我朋友。', 'He is my friend.'] },
@@ -50,6 +55,9 @@ const RAW = [
   { ch: 3, hanzi: '吗', pinyin: 'ma', en: '(yes/no question particle)', pos: 'part', ex: ['你是学生吗？', 'Are you a student?'] },
   { ch: 3, hanzi: '呢', pinyin: 'ne', en: '(follow-up question particle)', pos: 'part', ex: ['我很好，你呢？', "I'm fine, and you?"] },
   { ch: 3, hanzi: '和', pinyin: 'hé', en: 'and; with', pos: 'conj', ex: ['我和朋友去。', 'My friend and I go.'] },
+  { ch: 3, hanzi: '来自', pinyin: 'láizì', en: 'to come from', pos: 'v', ex: ['我来自英国。', "I'm from the UK."] },
+  { ch: 3, hanzi: '美国', pinyin: 'Měiguó', en: 'USA; America', pos: 'n', ex: ['他是美国人。', 'He is American.'] },
+  { ch: 3, hanzi: '英国', pinyin: 'Yīngguó', en: 'UK; Britain', pos: 'n', ex: ['我来自英国。', 'I am from the UK.'] },
 
   // ── Chapter 4 · 她是我的汉语老师 — She is my Chinese teacher ──────────
   { ch: 4, hanzi: '先生', pinyin: 'xiānsheng', en: 'Mr.; sir', pos: 'n', ex: ['王先生是老师。', 'Mr. Wang is a teacher.'] },
@@ -66,6 +74,9 @@ const RAW = [
   { ch: 4, hanzi: '这', pinyin: 'zhè', en: 'this', pos: 'pron', ex: ['这是我的书。', 'This is my book.'] },
   { ch: 4, hanzi: '那', pinyin: 'nà', en: 'that', pos: 'pron', ex: ['那是谁的猫？', 'Whose cat is that?'] },
   { ch: 4, hanzi: '的', pinyin: 'de', en: '(possessive particle)', pos: 'part', ex: ['这是我的书。', 'This is my book.'] },
+  { ch: 4, hanzi: '公司', pinyin: 'gōngsī', en: 'company', pos: 'n', ex: ['他在公司工作。', 'He works at a company.'] },
+  { ch: 4, hanzi: '银行', pinyin: 'yínháng', en: 'bank', pos: 'n', ex: ['我在银行工作。', 'I work at a bank.'] },
+  { ch: 4, hanzi: '介绍', pinyin: 'jièshào', en: 'to introduce', pos: 'v', ex: ['让我来介绍一下。', 'Let me introduce.'] },
 
   // ── Chapter 5 · 她女儿今年二十岁 — Her daughter is 20 ──────────────────
   { ch: 5, hanzi: '爸爸', pinyin: 'bàba', en: 'dad', pos: 'n', ex: ['我爸爸是医生。', 'My dad is a doctor.'] },
@@ -78,10 +89,16 @@ const RAW = [
   { ch: 5, hanzi: '个', pinyin: 'gè', en: '(general measure word)', pos: 'mw', ex: ['三个学生。', 'Three students.'] },
   { ch: 5, hanzi: '岁', pinyin: 'suì', en: 'years (of age)', pos: 'mw', ex: ['我女儿五岁。', 'My daughter is five.'] },
   { ch: 5, hanzi: '多少', pinyin: 'duōshao', en: 'how many; how much', pos: 'pron', ex: ['这个多少钱？', 'How much is this?'] },
+  { ch: 5, hanzi: '哥哥', pinyin: 'gēge', en: 'older brother', pos: 'n', ex: ['我哥哥很高。', 'My older brother is very tall.'] },
+  { ch: 5, hanzi: '弟弟', pinyin: 'dìdi', en: 'younger brother', pos: 'n', ex: ['我弟弟在学校。', 'My younger brother is at school.'] },
+  { ch: 5, hanzi: '姐姐', pinyin: 'jiějie', en: 'older sister', pos: 'n', ex: ['我姐姐是医生。', 'My older sister is a doctor.'] },
+  { ch: 5, hanzi: '妹妹', pinyin: 'mèimei', en: 'younger sister', pos: 'n', ex: ['我妹妹今年十岁。', 'My younger sister is ten this year.'] },
+  { ch: 5, hanzi: '百', pinyin: 'bǎi', en: 'hundred', pos: 'num', ex: ['三百个学生。', 'Three hundred students.'] },
 
   // ── Chapter 6 · 我会说汉语 — I can speak Chinese ──────────────────────
   { ch: 6, hanzi: '会', pinyin: 'huì', en: 'can; to know how to', pos: 'v', ex: ['我会说汉语。', 'I can speak Chinese.'] },
   { ch: 6, hanzi: '能', pinyin: 'néng', en: 'can; be able to', pos: 'v', ex: ['你能来吗？', 'Can you come?'] },
+  { ch: 6, hanzi: '说', pinyin: 'shuō', en: 'to say; speak', pos: 'v', ex: ['你会说汉语吗？', 'Can you speak Chinese?'] },
   { ch: 6, hanzi: '说话', pinyin: 'shuōhuà', en: 'to speak; talk', pos: 'v', ex: ['他在说话。', 'He is talking.'] },
   { ch: 6, hanzi: '读', pinyin: 'dú', en: 'to read', pos: 'v', ex: ['请读这本书。', 'Please read this book.'] },
   { ch: 6, hanzi: '写', pinyin: 'xiě', en: 'to write', pos: 'v', ex: ['请写你的名字。', 'Please write your name.'] },
@@ -91,6 +108,9 @@ const RAW = [
   { ch: 6, hanzi: '中国', pinyin: 'Zhōngguó', en: 'China', pos: 'n', ex: ['我想去中国。', 'I want to go to China.'] },
   { ch: 6, hanzi: '北京', pinyin: 'Běijīng', en: 'Beijing', pos: 'n', ex: ['北京很大。', 'Beijing is very big.'] },
   { ch: 6, hanzi: '都', pinyin: 'dōu', en: 'all; both', pos: 'adv', ex: ['我们都喜欢茶。', 'We all like tea.'] },
+  { ch: 6, hanzi: '唱歌', pinyin: 'chànggē', en: 'to sing', pos: 'v', ex: ['她喜欢唱歌。', 'She likes to sing.'] },
+  { ch: 6, hanzi: '游泳', pinyin: 'yóuyǒng', en: 'to swim', pos: 'v', ex: ['我会游泳。', 'I can swim.'] },
+  { ch: 6, hanzi: '运动', pinyin: 'yùndòng', en: 'to exercise; sports', pos: 'v', ex: ['我每天运动。', 'I exercise every day.'] },
 
   // ── Chapter 7 · 今天几号 — What's the date today? ────────────────────
   { ch: 7, hanzi: '今天', pinyin: 'jīntiān', en: 'today', pos: 'n', ex: ['今天是星期一。', 'Today is Monday.'] },
@@ -103,6 +123,11 @@ const RAW = [
   { ch: 7, hanzi: '月', pinyin: 'yuè', en: 'month', pos: 'n', ex: ['这个月很冷。', 'This month is very cold.'] },
   { ch: 7, hanzi: '星期', pinyin: 'xīngqī', en: 'week', pos: 'n', ex: ['这个星期我很忙。', "I'm busy this week."] },
   { ch: 7, hanzi: '时候', pinyin: 'shíhou', en: 'time; moment', pos: 'n', ex: ['你什么时候来？', 'When are you coming?'] },
+  { ch: 7, hanzi: '号', pinyin: 'hào', en: 'number; date of month', pos: 'n', ex: ['今天几号？', 'What date is it today?'] },
+  { ch: 7, hanzi: '天', pinyin: 'tiān', en: 'day; sky', pos: 'n', ex: ['一个星期有七天。', 'A week has seven days.'] },
+  { ch: 7, hanzi: '周末', pinyin: 'zhōumò', en: 'weekend', pos: 'n', ex: ['周末我不工作。', "I don't work on weekends."] },
+  { ch: 7, hanzi: '忙', pinyin: 'máng', en: 'busy', pos: 'adj', ex: ['我最近很忙。', 'I have been very busy lately.'] },
+  { ch: 7, hanzi: '每天', pinyin: 'měitiān', en: 'every day', pos: 'n', ex: ['我每天学习汉语。', 'I study Chinese every day.'] },
 
   // ── Chapter 8 · 我想喝茶 — I'd like to drink tea ─────────────────────
   { ch: 8, hanzi: '想', pinyin: 'xiǎng', en: 'to want; would like; miss', pos: 'v', ex: ['我想喝茶。', 'I want to drink tea.'] },
@@ -118,6 +143,11 @@ const RAW = [
   { ch: 8, hanzi: '爱', pinyin: 'ài', en: 'to love', pos: 'v', ex: ['我爱我的家。', 'I love my family.'] },
   { ch: 8, hanzi: '喜欢', pinyin: 'xǐhuan', en: 'to like', pos: 'v', ex: ['我喜欢狗。', 'I like dogs.'] },
   { ch: 8, hanzi: '没', pinyin: 'méi', en: 'not; have not', pos: 'adv', ex: ['我没有钱。', "I don't have money."] },
+  { ch: 8, hanzi: '咖啡', pinyin: 'kāfēi', en: 'coffee', pos: 'n', ex: ['我喜欢喝咖啡。', 'I like drinking coffee.'] },
+  { ch: 8, hanzi: '面条', pinyin: 'miàntiáo', en: 'noodles', pos: 'n', ex: ['我要一碗面条。', 'I want a bowl of noodles.'] },
+  { ch: 8, hanzi: '饺子', pinyin: 'jiǎozi', en: 'dumplings', pos: 'n', ex: ['我喜欢吃饺子。', 'I like eating dumplings.'] },
+  { ch: 8, hanzi: '啤酒', pinyin: 'píjiǔ', en: 'beer', pos: 'n', ex: ['你想喝啤酒吗？', 'Would you like a beer?'] },
+  { ch: 8, hanzi: '可乐', pinyin: 'kělè', en: 'cola', pos: 'n', ex: ['我想要一杯可乐。', 'I would like a cola.'] },
 
   // ── Chapter 9 · 你儿子在哪儿工作 — Where does your son work? ──────────
   { ch: 9, hanzi: '工作', pinyin: 'gōngzuò', en: 'to work; job', pos: 'v', ex: ['我妈妈在医院工作。', 'My mom works at a hospital.'] },
@@ -130,6 +160,11 @@ const RAW = [
   { ch: 9, hanzi: '饭店', pinyin: 'fàndiàn', en: 'restaurant; hotel', pos: 'n', ex: ['我们去饭店吃饭。', 'We go to the restaurant to eat.'] },
   { ch: 9, hanzi: '医院', pinyin: 'yīyuàn', en: 'hospital', pos: 'n', ex: ['医生在医院工作。', 'Doctors work in hospitals.'] },
   { ch: 9, hanzi: '医生', pinyin: 'yīshēng', en: 'doctor', pos: 'n', ex: ['我爸爸是医生。', 'My dad is a doctor.'] },
+  { ch: 9, hanzi: '旁边', pinyin: 'pángbiān', en: 'next to; beside', pos: 'n', ex: ['银行在商店旁边。', 'The bank is next to the shop.'] },
+  { ch: 9, hanzi: '前面', pinyin: 'qiánmiàn', en: 'in front; ahead', pos: 'n', ex: ['学校在前面。', 'The school is up ahead.'] },
+  { ch: 9, hanzi: '后面', pinyin: 'hòumiàn', en: 'behind; in the back', pos: 'n', ex: ['饭店在后面。', 'The restaurant is at the back.'] },
+  { ch: 9, hanzi: '外面', pinyin: 'wàimiàn', en: 'outside', pos: 'n', ex: ['外面很冷。', 'It is cold outside.'] },
+  { ch: 9, hanzi: '对面', pinyin: 'duìmiàn', en: 'across from; opposite', pos: 'n', ex: ['商店在对面。', 'The shop is across the street.'] },
 
   // ── Chapter 10 · 我在这儿买票 — I'm buying a ticket here ─────────────
   { ch: 10, hanzi: '买', pinyin: 'mǎi', en: 'to buy', pos: 'v', ex: ['我想买衣服。', 'I want to buy clothes.'] },
@@ -140,6 +175,10 @@ const RAW = [
   { ch: 10, hanzi: '衣服', pinyin: 'yīfu', en: 'clothes', pos: 'n', ex: ['这件衣服很漂亮。', 'These clothes are pretty.'] },
   { ch: 10, hanzi: '上', pinyin: 'shàng', en: 'up; on; above', pos: 'n', ex: ['书在桌子上。', 'The book is on the table.'] },
   { ch: 10, hanzi: '下', pinyin: 'xià', en: 'down; under; below', pos: 'n', ex: ['猫在椅子下。', 'The cat is under the chair.'] },
+  { ch: 10, hanzi: '贵', pinyin: 'guì', en: 'expensive', pos: 'adj', ex: ['这件衣服太贵了。', 'These clothes are too expensive.'] },
+  { ch: 10, hanzi: '便宜', pinyin: 'piányí', en: 'cheap; inexpensive', pos: 'adj', ex: ['这个很便宜。', 'This is very cheap.'] },
+  { ch: 10, hanzi: '元', pinyin: 'yuán', en: 'yuan (formal)', pos: 'mw', ex: ['一共三十元。', 'Thirty yuan in total.'] },
+  { ch: 10, hanzi: '找', pinyin: 'zhǎo', en: 'to look for; give change', pos: 'v', ex: ['找你五块钱。', "Here's five yuan change."] },
 
   // ── Chapter 11 · 现在几点 — What time is it now? ────────────────────
   { ch: 11, hanzi: '现在', pinyin: 'xiànzài', en: 'now', pos: 'n', ex: ['现在几点？', 'What time is it now?'] },
@@ -151,6 +190,12 @@ const RAW = [
   { ch: 11, hanzi: '开', pinyin: 'kāi', en: 'to open; drive; turn on', pos: 'v', ex: ['请开门。', 'Please open the door.'] },
   { ch: 11, hanzi: '睡觉', pinyin: 'shuìjiào', en: 'to sleep', pos: 'v', ex: ['他在睡觉。', 'He is sleeping.'] },
   { ch: 11, hanzi: '打电话', pinyin: 'dǎ diànhuà', en: 'to make a phone call', pos: 'v', ex: ['我给朋友打电话。', 'I call my friend.'] },
+  { ch: 11, hanzi: '起床', pinyin: 'qǐchuáng', en: 'to get up', pos: 'v', ex: ['我七点起床。', 'I get up at seven.'] },
+  { ch: 11, hanzi: '上班', pinyin: 'shàngbān', en: 'to go to work', pos: 'v', ex: ['我八点上班。', 'I start work at eight.'] },
+  { ch: 11, hanzi: '下班', pinyin: 'xiàbān', en: 'to get off work', pos: 'v', ex: ['你几点下班？', 'What time do you get off work?'] },
+  { ch: 11, hanzi: '上课', pinyin: 'shàngkè', en: 'to go to class', pos: 'v', ex: ['我们九点上课。', 'We have class at nine.'] },
+  { ch: 11, hanzi: '下课', pinyin: 'xiàkè', en: 'to finish class', pos: 'v', ex: ['下课后我去吃饭。', 'After class I go eat.'] },
+  { ch: 11, hanzi: '等', pinyin: 'děng', en: 'to wait', pos: 'v', ex: ['请等一下。', 'Please wait a moment.'] },
 
   // ── Chapter 12 · 明天天气怎么样 — How's the weather tomorrow? ─────────
   { ch: 12, hanzi: '天气', pinyin: 'tiānqì', en: 'weather', pos: 'n', ex: ['今天天气很好。', 'The weather is nice today.'] },
@@ -163,6 +208,11 @@ const RAW = [
   { ch: 12, hanzi: '少', pinyin: 'shǎo', en: 'few; little', pos: 'adj', ex: ['今天人很少。', 'There are few people today.'] },
   { ch: 12, hanzi: '很', pinyin: 'hěn', en: 'very', pos: 'adv', ex: ['我很好。', "I'm very well."] },
   { ch: 12, hanzi: '太', pinyin: 'tài', en: 'too; extremely', pos: 'adv', ex: ['太好了！', 'Great!'] },
+  { ch: 12, hanzi: '下雪', pinyin: 'xiàxuě', en: 'to snow', pos: 'v', ex: ['今天下雪了。', 'It snowed today.'] },
+  { ch: 12, hanzi: '刮风', pinyin: 'guāfēng', en: 'to be windy', pos: 'v', ex: ['外面在刮风。', 'It is windy outside.'] },
+  { ch: 12, hanzi: '晴天', pinyin: 'qíngtiān', en: 'sunny day; clear sky', pos: 'n', ex: ['今天是晴天。', 'Today is a sunny day.'] },
+  { ch: 12, hanzi: '夏天', pinyin: 'xiàtiān', en: 'summer', pos: 'n', ex: ['夏天很热。', 'Summer is very hot.'] },
+  { ch: 12, hanzi: '冬天', pinyin: 'dōngtiān', en: 'winter', pos: 'n', ex: ['冬天很冷。', 'Winter is very cold.'] },
 
   // ── Chapter 13 · 他在学做中国菜 — He's learning to cook ─────────────
   { ch: 13, hanzi: '做', pinyin: 'zuò', en: 'to do; make', pos: 'v', ex: ['你在做什么？', 'What are you doing?'] },
@@ -175,15 +225,38 @@ const RAW = [
   { ch: 13, hanzi: '椅子', pinyin: 'yǐzi', en: 'chair', pos: 'n', ex: ['请坐这把椅子。', 'Please sit on this chair.'] },
   { ch: 13, hanzi: '猫', pinyin: 'māo', en: 'cat', pos: 'n', ex: ['我的猫很小。', 'My cat is small.'] },
   { ch: 13, hanzi: '狗', pinyin: 'gǒu', en: 'dog', pos: 'n', ex: ['这只狗很大。', 'This dog is big.'] },
+  { ch: 13, hanzi: '帅', pinyin: 'shuài', en: 'handsome', pos: 'adj', ex: ['他很帅。', 'He is very handsome.'] },
+  { ch: 13, hanzi: '高', pinyin: 'gāo', en: 'tall; high', pos: 'adj', ex: ['他很高。', 'He is very tall.'] },
+  { ch: 13, hanzi: '矮', pinyin: 'ǎi', en: 'short (height)', pos: 'adj', ex: ['她比我矮。', 'She is shorter than me.'] },
+  { ch: 13, hanzi: '累', pinyin: 'lèi', en: 'tired', pos: 'adj', ex: ['我今天很累。', 'I am very tired today.'] },
+  { ch: 13, hanzi: '难', pinyin: 'nán', en: 'difficult; hard', pos: 'adj', ex: ['汉语不难。', 'Chinese is not difficult.'] },
+  { ch: 13, hanzi: '容易', pinyin: 'róngyì', en: 'easy', pos: 'adj', ex: ['这个很容易。', 'This is very easy.'] },
 
   // ── Chapter 14 · 她买了不少衣服 — She bought quite a few clothes ──────
   { ch: 14, hanzi: '了', pinyin: 'le', en: '(completed-action particle)', pos: 'part', ex: ['我吃饭了。', "I've eaten."] },
   { ch: 14, hanzi: '看见', pinyin: 'kànjiàn', en: 'to see; catch sight of', pos: 'v', ex: ['我看见他了。', 'I saw him.'] },
+  { ch: 14, hanzi: '不少', pinyin: 'bùshǎo', en: 'quite a few; a lot', pos: 'adj', ex: ['他买了不少衣服。', 'He bought quite a few clothes.'] },
+  { ch: 14, hanzi: '还', pinyin: 'hái', en: 'still; yet; also', pos: 'adv', ex: ['我还没吃饭。', "I haven't eaten yet."] },
+  { ch: 14, hanzi: '件', pinyin: 'jiàn', en: '(measure word: garments)', pos: 'mw', ex: ['我买了两件衣服。', 'I bought two garments.'] },
+  { ch: 14, hanzi: '已经', pinyin: 'yǐjīng', en: 'already', pos: 'adv', ex: ['我已经吃了。', 'I have already eaten.'] },
+  { ch: 14, hanzi: '从来', pinyin: 'cónglái', en: 'never (in negative)', pos: 'adv', ex: ['我从来不迟到。', 'I am never late.'] },
+  { ch: 14, hanzi: '双', pinyin: 'shuāng', en: '(measure word: pairs)', pos: 'mw', ex: ['我买了一双鞋。', 'I bought a pair of shoes.'] },
+  { ch: 14, hanzi: '刚', pinyin: 'gāng', en: 'just; just now', pos: 'adv', ex: ['我刚到。', 'I just arrived.'] },
+  { ch: 14, hanzi: '过', pinyin: 'guò', en: '(experiential aspect: have ever done)', pos: 'part', ex: ['我去过中国。', 'I have been to China.'] },
 
   // ── Chapter 15 · 我是坐飞机来的 — I came by plane ────────────────────
   { ch: 15, hanzi: '坐', pinyin: 'zuò', en: 'to sit; travel by', pos: 'v', ex: ['我坐出租车去。', 'I go by taxi.'] },
   { ch: 15, hanzi: '飞机', pinyin: 'fēijī', en: 'airplane', pos: 'n', ex: ['我坐飞机去北京。', 'I fly to Beijing.'] },
   { ch: 15, hanzi: '出租车', pinyin: 'chūzūchē', en: 'taxi', pos: 'n', ex: ['我们坐出租车。', 'We take a taxi.'] },
+  { ch: 15, hanzi: '地铁', pinyin: 'dìtiě', en: 'subway; metro', pos: 'n', ex: ['我坐地铁去。', 'I take the subway.'] },
+  { ch: 15, hanzi: '火车', pinyin: 'huǒchē', en: 'train', pos: 'n', ex: ['我坐火车去北京。', 'I take the train to Beijing.'] },
+  { ch: 15, hanzi: '公共汽车', pinyin: 'gōnggòng qìchē', en: 'bus', pos: 'n', ex: ['坐公共汽车去学校。', 'Take the bus to school.'] },
+  { ch: 15, hanzi: '骑', pinyin: 'qí', en: 'to ride (bike/horse)', pos: 'v', ex: ['我骑自行车去公司。', 'I ride my bike to work.'] },
+  { ch: 15, hanzi: '自行车', pinyin: 'zìxíngchē', en: 'bicycle', pos: 'n', ex: ['我喜欢骑自行车。', 'I like cycling.'] },
+  { ch: 15, hanzi: '从', pinyin: 'cóng', en: 'from', pos: 'prep', ex: ['我从家来。', 'I come from home.'] },
+  { ch: 15, hanzi: '到', pinyin: 'dào', en: 'to; arrive at', pos: 'v', ex: ['我到了。', 'I have arrived.'] },
+  { ch: 15, hanzi: '开车', pinyin: 'kāichē', en: 'to drive (a car)', pos: 'v', ex: ['他喜欢开车。', 'He likes driving.'] },
+  { ch: 15, hanzi: '路', pinyin: 'lù', en: 'road; route', pos: 'n', ex: ['这条路很长。', 'This road is very long.'] },
 ]
 
 export const WORDS = RAW.map((w) => ({ ...w, id: w.hanzi }))
