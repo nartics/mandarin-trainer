@@ -4,6 +4,8 @@ import { chapterLessons } from '../../lib/queue'
 import { deriveMastery, defaultCard } from '../../lib/sm2'
 
 const ICON = {
+  star: 'M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5.9 20.4l1.4-6.8L2.2 9l6.9-.7L12 2z',
+  bolt: 'M13 2L3 14h7l-1 8 10-12h-7l1-8z',
   check: 'M9 16.2l-3.5-3.5L4 14.2l5 5 11-11-1.5-1.5z',
   lock: 'M12 1a5 5 0 0 0-5 5v2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-1V6a5 5 0 0 0-5-5zm3 7H9V6a3 3 0 0 1 6 0v2z',
 }
@@ -12,19 +14,20 @@ function Glyph({ name, className }) {
   return <svg viewBox="0 0 24 24" fill="currentColor" className={className}><path d={ICON[name]} /></svg>
 }
 
-function LessonNode({ num, done, locked, active, onClick }) {
+function LessonNode({ hasGrammar, done, locked, active, onClick, title }) {
+  const icon = done ? 'check' : hasGrammar ? 'bolt' : 'star'
   let cls
   if (locked) cls = 'bg-ink-800 border-ink-700 text-ink-600'
   else if (done) cls = 'bg-accent border-accent text-ink-900'
-  else cls = `bg-ink-800 border-ink-600 text-white ${active ? 'ring-2 ring-accent ring-offset-2 ring-offset-ink-900' : ''}`
+  else cls = `bg-ink-800 border-ink-600 text-ink-100 ${active ? 'ring-2 ring-accent ring-offset-2 ring-offset-ink-900' : ''}`
   return (
     <button
       disabled={locked}
       onClick={onClick}
-      title={`Lesson ${num}`}
+      title={title}
       className={`node relative w-14 h-14 grid place-items-center border ${cls} ${locked ? 'cursor-default' : ''}`}
     >
-      {done && <Glyph name="check" className="w-6 h-6" />}
+      <Glyph name={icon} className="w-6 h-6" />
     </button>
   )
 }
@@ -89,11 +92,12 @@ export default function PathView({ progress, onOpenChapter, onPractice }) {
                 return (
                   <div key={i} className="relative">
                     <LessonNode
-                      num={i + 1}
+                      hasGrammar={lesson.grammar.length > 0}
                       done={done}
                       locked={locked}
                       active={activeIdx >= 0 && i === activeIdx}
                       onClick={() => onPractice(c, i)}
+                      title={`Lesson ${i + 1}${lesson.grammar.length ? ' · Grammar' : ''}`}
                     />
                   </div>
                 )
