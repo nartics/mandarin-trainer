@@ -176,6 +176,35 @@ export function buildChapterQueue(chapter, { includeWrite = true, isIntroduced, 
   return assemble(words, chapter.grammar, isIntroduced, Infinity)
 }
 
+// Split a chapter into ~5-min lessons (~4 words each). Uses even distribution
+// so no tiny stub lessons, and grammar is spread proportionally across slots.
+export function chapterLessons(chapter) {
+  const { coreWords: words, grammar } = chapter
+  const count = Math.max(1, Math.round(words.length / 4))
+  // Distribute words evenly — no tiny leftover lesson
+  const wordGroups = []
+  let rem = [...words]
+  for (let k = 0; k < count; k++) {
+    const size = Math.ceil(rem.length / (count - k))
+    wordGroups.push(rem.splice(0, size))
+  }
+  return wordGroups.map((lessonWords, i) => ({
+    idx: i,
+    words: lessonWords,
+    grammar: grammar.filter((_, gi) =>
+      Math.round(gi * count / Math.max(1, grammar.length)) === i
+    ),
+  }))
+}
+
+// Build the exercise queue for one lesson within a chapter.
+export function buildLessonQueue(chapter, lessonIdx, { isIntroduced, cardFor } = {}) {
+  const lesson = chapterLessons(chapter)[lessonIdx]
+  if (!lesson) return []
+  const words = buildSRSQueue(lesson.words, { includeWrite: false, cardFor })
+  return assemble(words, lesson.grammar, isIntroduced, Infinity)
+}
+
 // Review / quick practice: same logic over a chosen grammar list.
 export function buildReviewQueue(words, grammarList = [], { isIntroduced, maxNewIntros = 1 } = {}) {
   const base = buildQueue(words, { includeWrite: false })

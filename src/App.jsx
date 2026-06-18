@@ -8,7 +8,7 @@ import ProfilePanel from './components/ProfilePanel'
 import { WORDS } from './data/vocab'
 import { CHAPTER_BY_NUM, CURRENT_CHAPTER, activeChapterNum } from './data/chapters'
 import { GRAMMAR, GRAMMAR_BY_ID } from './data/grammar'
-import { buildQueue, buildChapterQueue, buildGrammarQueue, buildReviewQueue, shuffle } from './lib/queue'
+import { buildQueue, buildChapterQueue, buildGrammarQueue, buildReviewQueue, buildLessonQueue, chapterLessons, shuffle } from './lib/queue'
 import { isDue } from './lib/sm2'
 import Dashboard from './components/Dashboard'
 import ChapterDetail from './components/ChapterDetail'
@@ -46,18 +46,22 @@ export default function App() {
 
   const dueCount = WORDS.filter((w) => { const c = progress.cardFor(w.id); return c && isDue(c) }).length
 
-  const start = useCallback((queue, label) => {
+  const start = useCallback((queue, label, lessonId = null) => {
     if (!queue.length) return
     xpAtStart.current = progress.state.xp
-    setSession({ queue, label })
+    setSession({ queue, label, lessonId })
   }, [progress.state.xp])
 
-  const startChapter = useCallback((chapter) => {
-    const allIntroduced = chapter.grammar.every((g) => progress.isIntroduced(g.id))
-    const hasSeenAny = chapter.coreWords.some((w) => progress.cardFor(w.id))
-    const label = (allIntroduced && hasSeenAny) ? `Chapter ${chapter.num} — Review` : `Chapter ${chapter.num} — Introduction`
-    start(buildChapterQueue(chapter, { isIntroduced: progress.isIntroduced, cardFor: progress.cardFor }), label)
-  }, [start, progress.isIntroduced, progress.cardFor])
+  const startLesson = useCallback((chapter, lessonIdx) => {
+    const lessons = chapterLessons(chapter)
+    const idx = lessonIdx !== undefined
+      ? lessonIdx
+      : lessons.findIndex((_, i) => !progress.state.lessonsDone?.[`ch${chapter.num}-l${i}`])
+    const effectiveIdx = idx < 0 ? 0 : idx
+    const lessonId = `ch${chapter.num}-l${effectiveIdx}`
+    const queue = buildLessonQueue(chapter, effectiveIdx, { isIntroduced: progress.isIntroduced, cardFor: progress.cardFor })
+    start(queue, `Chapter ${chapter.num} · Lesson ${effectiveIdx + 1}`, lessonId)
+  }, [start, progress.isIntroduced, progress.cardFor, progress.state.lessonsDone])
   const startGrammar = useCallback((grammar) => start(buildGrammarQueue(grammar), 'Grammar practiced!'), [start])
 
   const startReview = useCallback(() => {
@@ -86,6 +90,7 @@ export default function App() {
 
   const onSessionComplete = useCallback((res) => {
     const p = progressRef.current
+    if (session?.lessonId) p.completeLesson(session.lessonId, 1)
     const ctx = buildCtx(p, dailyGoal)
     const earned = earnedIds(ctx)
     const celebrated = p.state.celebratedBadges || []
@@ -116,7 +121,7 @@ export default function App() {
               <div className="lg:hidden">
                 <Dashboard onOpenAccount={() => setAccountOpen(true)} onOpenProfile={() => setProfileOpen(true)} signedIn={!!sync.user} streak={progress.state.streak} xpToday={progress.state.daily?.[new Date().toISOString().slice(0,10)] || 0} dailyGoal={dailyGoal} />
               </div>
-              <PathView progress={progress} onOpenChapter={setOpenChapter} onOpenGrammar={setOpenGrammar} onPractice={startChapter} />
+              <PathView progress={progress} onOpenChapter={setOpenChapter} onOpenGrammar={setOpenGrammar} onPractice={startLesson} />
             </>
           )}
           {tab !== 'learn' && (
@@ -129,7 +134,7 @@ export default function App() {
           )}
         </main>
 
-        <RightRail chapter={activeChapter} onPractice={startChapter} stats={progress.stats} streak={progress.state.streak} xpToday={progress.state.daily?.[new Date().toISOString().slice(0,10)] || 0} dailyGoal={dailyGoal} onOpenProfile={() => setProfileOpen(true)} className="hidden xl:block sticky top-0 h-screen overflow-y-auto no-scrollbar" />
+        <RightRail chapter={activeChapter} onPractice={startLesson} stats={progress.stats} streak={progress.state.streak} xpToday={progress.state.daily?.[new Date().toISOString().slice(0,10)] || 0} dailyGoal={dailyGoal} onOpenProfile={() => setProfileOpen(true)} className="hidden xl:block sticky top-0 h-screen overflow-y-auto no-scrollbar" />
       </div>
 
       <div className="lg:hidden">
@@ -144,7 +149,7 @@ export default function App() {
           chapter={chapter}
           progress={progress}
           onClose={() => setOpenChapter(null)}
-          onPractice={startChapter}
+          onPractice={startLesson}
           onOpenGrammar={setOpenGrammar}
         />
       )}
