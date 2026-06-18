@@ -24,11 +24,7 @@ function LessonNode({ num, done, locked, active, onClick }) {
       title={`Lesson ${num}`}
       className={`node relative w-14 h-14 grid place-items-center border ${cls} ${locked ? 'cursor-default' : ''}`}
     >
-      {done
-        ? <Glyph name="check" className="w-6 h-6" />
-        : locked
-          ? <Glyph name="lock" className="w-5 h-5" />
-          : <span className="text-lg font-bold">{num}</span>}
+      {done && <Glyph name="check" className="w-6 h-6" />}
     </button>
   )
 }
