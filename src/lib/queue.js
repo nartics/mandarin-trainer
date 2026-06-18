@@ -1,4 +1,5 @@
 import { WORDS } from '../data/vocab'
+import { deriveMastery } from './sm2'
 
 export function shuffle(a) {
   const arr = [...a]
@@ -133,11 +134,46 @@ function assemble(words, grammarList, isIntroduced, maxNewIntros) {
   return [...intro, ...body]
 }
 
-// Mixed chapter practice: introduce up to `maxNewIntros` new concepts (intro + drills),
-// then the word questions with review drills for concepts already learned.
-export function buildChapterQueue(chapter, { includeWrite = true, isIntroduced, maxNewIntros = 2 } = {}) {
-  const words = buildQueue(chapter.coreWords, { includeWrite, perWord: 1 })
-  return assemble(words, chapter.grammar, isIntroduced, maxNewIntros)
+// Sentence-context listening: hear the word's example sentence, pick the English translation.
+function makeSentenceListen(word, chapterWords) {
+  const distPool = chapterWords.filter((w) => w.id !== word.id && w.ex)
+  const dist = shuffle(distPool).slice(0, 3)
+  if (dist.length < 3) {
+    const global = WORDS.filter((w) => w.id !== word.id && w.ex && !dist.find((d) => d.id === w.id))
+    dist.push(...shuffle(global).slice(0, 3 - dist.length))
+  }
+  const options = shuffle([word, ...dist]).map((w) => ({ label: w.ex[1], correct: w.id === word.id }))
+  return { type: 'sentence-listen', word, audio: word.ex[0], options, prompt: 'What does the sentence mean?' }
+}
+
+// SRS-aware word queue for chapter practice: new words get 3 exercises, learning 2, familiar/mastered 1.
+function buildSRSQueue(words, { includeWrite = false, cardFor } = {}) {
+  const useTypes = WORD_TYPES.filter((t) => includeWrite || t !== 'write')
+  const q = []
+  for (const word of words) {
+    const card = cardFor ? cardFor(word.id) : undefined
+    const mastery = deriveMastery(card)
+    const pool = shuffle([...useTypes])
+    let exs
+    if (mastery === 'new') {
+      exs = [makeExercise('listen-meaning', word), makeExercise('meaning-hanzi', word)]
+      if (word.ex) exs.push(makeSentenceListen(word, words))
+      else exs.push(makeExercise(pool.find((t) => !['listen-meaning', 'meaning-hanzi'].includes(t)) || 'read-meaning', word))
+    } else if (mastery === 'learning') {
+      exs = [makeExercise(pool[0], word), makeExercise(pool[1] || 'read-meaning', word)]
+    } else {
+      exs = [makeExercise(pool[0], word)]
+    }
+    q.push(...exs)
+  }
+  return shuffle(q).filter(Boolean)
+}
+
+// Mixed chapter practice: introduce ALL grammar concepts for the chapter (no cap),
+// with word exercises scaled to SRS mastery level.
+export function buildChapterQueue(chapter, { includeWrite = true, isIntroduced, cardFor } = {}) {
+  const words = buildSRSQueue(chapter.coreWords, { includeWrite, cardFor })
+  return assemble(words, chapter.grammar, isIntroduced, Infinity)
 }
 
 // Review / quick practice: same logic over a chosen grammar list.

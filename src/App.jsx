@@ -52,7 +52,12 @@ export default function App() {
     setSession({ queue, label })
   }, [progress.state.xp])
 
-  const startChapter = useCallback((chapter) => start(buildChapterQueue(chapter, { isIntroduced: progress.isIntroduced }), `Chapter ${chapter.num} complete!`), [start, progress.isIntroduced])
+  const startChapter = useCallback((chapter) => {
+    const allIntroduced = chapter.grammar.every((g) => progress.isIntroduced(g.id))
+    const hasSeenAny = chapter.coreWords.some((w) => progress.cardFor(w.id))
+    const label = (allIntroduced && hasSeenAny) ? `Chapter ${chapter.num} — Review` : `Chapter ${chapter.num} — Introduction`
+    start(buildChapterQueue(chapter, { isIntroduced: progress.isIntroduced, cardFor: progress.cardFor }), label)
+  }, [start, progress.isIntroduced, progress.cardFor])
   const startGrammar = useCallback((grammar) => start(buildGrammarQueue(grammar), 'Grammar practiced!'), [start])
 
   const startReview = useCallback(() => {

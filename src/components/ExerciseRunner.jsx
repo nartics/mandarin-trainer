@@ -27,7 +27,7 @@ export default function ExerciseRunner({ queue, title, onReview, onWrite, onGram
   // Auto-play audio for listening exercises and grammar tips.
   useEffect(() => {
     if (!ex || autoplayed.current === idx) return
-    if (ex.type === 'listen-meaning' || ex.type === 'listen-hanzi') {
+    if (ex.type === 'listen-meaning' || ex.type === 'listen-hanzi' || ex.type === 'sentence-listen') {
       autoplayed.current = idx
       const t = setTimeout(() => speak(ex.audio, { rate: 0.8 }), 350)
       return () => clearTimeout(t)
@@ -95,7 +95,7 @@ export default function ExerciseRunner({ queue, title, onReview, onWrite, onGram
     setTimeout(() => goNext(), 600)
   }
 
-  const isChoice = ['listen-meaning', 'listen-hanzi', 'read-meaning', 'meaning-hanzi', 'pinyin-choose'].includes(ex.type)
+  const isChoice = ['listen-meaning', 'listen-hanzi', 'read-meaning', 'meaning-hanzi', 'pinyin-choose', 'sentence-listen'].includes(ex.type)
   const wasCorrect = revealed && picked != null && ex.options?.[picked]?.correct
 
   return (
@@ -134,7 +134,7 @@ export default function ExerciseRunner({ queue, title, onReview, onWrite, onGram
           ) : (
             <>
               {/* Stimulus */}
-              {(ex.type === 'listen-meaning' || ex.type === 'listen-hanzi') ? (
+              {(ex.type === 'listen-meaning' || ex.type === 'listen-hanzi' || ex.type === 'sentence-listen') ? (
                 <div className="flex justify-center mb-8">
                   <SpeakerButton onClick={() => speak(ex.audio, { rate: 0.8 })} speaking={speaking} size="w-24 h-24" big />
                 </div>
@@ -182,9 +182,13 @@ export default function ExerciseRunner({ queue, title, onReview, onWrite, onGram
                   {wasCorrect ? '正确 · Correct!' : '再试一次 · Not quite'}
                 </p>
                 <p className="text-sm text-slate-300 mt-0.5">
-                  <span className="han text-base">{ex.word.hanzi}</span>
-                  {showPinyin && <span className="mx-1.5 tone1">{ex.word.pinyin}</span>}
-                  <span className="text-slate-400">{showPinyin ? '— ' : ' '}{ex.word.en}</span>
+                  {ex.type === 'sentence-listen'
+                    ? <span className="han text-sm">{ex.audio}</span>
+                    : <>
+                        <span className="han text-base">{ex.word.hanzi}</span>
+                        {showPinyin && <span className="mx-1.5 tone1">{ex.word.pinyin}</span>}
+                        <span className="text-slate-400">{showPinyin ? '— ' : ' '}{ex.word.en}</span>
+                      </>}
                 </p>
               </div>
               <SpeakerButton onClick={() => speak(ex.word.hanzi, { rate: 0.8 })} speaking={speaking} />
