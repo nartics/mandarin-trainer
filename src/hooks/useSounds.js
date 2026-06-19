@@ -14,6 +14,7 @@ export function useSounds() {
   const tone = useCallback((freq, dur, type = 'sine', when = 0, gain = 0.12) => {
     const ac = ctx()
     if (!ac) return
+    if (ac.state === 'suspended') ac.resume()
     const t = ac.currentTime + when
     const osc = ac.createOscillator()
     const g = ac.createGain()

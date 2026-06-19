@@ -124,6 +124,16 @@ export function PrimaryButton({ children, onClick, disabled, color = 'jade', cla
   )
 }
 
+const FLAME = 'M12 2c-1 3-4 5-4 9a5 5 0 1 0 10 0c0-2-.8-4-2-5.5-1 2-3 3-4 2.5C12 7.5 12 4 12 2z'
+const BOLT  = 'M13 2L3 14h7l-1 8 10-12h-7l1-8z'
+
+export function FlameIcon({ className = 'w-4 h-4' }) {
+  return <svg viewBox="0 0 24 24" fill="currentColor" className={className}><path d={FLAME} /></svg>
+}
+export function BoltIcon({ className = 'w-4 h-4' }) {
+  return <svg viewBox="0 0 24 24" fill="currentColor" className={className}><path d={BOLT} /></svg>
+}
+
 export const MASTERY_COLORS = {
   new: 'bg-ink-700 text-ink-400',
   learning: 'bg-accent-soft text-accent',

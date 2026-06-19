@@ -28,6 +28,7 @@ export function useSpeech() {
   const useEleven = hasElevenLabsKey()
   const audioRef = useRef(null)
   const queued = useRef(null)
+  const reqIdRef = useRef(0)
 
   useEffect(() => {
     if (!browserTTS) return
@@ -68,26 +69,33 @@ export function useSpeech() {
   const speak = useCallback(async (text, { rate = 0.9, onEnd } = {}) => {
     stop()
     if (!text) return
+    const reqId = ++reqIdRef.current
     if (useEleven) {
       setLoading(true)
+      let url = null
       try {
-        const url = await synthesize(text)
-        setLoading(false)
-        if (url) {
-          const audio = new Audio(url)
-          audio.playbackRate = rate
-          audio.preservesPitch = true
-          audioRef.current = audio
-          audio.onplaying = () => setSpeaking(true)
-          audio.onended = () => { setSpeaking(false); onEnd?.() }
-          audio.onerror = () => { setSpeaking(false); speakBrowser(text, rate, onEnd) }
+        url = await synthesize(text)
+      } catch { /* synthesize failed — fall through to browser TTS */ }
+      if (reqId !== reqIdRef.current) return
+      setLoading(false)
+      if (url) {
+        const audio = new Audio(url)
+        audio.playbackRate = rate
+        audio.preservesPitch = true
+        audioRef.current = audio
+        audio.onplaying = () => setSpeaking(true)
+        audio.onended = () => { setSpeaking(false); onEnd?.() }
+        audio.onerror = () => { setSpeaking(false); speakBrowser(text, rate, onEnd) }
+        try {
           await audio.play()
           return
+        } catch {
+          // iOS NotAllowedError or interrupted — fall through to browser TTS
+          setSpeaking(false)
         }
-      } catch {
-        setLoading(false)
       }
     }
+    if (reqId !== reqIdRef.current) return
     speakBrowser(text, rate, onEnd)
   }, [useEleven, speakBrowser, stop])
 

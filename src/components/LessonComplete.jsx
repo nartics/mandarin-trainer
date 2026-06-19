@@ -1,11 +1,11 @@
 import { useEffect } from 'react'
 import { useSounds } from '../hooks/useSounds'
-import { PrimaryButton } from './ui/common'
+import { PrimaryButton, FlameIcon, BoltIcon } from './ui/common'
 import Mascot from './duo/Mascot'
 import Ring from './ui/Ring'
 import BadgeToast from './BadgeToast'
 
-export default function LessonComplete({ correct, total, xp, streak = 0, xpToday = 0, dailyGoal = 30, newBadges = [], onContinue, label = 'Lesson complete!' }) {
+export default function LessonComplete({ correct, total, xp, streak = 0, xpToday = 0, dailyGoal = 30, newBadges = [], missedWordIds = [], onReviewMistakes, onContinue, label = 'Lesson complete!' }) {
   const sounds = useSounds()
   useEffect(() => { sounds.complete() }, []) // eslint-disable-line react-hooks/exhaustive-deps
   const pct = total ? Math.round((correct / total) * 100) : 100
@@ -31,11 +31,11 @@ export default function LessonComplete({ correct, total, xp, streak = 0, xpToday
       {/* Daily goal + streak */}
       <div className="flex items-center gap-4 w-full max-w-xs mb-5 rounded-xl border border-ink-700 p-3">
         <Ring value={xpToday} max={dailyGoal} size={52} stroke={5}>
-          <span className="text-[11px]">{goalReached ? '✓' : '⚡'}</span>
+          <span className="text-[11px]">{goalReached ? '✓' : <BoltIcon className="w-3 h-3" />}</span>
         </Ring>
         <div className="text-left">
           <p className="text-sm font-medium text-white">{goalReached ? 'Daily goal reached!' : `${Math.min(xpToday, dailyGoal)}/${dailyGoal} XP today`}</p>
-          <p className="text-xs text-ink-400">🔥 {streak}-day streak</p>
+          <p className="flex items-center gap-1 text-xs text-ink-400"><FlameIcon className="w-3.5 h-3.5 text-amber-400" /> {streak}-day streak</p>
         </div>
       </div>
 
@@ -43,6 +43,17 @@ export default function LessonComplete({ correct, total, xp, streak = 0, xpToday
         <div className="w-full max-w-xs mb-5 space-y-2">
           <p className="text-[11px] uppercase tracking-wider text-ink-400">New achievement{newBadges.length > 1 ? 's' : ''}</p>
           {newBadges.map((b) => <BadgeToast key={b.id} badge={b} />)}
+        </div>
+      )}
+
+      {missedWordIds.length > 0 && (
+        <div className="w-full max-w-xs mb-3">
+          <button
+            onClick={() => onReviewMistakes(missedWordIds)}
+            className="w-full py-3 rounded-xl border border-ink-700 text-sm text-ink-200 font-medium"
+          >
+            Review {missedWordIds.length} mistake{missedWordIds.length > 1 ? 's' : ''}
+          </button>
         </div>
       )}
 

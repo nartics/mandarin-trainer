@@ -1,4 +1,4 @@
-import { PinyinToggle } from '../ui/common'
+import { PinyinToggle, FlameIcon } from '../ui/common'
 import DuoButton from './DuoButton'
 import Ring from '../ui/Ring'
 
@@ -15,7 +15,7 @@ export default function RightRail({ chapter, onPractice, stats, streak = 0, xpTo
           <span className="text-[10px] text-ink-300">{Math.min(xpToday, dailyGoal)}</span>
         </Ring>
         <div className="min-w-0">
-          <p className="text-sm font-semibold text-white">🔥 {streak}-day streak</p>
+          <p className="flex items-center gap-1 text-sm font-semibold text-white"><FlameIcon className="w-4 h-4 text-amber-400" /> {streak}-day streak</p>
           <p className="text-xs text-ink-400">{stats ? `${stats.mastered} words mastered` : `${Math.min(xpToday, dailyGoal)}/${dailyGoal} XP today`}</p>
         </div>
       </button>

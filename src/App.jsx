@@ -64,6 +64,13 @@ export default function App() {
   }, [start, progress.isIntroduced, progress.cardFor, progress.state.lessonsDone])
   const startGrammar = useCallback((grammar) => start(buildGrammarQueue(grammar), 'Grammar practiced!'), [start])
 
+  const reviewMistakes = useCallback((wordIds) => {
+    const words = wordIds.map((id) => WORDS.find((w) => w.id === id)).filter(Boolean)
+    const queue = buildQueue(words, { types: ['listen-meaning', 'meaning-hanzi', 'read-meaning'], includeWrite: false })
+    setComplete(null)
+    start(queue, 'Mistake review')
+  }, [start])
+
   const startReview = useCallback(() => {
     let pool = progress.dueWords()
     if (pool.length < 6) {
@@ -102,6 +109,7 @@ export default function App() {
       label: session?.label,
       streak: p.state.streak,
       xpToday, dailyGoal, newBadges,
+      missedWordIds: res.missedWordIds || [],
     })
     p.markBadgesCelebrated(earned)
     setSession(null)
@@ -182,6 +190,8 @@ export default function App() {
           xpToday={complete.xpToday}
           dailyGoal={complete.dailyGoal}
           newBadges={complete.newBadges}
+          missedWordIds={complete.missedWordIds}
+          onReviewMistakes={reviewMistakes}
           onContinue={() => setComplete(null)}
         />
       )}

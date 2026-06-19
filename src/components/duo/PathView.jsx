@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { CHAPTERS, activeChapterNum } from '../../data/chapters'
 import { chapterLessons } from '../../lib/queue'
 import { deriveMastery, defaultCard } from '../../lib/sm2'
@@ -35,6 +35,7 @@ function LessonNode({ hasGrammar, done, locked, active, onClick, title }) {
 export default function PathView({ progress, onOpenChapter, onPractice }) {
   const currentRef = useRef(null)
   const activeNum = activeChapterNum(progress)
+  const [preview, setPreview] = useState(null)
   useEffect(() => {
     const t = setTimeout(() => currentRef.current?.scrollIntoView({ block: 'center' }), 80)
     return () => clearTimeout(t)
@@ -90,15 +91,47 @@ export default function PathView({ progress, onOpenChapter, onPractice }) {
                 const prevDone = i === 0 || !!(progress.state.lessonsDone?.[`ch${c.num}-l${i - 1}`])
                 const locked = chapterLocked || !prevDone
                 return (
-                  <div key={i} className="relative">
+                  <div key={i} className="relative flex flex-col items-center gap-2">
                     <LessonNode
                       hasGrammar={lesson.grammar.length > 0}
                       done={done}
                       locked={locked}
                       active={activeIdx >= 0 && i === activeIdx}
-                      onClick={() => onPractice(c, i)}
+                      onClick={() => setPreview(
+                        preview?.chapterNum === c.num && preview?.lessonIdx === i
+                          ? null : { chapterNum: c.num, lessonIdx: i }
+                      )}
                       title={`Lesson ${i + 1}${lesson.grammar.length ? ' · Grammar' : ''}`}
                     />
+                    {preview?.chapterNum === c.num && preview?.lessonIdx === i && (
+                      <div className="w-64 rounded-xl border border-ink-700 bg-ink-800 p-4 text-left shadow-xl z-10">
+                        <p className="text-xs font-semibold text-ink-300 mb-2 uppercase tracking-wide">
+                          Lesson {i + 1} · {lesson.words.length} words{lesson.grammar.length ? ` · ${lesson.grammar.length} grammar` : ''}
+                        </p>
+                        <div className="space-y-1 mb-3">
+                          {lesson.words.map((w) => (
+                            <div key={w.id} className="flex gap-2 text-xs">
+                              <span className="han text-white w-8 shrink-0">{w.hanzi}</span>
+                              <span className="text-ink-400">{w.pinyin}</span>
+                              <span className="text-ink-500 truncate">{w.en}</span>
+                            </div>
+                          ))}
+                        </div>
+                        {lesson.grammar.length > 0 && (
+                          <div className="mb-3">
+                            {lesson.grammar.map((g) => (
+                              <p key={g.id} className="text-[11px] text-accent/80">{g.title}</p>
+                            ))}
+                          </div>
+                        )}
+                        <button
+                          className="w-full py-2 rounded-lg bg-accent text-ink-900 text-sm font-semibold"
+                          onClick={() => { setPreview(null); onPractice(c, i) }}
+                        >
+                          Start
+                        </button>
+                      </div>
+                    )}
                   </div>
                 )
               })}

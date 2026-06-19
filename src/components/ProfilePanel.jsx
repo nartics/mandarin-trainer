@@ -1,6 +1,7 @@
 import { useSettings } from '../hooks/useSettings'
 import { BADGES, BADGE_GROUPS, buildCtx, isEarned, progressFor } from '../data/badges'
 import Ring from './ui/Ring'
+import { FlameIcon } from './ui/common'
 
 const today = () => new Date().toISOString().slice(0, 10)
 
@@ -28,7 +29,7 @@ export default function ProfilePanel({ progress, onClose }) {
             </div>
           </Ring>
           <div className="flex-1">
-            <p className="text-2xl font-bold text-white">🔥 {streak}<span className="text-sm font-normal text-ink-400"> day{streak === 1 ? '' : 's'}</span></p>
+            <p className="flex items-center gap-2 text-2xl font-bold text-white"><FlameIcon className="w-6 h-6 text-amber-400" /> {streak}<span className="text-sm font-normal text-ink-400"> day{streak === 1 ? '' : 's'}</span></p>
             <p className="text-xs text-ink-400 mt-0.5">Best streak: {Math.max(state.bestStreak || 0, streak)} · {state.xp} XP total</p>
           </div>
         </div>
@@ -43,6 +44,8 @@ export default function ProfilePanel({ progress, onClose }) {
             </button>
           ))}
         </div>
+
+        <WeekChart daily={state.daily || {}} />
 
         {/* Totals */}
         <div className="grid grid-cols-3 gap-2 mb-6 text-center">
@@ -77,6 +80,31 @@ export default function ProfilePanel({ progress, onClose }) {
             </div>
           )
         })}
+      </div>
+    </div>
+  )
+}
+
+function WeekChart({ daily = {} }) {
+  const days = Array.from({ length: 7 }, (_, i) => {
+    const d = new Date(Date.now() - (6 - i) * 86400000)
+    const key = d.toISOString().slice(0, 10)
+    return { key, xp: daily[key] || 0, label: 'SMTWTFS'[d.getDay()] }
+  })
+  const max = Math.max(...days.map((d) => d.xp), 1)
+  return (
+    <div className="mb-6">
+      <p className="text-xs uppercase tracking-wider text-ink-400 mb-2">This week</p>
+      <div className="flex items-end gap-1 h-14">
+        {days.map((d, i) => (
+          <div key={i} className="flex-1 flex flex-col items-center gap-1">
+            <div
+              className="w-full rounded-t-sm bg-accent/60"
+              style={{ height: `${Math.max((d.xp / max) * 40, d.xp > 0 ? 3 : 0)}px` }}
+            />
+            <span className={`text-[9px] ${d.xp > 0 ? 'text-ink-300' : 'text-ink-600'}`}>{d.label}</span>
+          </div>
+        ))}
       </div>
     </div>
   )

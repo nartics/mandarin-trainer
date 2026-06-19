@@ -1,4 +1,5 @@
 import Mascot from './Mascot'
+import { FlameIcon } from '../ui/common'
 
 const ITEMS = [
   { id: 'learn', label: 'Learn', icon: 'M4 13h6V4H4v9zm0 7h6v-5H4v5zm10 0h6V11h-6v9zm0-16v5h6V4h-6z' },
@@ -16,7 +17,7 @@ export default function Sidebar({ tab, onChange, dueCount = 0, onOpenAccount, on
       <div className="px-1 mb-8 flex items-center justify-between">
         <Mascot size={44} />
         <button onClick={onOpenProfile} title="Your progress" className="flex items-center gap-1 text-sm font-semibold text-ink-200 hover:text-white px-2 py-1 rounded-lg hover:bg-white/[0.04] transition">
-          🔥<span>{streak}</span>
+          <FlameIcon className="w-4 h-4 text-amber-400" /><span>{streak}</span>
         </button>
       </div>
 

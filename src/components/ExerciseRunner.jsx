@@ -19,6 +19,7 @@ export default function ExerciseRunner({ queue, title, onReview, onWrite, onGram
   const [reAsk, setReAsk] = useState([])        // wrong items to repeat at the end
   const correctRef = useRef(0)                  // scored answers correct
   const scoredRef = useRef(0)                   // scored answers total (excludes tips)
+  const missedWordsRef = useRef(new Set())
   const autoplayed = useRef(-1)
 
   const ex = queue[idx]
@@ -52,7 +53,7 @@ export default function ExerciseRunner({ queue, title, onReview, onWrite, onGram
       queue.push(...next)
       setIdx(idx + 1)
     } else {
-      onComplete?.({ correct: correctRef.current, total: scoredRef.current })
+      onComplete?.({ correct: correctRef.current, total: scoredRef.current, missedWordIds: [...missedWordsRef.current] })
     }
   }, [idx, queue, reAsk, onComplete])
 
@@ -69,6 +70,7 @@ export default function ExerciseRunner({ queue, title, onReview, onWrite, onGram
     if (ok) { sounds.correct(); onReview?.(ex.word.id, QUALITY.GOOD) }
     else {
       sounds.wrong(); onReview?.(ex.word.id, QUALITY.AGAIN)
+      missedWordsRef.current.add(ex.word.id)
       setReAsk((r) => [...r, { ...ex }])
     }
     // speak the word after answering reading/meaning exercises for reinforcement
@@ -83,7 +85,7 @@ export default function ExerciseRunner({ queue, title, onReview, onWrite, onGram
     record(ok)
     if (ex.word) onReview?.(ex.word.id, ok ? QUALITY.GOOD : QUALITY.AGAIN)
     if (ex.grammarId) onGrammar?.(ex.grammarId, ok)
-    if (!ok) setReAsk((r) => [...r, { ...ex }])
+    if (!ok) { if (ex.word) missedWordsRef.current.add(ex.word.id); setReAsk((r) => [...r, { ...ex }]) }
     goNext()
   }
 
@@ -140,12 +142,17 @@ export default function ExerciseRunner({ queue, title, onReview, onWrite, onGram
                 </div>
               ) : (
                 <div className="mb-8 flex flex-col items-center gap-3">
-                  {ex.type === 'pinyin-choose'
-                    ? <div className="han text-6xl">{ex.word.hanzi}</div>
-                    : <Annotated text={ex.word.hanzi} size="text-6xl" pinyinSize="text-base" showPinyin={ex.type === 'meaning-hanzi' ? false : false} />}
-                  {ex.type !== 'meaning-hanzi' && (
-                    <SpeakerButton onClick={() => speak(ex.word.hanzi, { rate: 0.8 })} speaking={speaking} />
-                  )}
+                  {ex.type === 'meaning-hanzi'
+                    ? <p className="text-5xl font-semibold text-white text-center">{ex.word.en}</p>
+                    : ex.type === 'pinyin-choose'
+                      ? <>
+                          <div className="han text-6xl">{ex.word.hanzi}</div>
+                          <SpeakerButton onClick={() => speak(ex.word.hanzi, { rate: 0.8 })} speaking={speaking} />
+                        </>
+                      : <>
+                          <Annotated text={ex.word.hanzi} size="text-6xl" pinyinSize="text-base" />
+                          <SpeakerButton onClick={() => speak(ex.word.hanzi, { rate: 0.8 })} speaking={speaking} />
+                        </>}
                 </div>
               )}
 

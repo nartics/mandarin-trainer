@@ -11,6 +11,11 @@ export default function BuildSentence({ sentence, word, onResult, speak, speakin
   const target = src.hanzi
   const english = src.en
   const chars = useMemo(() => Array.from(target).filter((c) => c !== ' '), [target])
+  // Context-aware pinyin per character — uses full sentence so polyphonics (了/的/不) are disambiguated.
+  const charPinyins = useMemo(
+    () => annotate(target).filter((s) => s.hanzi !== ' ').map((s) => s.pinyin || s.hanzi),
+    [target]
+  )
   const tokens = useMemo(
     () => shuffle(chars.map((c, i) => ({ c, i }))),
     [target] // eslint-disable-line react-hooks/exhaustive-deps
@@ -24,8 +29,8 @@ export default function BuildSentence({ sentence, word, onResult, speak, speakin
   const correct = built === chars.join('')
 
   // Tapping a character plays its pronunciation.
-  const pick = (t) => { if (!checked && !used.has(t.i)) { speak?.(t.c, { rate: 0.7 }); setPicked([...picked, t]) } }
-  const unpick = (idx) => { if (!checked) { speak?.(picked[idx].c, { rate: 0.7 }); setPicked(picked.filter((_, i) => i !== idx)) } }
+  const pick = (t) => { if (!checked && !used.has(t.i)) { speak?.(charPinyins[t.i] || t.c, { rate: 1.0 }); setPicked([...picked, t]) } }
+  const unpick = (idx) => { if (!checked) { const p = picked[idx]; speak?.(charPinyins[p.i] || p.c, { rate: 1.0 }); setPicked(picked.filter((_, i) => i !== idx)) } }
 
   const check = () => {
     setChecked(true)
@@ -35,7 +40,7 @@ export default function BuildSentence({ sentence, word, onResult, speak, speakin
   return (
     <div className="flex flex-col gap-5">
       <div className="flex items-center gap-3 justify-center">
-        <SpeakerButton onClick={() => speak?.(target)} speaking={speaking} />
+        <SpeakerButton onClick={() => speak?.(target, { rate: 1.0 })} speaking={speaking} />
         <p className="text-slate-300 text-lg flex-1">{english}</p>
       </div>
 

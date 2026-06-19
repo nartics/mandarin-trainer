@@ -1,4 +1,4 @@
-import { PinyinToggle } from './ui/common'
+import { PinyinToggle, FlameIcon } from './ui/common'
 import Mascot from './duo/Mascot'
 import Ring from './ui/Ring'
 
@@ -11,7 +11,7 @@ export default function Dashboard({ onOpenAccount, onOpenProfile, signedIn, stre
       <Mascot size={40} />
       <div className="flex items-center gap-2">
         <button onClick={onOpenProfile} className="flex items-center gap-1.5 h-9 px-2.5 rounded-lg border border-ink-700 text-ink-200 active:scale-95" aria-label="Your progress">
-          <span className="text-sm font-semibold">🔥 {streak}</span>
+          <span className="flex items-center gap-1 text-sm font-semibold"><FlameIcon className="w-4 h-4 text-amber-400" /> {streak}</span>
           <Ring value={xpToday} max={dailyGoal} size={22} stroke={3} />
         </button>
         <button onClick={onOpenAccount} className="relative w-9 h-9 rounded-lg border border-ink-700 grid place-items-center text-ink-300 active:scale-95" aria-label="Account">
