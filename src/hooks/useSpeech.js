@@ -51,10 +51,11 @@ export function useSpeech() {
   const speakBrowser = useCallback((text, rate, onEnd) => {
     if (!browserTTS) { onEnd?.(); return }
     const run = () => {
+      const voice = pickZhVoice()
+      if (!voice) { onEnd?.(); return }   // No Chinese voice installed — skip rather than speak English
       window.speechSynthesis.cancel()
       const utt = new SpeechSynthesisUtterance(text)
-      const voice = pickZhVoice()
-      if (voice) utt.voice = voice
+      utt.voice = voice
       utt.lang = 'zh-CN'
       utt.rate = rate
       utt.pitch = 1.0

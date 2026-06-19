@@ -1,7 +1,6 @@
 import { useMemo, useState } from 'react'
 import { annotate } from '../../lib/pinyin'
-import { shuffle } from '../../lib/queue'
-import { SpeakerButton } from '../ui/common'
+import { shuffle } from '../../lib/queue'import { SpeakerButton } from '../ui/common'
 import { useSettings } from '../../hooks/useSettings'
 
 // Reconstruct a Chinese sentence by tapping characters in the right order.
@@ -11,11 +10,6 @@ export default function BuildSentence({ sentence, word, onResult, speak, speakin
   const target = src.hanzi
   const english = src.en
   const chars = useMemo(() => Array.from(target).filter((c) => c !== ' '), [target])
-  // Context-aware pinyin per character — uses full sentence so polyphonics (了/的/不) are disambiguated.
-  const charPinyins = useMemo(
-    () => annotate(target).filter((s) => s.hanzi !== ' ').map((s) => s.pinyin || s.hanzi),
-    [target]
-  )
   const tokens = useMemo(
     () => shuffle(chars.map((c, i) => ({ c, i }))),
     [target] // eslint-disable-line react-hooks/exhaustive-deps
@@ -29,8 +23,8 @@ export default function BuildSentence({ sentence, word, onResult, speak, speakin
   const correct = built === chars.join('')
 
   // Tapping a character plays its pronunciation.
-  const pick = (t) => { if (!checked && !used.has(t.i)) { speak?.(charPinyins[t.i] || t.c, { rate: 1.0 }); setPicked([...picked, t]) } }
-  const unpick = (idx) => { if (!checked) { const p = picked[idx]; speak?.(charPinyins[p.i] || p.c, { rate: 1.0 }); setPicked(picked.filter((_, i) => i !== idx)) } }
+  const pick = (t) => { if (!checked && !used.has(t.i)) { speak?.(t.c, { rate: 1.0 }); setPicked([...picked, t]) } }
+  const unpick = (idx) => { if (!checked) { const p = picked[idx]; speak?.(p.c, { rate: 1.0 }); setPicked(picked.filter((_, i) => i !== idx)) } }
 
   const check = () => {
     setChecked(true)

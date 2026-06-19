@@ -18,7 +18,7 @@ export default function FillBlank({ exercise, speak, speaking, onResult, onRevie
 
   const choose = (i) => {
     if (revealed) return
-    speak?.(options[i].label, { rate: 0.7 })
+    speak?.(options[i].label, { rate: 1.0 })
     setPicked(i); setRevealed(true)
     setTimeout(() => speak?.(sentence.hanzi), 400)
   }
