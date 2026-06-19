@@ -1,6 +1,8 @@
 import { useMemo, useState } from 'react'
 import { annotate } from '../../lib/pinyin'
-import { shuffle } from '../../lib/queue'import { SpeakerButton } from '../ui/common'
+import { shuffle } from '../../lib/queue'
+import { WORDS } from '../../data/vocab'
+import { SpeakerButton } from '../ui/common'
 import { useSettings } from '../../hooks/useSettings'
 
 // Reconstruct a Chinese sentence by tapping characters in the right order.
@@ -10,6 +12,21 @@ export default function BuildSentence({ sentence, word, onResult, speak, speakin
   const target = src.hanzi
   const english = src.en
   const chars = useMemo(() => Array.from(target).filter((c) => c !== ' '), [target])
+
+  // Map each character to the shortest vocab word that contains it, so we can
+  // speak a real word instead of an isolated character (avoids polyphonic errors).
+  // Characters not found in vocab (particles like 了/的) get no audio — better than wrong audio.
+  const charToWord = useMemo(() => {
+    const map = {}
+    const matches = WORDS.filter((w) => target.includes(w.hanzi))
+    for (const w of matches) {
+      for (const ch of Array.from(w.hanzi)) {
+        if (!map[ch] || map[ch].hanzi.length > w.hanzi.length) map[ch] = w.hanzi
+      }
+    }
+    return map
+  }, [target])
+
   const tokens = useMemo(
     () => shuffle(chars.map((c, i) => ({ c, i }))),
     [target] // eslint-disable-line react-hooks/exhaustive-deps
@@ -23,8 +40,9 @@ export default function BuildSentence({ sentence, word, onResult, speak, speakin
   const correct = built === chars.join('')
 
   // Tapping a character plays its pronunciation.
-  const pick = (t) => { if (!checked && !used.has(t.i)) { speak?.(t.c, { rate: 1.0 }); setPicked([...picked, t]) } }
-  const unpick = (idx) => { if (!checked) { const p = picked[idx]; speak?.(p.c, { rate: 1.0 }); setPicked(picked.filter((_, i) => i !== idx)) } }
+  const speakChar = (c) => { const w = charToWord[c]; if (w) speak?.(w, { rate: 1.0 }) }
+  const pick = (t) => { if (!checked && !used.has(t.i)) { speakChar(t.c); setPicked([...picked, t]) } }
+  const unpick = (idx) => { if (!checked) { const p = picked[idx]; speakChar(p.c); setPicked(picked.filter((_, i) => i !== idx)) } }
 
   const check = () => {
     setChecked(true)
